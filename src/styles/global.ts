@@ -5,6 +5,8 @@ import {
   GlobalStyleComponent
 } from 'styled-components';
 
+import 'antd/dist/antd.css';
+
 type GlobalStylesProps = {
   removeBackgroundColor?: boolean;
 };
@@ -13,6 +15,8 @@ const GlobalStyles: GlobalStyleComponent<
   GlobalStylesProps,
   DefaultTheme
 > = createGlobalStyle`
+  /* @import '~antd/dist/antd.css'; */
+
   @font-face {
     font-family: 'Poppins';
     font-style: normal;
@@ -57,7 +61,7 @@ const GlobalStyles: GlobalStyleComponent<
 
       ${!removeBackgroundColor &&
       css`
-        background-color: ${theme.colors.secondary};
+        /* background-color: ${theme.colors.secondary}; */
       `}
     }
   `}

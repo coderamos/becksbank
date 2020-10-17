@@ -22,7 +22,9 @@ export default {
     }
   },
   colors: {
-    primary: '#FFCB00',
+    primary: '#0B4224',
+    greenHigh: '#00120D',
+    greenMedium: '#152D2F',
     secondary: '#171717',
     white: '#FFFFFF',
     black: '#000000'
@@ -43,4 +45,4 @@ export default {
     modal: 40,
     alwaysOnTop: 50
   }
-};
+} as const;
