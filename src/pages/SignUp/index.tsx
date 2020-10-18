@@ -4,7 +4,7 @@ import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
-import { InputText, InputPassword } from 'components/InputText';
+import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
 
@@ -36,13 +36,8 @@ export default function SignUp() {
         <s.Content>
           <s.Logo />
           <s.InputGroupWrapper>
-            <InputText
-              ref={nameInputRef}
-              placeholder="name"
-              suffix={<s.UserIcon />}
-            />
+            <InputText placeholder="name" suffix={<s.UserIcon />} />
             <InputPassword
-              ref={passwordInputRef}
               placeholder="password"
               iconRender={visible =>
                 visible ? <EyeOutlined /> : <EyeInvisibleOutlined />

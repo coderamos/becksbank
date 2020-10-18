@@ -6,7 +6,6 @@ const inputStyle = css`
     border-radius: ${theme.border.radius};
     border: 2px solid ${theme.colors.greenHigh};
     height: ${theme.spacings.xxlarge};
-    margin-bottom: ${theme.spacings.small};
 
     .ant-input {
       color: ${theme.colors.greenLight};
@@ -35,12 +34,10 @@ const inputStyle = css`
   `}
 `;
 
-const InputText = styled(Input)`
+export const InputTextWrapper = styled(Input)`
   ${inputStyle};
 `;
 
-const InputPassword = styled(Input.Password)`
+export const InputPasswordWrapper = styled(Input.Password)`
   ${inputStyle};
 `;
-
-export { InputText, InputPassword };
