@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Input } from 'antd';
+import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 
-const InputText = styled(Input)`
+const inputStyle = css`
   ${({ theme }) => css`
     border-radius: ${theme.border.radius};
     border: 2px solid ${theme.colors.greenHigh};
@@ -10,21 +11,37 @@ const InputText = styled(Input)`
 
     .ant-input {
       color: ${theme.colors.greenLight};
+      font-weight: ${theme.font.bold};
 
       &::placeholder {
         color: ${theme.colors.greenLight};
+        font-weight: ${theme.font.normal};
         opacity: 0.5;
       }
-    }
-
-    svg {
-      margin-right: ${theme.spacings.xxsmall};
     }
 
     &:hover {
       border: 2px solid ${theme.colors.greenLight};
     }
+
+    svg {
+      color: ${theme.colors.greenLight};
+      height: 1.6rem;
+      width: 1.6rem;
+
+      &:active {
+        color: ${theme.colors.greenLight};
+      }
+    }
   `}
 `;
 
-export default InputText;
+const InputText = styled(Input)`
+  ${inputStyle};
+`;
+
+const InputPassword = styled(Input.Password)`
+  ${inputStyle};
+`;
+
+export { InputText, InputPassword };

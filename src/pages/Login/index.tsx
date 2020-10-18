@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { Input, message } from 'antd';
+import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
-import Heading from 'components/Heading';
-import InputText from 'components/InputText';
+import { InputText, InputPassword } from 'components/InputText';
 
 import * as s from './styles';
 
@@ -34,18 +34,19 @@ export default function Login() {
     <s.DashboardContainer>
       <Container>
         <s.Content>
-          <Heading>LOGIN</Heading>
           <s.Logo />
           <s.InputGroupWrapper>
             <InputText
               ref={nameInputRef}
               placeholder="name"
-              prefix={<s.UserIcon />}
+              suffix={<s.UserIcon />}
             />
-            <InputText
+            <InputPassword
               ref={passwordInputRef}
               placeholder="password"
-              prefix={<s.PasswordIcon />}
+              iconRender={visible =>
+                visible ? <EyeOutlined /> : <EyeInvisibleOutlined />
+              }
             />
           </s.InputGroupWrapper>
           <Button onClick={handleSubmit}>login</Button>
