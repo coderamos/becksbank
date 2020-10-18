@@ -8,7 +8,7 @@ import { InputText, InputPassword } from 'components/InputText';
 
 import * as s from './styles';
 
-export default function Login() {
+export default function SignUp() {
   const nameInputRef = useRef<Input>(null);
   const passwordInputRef = useRef<Input>(null);
 
@@ -31,7 +31,7 @@ export default function Login() {
   }
 
   return (
-    <s.LoginContainer>
+    <s.SignUpContainer>
       <Container>
         <s.Content>
           <s.Logo />
@@ -49,15 +49,15 @@ export default function Login() {
               }
             />
           </s.InputGroupWrapper>
-          <Button onClick={handleSubmit}>login</Button>
+          <Button onClick={handleSubmit}>create account</Button>
           <s.CreateAccountMessage>
-            or&ensp;
-            <s.CreateAccountMessageLink to="/signup">
-              create my account
+            already have an account?&ensp;
+            <s.CreateAccountMessageLink to="/">
+              log in
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
       </Container>
-    </s.LoginContainer>
+    </s.SignUpContainer>
   );
 }

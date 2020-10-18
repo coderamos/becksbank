@@ -4,7 +4,7 @@ import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 
 import logo from 'assets/images/logo.svg';
 
-export const LoginContainer = styled.div`
+export const SignUpContainer = styled.div`
   display: flex;
   height: 100vh;
 `;

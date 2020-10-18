@@ -1,16 +1,15 @@
 import React from 'react';
 
 import { Container } from 'components/Container';
-import Heading from 'components/Heading';
 
 import * as s from './styles';
 
 export default function Dashboard() {
   return (
-    <s.Container>
+    <s.DashboardContainer>
       <Container>
-        <Heading color="primary">DASHBOARD</Heading>
+        <h1>DASHBOARD</h1>
       </Container>
-    </s.Container>
+    </s.DashboardContainer>
   );
 }
