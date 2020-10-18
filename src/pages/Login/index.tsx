@@ -48,7 +48,7 @@ export default function Login() {
               prefix={<s.PasswordIcon />}
             />
           </s.InputGroupWrapper>
-          <Button onClick={handleSubmit}>teste</Button>
+          <Button onClick={handleSubmit}>login</Button>
         </s.Content>
       </Container>
     </s.DashboardContainer>

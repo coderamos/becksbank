@@ -5,27 +5,24 @@ import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 import { LockFilled as LockFilledIcon } from '@ant-design/icons';
 
 export const DashboardContainer = styled.div`
-  height: 100vh;
   display: flex;
+  height: 100vh;
 `;
 
 export const Content = styled.div`
-  ${({ theme }) => css`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    max-width: 400px;
-  `}
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
 `;
 
 export const Logo = styled.img.attrs({
   src: logo
 })`
   ${({ theme }) => css`
-    height: 120px;
-    margin-bottom: 10rem;
+    height: 80px;
+    margin-bottom: ${theme.spacings.xxlarge};
   `}
 `;
 

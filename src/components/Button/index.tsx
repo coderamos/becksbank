@@ -10,14 +10,15 @@ export const Button = styled(ButtonAntd)`
     color: ${theme.colors.white};
     display: flex;
     font-size: ${theme.font.sizes.large};
-    height: ${theme.spacings.xlarge};
+    font-weight: ${theme.font.light};
+    height: ${theme.spacings.xxlarge};
     justify-content: center;
-    width: 40rem;
+    width: 100%;
 
     &:hover {
       background-color: ${theme.colors.greenHigh};
-      color: ${theme.colors.white};
       border: none;
+      color: ${theme.colors.white};
     }
   `}
 `;
