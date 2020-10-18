@@ -1,55 +1,59 @@
-import React, { useRef } from 'react';
-import { Input, message } from 'antd';
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import React from 'react';
 
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
-import { InputText, InputPassword } from 'components/InputText';
+import { Form, FormItem } from 'components/Form';
+import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
 
 export default function Login() {
-  const nameInputRef = useRef<Input>(null);
-  const passwordInputRef = useRef<Input>(null);
+  const onFinish = values => {
+    console.log('SUCCESS:', values);
+  };
 
-  function handleSubmit() {
-    if (!nameInputRef || !passwordInputRef) {
-      return console.error('name ref or password ref not found');
-    }
-
-    const nameValue = nameInputRef.current?.input?.value || '';
-    const passwordValue = passwordInputRef.current?.input?.value || '';
-
-    if (!nameValue || !passwordValue) {
-      return message.warning('Preencha os campos corretamente');
-    }
-
-    console.log('Chama api passando', {
-      name: nameValue,
-      password: passwordValue
-    });
-  }
+  const onFinishFailed = errorInfo => {
+    console.log('FAILED:', errorInfo);
+  };
 
   return (
-    <s.LoginContainer>
-      <Container>
+    <Container>
+      <s.LoginContainer>
         <s.Content>
           <s.Logo />
-          <s.InputGroupWrapper>
-            <InputText
-              ref={nameInputRef}
-              placeholder="name"
-              suffix={<s.UserIcon />}
-            />
-            <InputPassword
-              ref={passwordInputRef}
-              placeholder="password"
-              iconRender={visible =>
-                visible ? <EyeOutlined /> : <EyeInvisibleOutlined />
-              }
-            />
-          </s.InputGroupWrapper>
-          <Button onClick={handleSubmit}>login</Button>
+          <Form
+            name="basic"
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+          >
+            <FormItem
+              label="name"
+              name="username"
+              rules={[
+                { required: true, message: 'input name cannot be empty!!' }
+              ]}
+            >
+              <InputText />
+            </FormItem>
+
+            <FormItem
+              label="password"
+              name="password"
+              rules={[
+                { required: true, message: 'input password cannot be empty!' }
+              ]}
+            >
+              <InputPassword />
+            </FormItem>
+
+            <FormItem>
+              <Button type="primary" htmlType="submit">
+                login
+              </Button>
+            </FormItem>
+          </Form>
+
           <s.CreateAccountMessage>
             or&ensp;
             <s.CreateAccountMessageLink to="/signup">
@@ -57,7 +61,7 @@ export default function Login() {
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
-      </Container>
-    </s.LoginContainer>
+      </s.LoginContainer>
+    </Container>
   );
 }
