@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { Input } from 'antd';
-import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 
 const inputStyle = css`
   ${({ theme }) => css`
