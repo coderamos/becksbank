@@ -25,6 +25,7 @@ export default {
     primary: '#0B4224',
     greenHigh: '#00120D',
     greenMedium: '#152D2F',
+    greenLight: '#3FAD55',
     secondary: '#171717',
     white: '#FFFFFF',
     black: '#000000'
