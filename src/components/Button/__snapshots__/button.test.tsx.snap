@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component Tests renders the component 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #0B4224;
+  border-radius: 4rem;
+  border: none;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.8rem;
+  height: 4.8rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 40rem;
+}
+
+.c0:hover {
+  background-color: #00120D;
+  color: #FFFFFF;
+  border: none;
+}
+
+<Component
+  theme={
+    Object {
+      "border": Object {
+        "radius": "0.4rem",
+      },
+      "colors": Object {
+        "black": "#000000",
+        "greenHigh": "#00120D",
+        "greenLight": "#3FAD55",
+        "greenMedium": "#152D2F",
+        "primary": "#0B4224",
+        "secondary": "#171717",
+        "white": "#FFFFFF",
+      },
+      "font": Object {
+        "bold": 600,
+        "family": "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+        "light": 300,
+        "normal": 400,
+        "sizes": Object {
+          "large": "1.8rem",
+          "medium": "1.6rem",
+          "small": "1.4rem",
+          "xlarge": "2.0rem",
+          "xsmall": "1.2rem",
+          "xxlarge": "2.8rem",
+        },
+      },
+      "grid": Object {
+        "container": "130rem",
+        "gutter": "3.2rem",
+      },
+      "layers": Object {
+        "alwaysOnTop": 50,
+        "base": 10,
+        "menu": 20,
+        "modal": 40,
+        "overlay": 30,
+      },
+      "spacings": Object {
+        "large": "4.0rem",
+        "medium": "3.2rem",
+        "small": "2.4rem",
+        "xlarge": "4.8rem",
+        "xsmall": "1.6rem",
+        "xxlarge": "5.6rem",
+        "xxsmall": "0.8rem",
+      },
+    }
+  }
+>
+  <Styled(Button)>
+    <Button
+      block={false}
+      className="c0"
+      ghost={false}
+      htmlType="button"
+      loading={false}
+    >
+      <Wave>
+        <button
+          className="ant-btn c0"
+          onClick={[Function]}
+          type="button"
+        >
+          <LoadingIcon
+            existIcon={false}
+            loading={false}
+            prefixCls="ant-btn"
+          >
+            <CSSMotion
+              motionName="ant-btn-loading-icon-motion"
+              onAppearActive={[Function]}
+              onAppearStart={[Function]}
+              onEnterActive={[Function]}
+              onEnterStart={[Function]}
+              onLeaveActive={[Function]}
+              onLeaveStart={[Function]}
+              removeOnLeave={true}
+              visible={false}
+            >
+              <DomWrapper />
+            </CSSMotion>
+          </LoadingIcon>
+          <span
+            key=".0"
+          >
+            Login
+          </span>
+        </button>
+      </Wave>
+    </Button>
+  </Styled(Button)>
+</Component>
+`;
