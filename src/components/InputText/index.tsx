@@ -7,6 +7,9 @@ const InputText = styled(Input)`
     border: 2px solid ${theme.colors.greenHigh};
     height: ${theme.spacings.large};
     margin-bottom: ${theme.spacings.small};
+    &:hover {
+      border: 2px solid ${theme.colors.greenLight};
+    }
   `}
 `;
 
