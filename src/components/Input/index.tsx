@@ -1,23 +1,43 @@
-import React from 'react';
-import { InputProps } from 'antd/es/input';
-import { PasswordProps } from 'antd/es/input/Password';
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import styled, { css } from 'styled-components';
+import { Input } from 'antd';
 
-import * as s from './styles';
+const inputStyle = css`
+  ${({ theme }) => css`
+    border-radius: ${theme.border.radius};
+    border: 2px solid ${theme.colors.greenHigh};
+    height: ${theme.spacings.xxlarge};
 
-const InputText: React.FC<InputProps> = () => {
-  return <s.InputTextWrapper />;
-};
+    .ant-input {
+      color: ${theme.colors.greenLight};
+      font-weight: ${theme.font.bold};
 
-const InputPassword: React.FC<PasswordProps> = ({ placeholder }) => {
-  return (
-    <s.InputPasswordWrapper
-      placeholder={placeholder}
-      iconRender={visible =>
-        visible ? <EyeOutlined /> : <EyeInvisibleOutlined />
+      &::placeholder {
+        color: ${theme.colors.greenLight};
+        font-weight: ${theme.font.normal};
+        opacity: 0.5;
       }
-    />
-  );
-};
+    }
 
-export { InputText, InputPassword };
+    &:hover {
+      border: 2px solid ${theme.colors.greenLight};
+    }
+
+    svg {
+      color: ${theme.colors.greenLight};
+      height: 1.6rem;
+      width: 1.6rem;
+
+      &:active {
+        color: ${theme.colors.greenLight};
+      }
+    }
+  `}
+`;
+
+export const InputText = styled(Input)`
+  ${inputStyle};
+`;
+
+export const InputPassword = styled(Input.Password)`
+  ${inputStyle};
+`;

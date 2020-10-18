@@ -4,17 +4,16 @@ import { Button } from 'components/Button';
 import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';
-import { Input } from 'antd';
 
 import * as s from './styles';
 
 export default function Login() {
   const onFinish = values => {
-    console.log('Success:', values);
+    console.log('SUCCESS:', values);
   };
 
   const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+    console.log('FAILED:', errorInfo);
   };
 
   return (
@@ -22,7 +21,6 @@ export default function Login() {
       <s.LoginContainer>
         <s.Content>
           <s.Logo />
-
           <Form
             name="basic"
             initialValues={{ remember: true }}
@@ -30,28 +28,28 @@ export default function Login() {
             onFinishFailed={onFinishFailed}
           >
             <FormItem
-              label="Username"
+              label="name"
               name="username"
               rules={[
-                { required: true, message: 'Please input your username!' }
+                { required: true, message: 'input name cannot be empty!!' }
               ]}
             >
               <InputText />
             </FormItem>
 
             <FormItem
-              label="Password"
+              label="password"
               name="password"
               rules={[
-                { required: true, message: 'Please input your password!' }
+                { required: true, message: 'input password cannot be empty!' }
               ]}
             >
-              <Input.Password />
+              <InputPassword />
             </FormItem>
 
             <FormItem>
               <Button type="primary" htmlType="submit">
-                Submit
+                login
               </Button>
             </FormItem>
           </Form>

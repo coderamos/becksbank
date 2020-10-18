@@ -7,7 +7,6 @@ import logo from 'assets/images/logo.svg';
 export const LoginContainer = styled.div`
   display: flex;
   height: 100vh;
-  width: 100%;
 `;
 
 export const Content = styled.div`
