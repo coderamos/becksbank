@@ -14,7 +14,7 @@ export default function Login() {
 
   function handleSubmit() {
     if (!nameInputRef || !passwordInputRef) {
-      return;
+      return console.error('name ref or password ref not found');
     }
 
     const nameValue = nameInputRef.current?.input?.value || '';
