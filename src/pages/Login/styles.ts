@@ -21,7 +21,7 @@ export const Content = styled.div`
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-  width: 400px;
+  width: 40rem;
 `;
 
 export const Logo = styled.img.attrs({

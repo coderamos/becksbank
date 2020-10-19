@@ -51,7 +51,7 @@ export default function Login() {
                 { required: true, message: 'input name cannot be empty!!' }
               ]}
             >
-              <InputText prefix={<s.UserIcon />} />
+              <InputText />
             </FormItem>
 
             <FormItem
@@ -61,7 +61,7 @@ export default function Login() {
                 { required: true, message: 'input password cannot be empty!' }
               ]}
             >
-              <InputPassword prefix={<s.PasswordIcon />} />
+              <InputPassword />
             </FormItem>
 
             <FormItem>
