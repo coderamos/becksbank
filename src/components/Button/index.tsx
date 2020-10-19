@@ -5,7 +5,7 @@ export const Button = styled(ButtonAntd)`
   ${({ theme }) => css`
     align-items: center;
     background-color: ${theme.colors.primary};
-    border-radius: 4rem;
+    border-radius: ${theme.border.radius};
     border: none;
     color: ${theme.colors.white};
     display: flex;
