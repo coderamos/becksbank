@@ -1,4 +1,5 @@
 import React from 'react';
+import 'jest-styled-components';
 import { Button } from '.';
 import { renderWithTheme } from '../../utils/tests/helpers';
 
