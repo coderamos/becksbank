@@ -27,6 +27,7 @@ export default {
     greenMedium: '#152D2F',
     greenLight: '#17652D',
     secondary: '#171717',
+    error: '#ff0033',
     white: '#FFFFFF',
     black: '#000000'
   },

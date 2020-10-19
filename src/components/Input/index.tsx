@@ -1,5 +1,8 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
+
 import { Input } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 const inputStyle = css`
   ${({ theme }) => css`
@@ -23,7 +26,7 @@ const inputStyle = css`
     }
 
     svg {
-      color: ${theme.colors.greenLight};
+      color: ${theme.colors.greenHigh};
       height: 1.6rem;
       width: 1.6rem;
 
@@ -34,7 +37,9 @@ const inputStyle = css`
   `}
 `;
 
-export const InputText = styled(Input)`
+export const InputText = styled(Input).attrs({
+  suffix: <UserOutlined />
+})`
   ${inputStyle};
 `;
 
