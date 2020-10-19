@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
+import {
+  UserOutlined as UserOutlinedIcon,
+  LockOutlined
+} from '@ant-design/icons';
 
 import logo from 'assets/images/logo.svg';
 
@@ -37,6 +40,12 @@ export const InputGroupWrapper = styled.div`
 `;
 
 export const UserIcon = styled(UserOutlinedIcon)`
+  ${({ theme }) => css`
+    color: ${theme.colors.greenHigh};
+  `}
+`;
+
+export const PasswordIcon = styled(LockOutlined)`
   ${({ theme }) => css`
     color: ${theme.colors.greenHigh};
   `}

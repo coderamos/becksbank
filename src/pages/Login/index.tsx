@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import APIService from 'services/api';
+import AxiosAdapter from 'services/api/adapters/axios';
+import { login as localStorageLogin } from 'services/auth';
 
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
@@ -7,9 +11,22 @@ import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
 
+const apiService: APIService = new APIService(new AxiosAdapter());
+
 export default function Login() {
-  const onFinish = values => {
-    console.log('SUCCESS:', values);
+  const [isFetching, setFetching] = useState(false);
+
+  const onFinish = async ({ username, password }) => {
+    console.log('SUCCESS:', username + ' - ' + password);
+    try {
+      setFetching(true);
+      const token = await apiService.login(username, password);
+      localStorageLogin(token);
+    } catch (err) {
+      console.error('error on login', err);
+    } finally {
+      setFetching(false);
+    }
   };
 
   const onFinishFailed = errorInfo => {
@@ -34,7 +51,7 @@ export default function Login() {
                 { required: true, message: 'input name cannot be empty!!' }
               ]}
             >
-              <InputText />
+              <InputText prefix={<s.UserIcon />} />
             </FormItem>
 
             <FormItem
@@ -44,11 +61,11 @@ export default function Login() {
                 { required: true, message: 'input password cannot be empty!' }
               ]}
             >
-              <InputPassword />
+              <InputPassword prefix={<s.PasswordIcon />} />
             </FormItem>
 
             <FormItem>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={isFetching}>
                 login
               </Button>
             </FormItem>
