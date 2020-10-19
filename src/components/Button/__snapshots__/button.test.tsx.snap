@@ -1,34 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Component Tests renders the component 1`] = `
-.c0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #0B4224;
-  border-radius: 4rem;
-  border: none;
-  color: #FFFFFF;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 1.8rem;
-  height: 4.8rem;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 40rem;
-}
-
-.c0:hover {
-  background-color: #00120D;
-  color: #FFFFFF;
-  border: none;
-}
-
 <Component
   theme={
     Object {
@@ -84,14 +56,14 @@ exports[`Button Component Tests renders the component 1`] = `
   <Styled(Button)>
     <Button
       block={false}
-      className="c0"
+      className="sc-bdnylx bOrMgS"
       ghost={false}
       htmlType="button"
       loading={false}
     >
       <Wave>
         <button
-          className="ant-btn c0"
+          className="ant-btn sc-bdnylx bOrMgS"
           onClick={[Function]}
           type="button"
         >
