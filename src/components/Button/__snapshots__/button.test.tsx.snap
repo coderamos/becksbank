@@ -1,6 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Component Tests renders the component 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #0B4224;
+  border-radius: 4rem;
+  border: none;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: 300;
+  height: 5.6rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.c0:hover {
+  background-color: #00120D;
+  border: none;
+  color: #FFFFFF;
+}
+
 <Component
   theme={
     Object {
@@ -10,7 +39,7 @@ exports[`Button Component Tests renders the component 1`] = `
       "colors": Object {
         "black": "#000000",
         "greenHigh": "#00120D",
-        "greenLight": "#3FAD55",
+        "greenLight": "#17652D",
         "greenMedium": "#152D2F",
         "primary": "#0B4224",
         "secondary": "#171717",
@@ -56,14 +85,14 @@ exports[`Button Component Tests renders the component 1`] = `
   <Styled(Button)>
     <Button
       block={false}
-      className="sc-bdnylx bOrMgS"
+      className="c0"
       ghost={false}
       htmlType="button"
       loading={false}
     >
       <Wave>
         <button
-          className="ant-btn sc-bdnylx bOrMgS"
+          className="ant-btn c0"
           onClick={[Function]}
           type="button"
         >
