@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { Container } from 'components/Container';
+
 import * as s from './styles';
 
-const Content: React.FC = () => {
+const Content: React.FC = ({ children }) => {
   return (
     <s.ContentContainer>
-      <h3>CONTENT</h3>
+      <Container>{children}</Container>
     </s.ContentContainer>
   );
 };

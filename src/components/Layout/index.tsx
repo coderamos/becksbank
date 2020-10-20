@@ -4,19 +4,18 @@ import { Layout } from 'antd';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
-import Content from 'components/MainContent';
+import Content from 'components/Content';
 import Menu from 'components/Menu';
 
 import * as s from './styles';
 
-const LayoutTeste: React.FC = () => {
+const LayoutTeste: React.FC = ({ children }) => {
   return (
     <s.LayoutContainer>
       <Layout>
-        <Menu>Sider</Menu>
         <Layout>
           <Header />
-          <Content>Content</Content>
+          <Content>{children}</Content>
           <Footer />
         </Layout>
       </Layout>

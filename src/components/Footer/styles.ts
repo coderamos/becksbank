@@ -5,5 +5,6 @@ export const FooterContainer = styled(Layout.Footer)`
   ${({ theme }) => css`
     background-color: ${theme.colors.greenLight};
     color: ${theme.colors.white};
+    height: 10vh;
   `}
 `;
