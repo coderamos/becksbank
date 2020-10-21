@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { Input } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { IdcardOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 
 const inputStyle = css`
   ${({ theme }) => css`
@@ -39,6 +39,18 @@ const inputStyle = css`
 
 export const InputText = styled(Input).attrs({
   suffix: <UserOutlined />
+})`
+  ${inputStyle};
+`;
+
+export const InputEmail = styled(Input).attrs({
+  suffix: <MailOutlined />
+})`
+  ${inputStyle};
+`;
+
+export const InputCpf = styled(Input).attrs({
+  suffix: <IdcardOutlined />
 })`
   ${inputStyle};
 `;
