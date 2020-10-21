@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { message } from 'antd';
 
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
@@ -10,11 +11,30 @@ import {
   InputCpf
 } from 'components/Input';
 
+import User from 'repository/User';
+import APIService from 'services/api';
+
 import * as s from './styles';
 
-export default function SignUp() {
-  const onFinish = values => {
+export default function SignUp({ history }) {
+  const [isFetching, setFetching] = useState(false);
+
+  const onFinish = async values => {
     console.log('SUCCESS:', values);
+    const { name, email, password, document } = values;
+    const user = new User(name, email, 'ADMIN', document, password);
+
+    try {
+      setFetching(true);
+      await APIService.createUser(user);
+      message.success('Conta criada com sucesso!');
+      history.push('/');
+    } catch (error) {
+      console.error(error);
+      message.error('Não foi possível criar a conta');
+    } finally {
+      setFetching(false);
+    }
   };
 
   const onFinishFailed = errorInfo => {
@@ -35,7 +55,7 @@ export default function SignUp() {
           >
             <FormItem
               label="name"
-              name="username"
+              name="name"
               rules={[
                 { required: true, message: 'input name cannot be empty!' }
               ]}
@@ -45,7 +65,7 @@ export default function SignUp() {
 
             <FormItem
               label="cpf"
-              name="cpf"
+              name="document"
               rules={[
                 { required: true, message: 'input name cannot be empty!' }
               ]}
@@ -74,7 +94,7 @@ export default function SignUp() {
             </FormItem>
 
             <FormItem>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={isFetching}>
                 create account
               </Button>
             </FormItem>

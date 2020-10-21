@@ -2,9 +2,10 @@ import IAPIHandler from 'interfaces/IAPIHandler';
 import Account from 'repository/Account';
 import User from 'repository/User';
 import Statement from 'repository/Statement';
-// import IUsers from "../Interfaces/IUsers";
 
-export default class APIService implements IAPIHandler {
+import AxiosAdapter from './adapters/axios';
+
+class APIService implements IAPIHandler {
   constructor(private apiAdapter: IAPIHandler) {}
 
   login(email: string, password: string): Promise<string> {
@@ -47,3 +48,5 @@ export default class APIService implements IAPIHandler {
     return this.apiAdapter.depositBalance(accountCode, value);
   }
 }
+
+export default new APIService(new AxiosAdapter());

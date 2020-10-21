@@ -4,6 +4,7 @@ export default class User {
     public email: string,
     public role: string,
     public document: string,
+    public password?: string,
     public id?: number
   ) {}
 }

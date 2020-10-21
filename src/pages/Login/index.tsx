@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { message } from 'antd';
 
 import APIService from 'services/api';
-import AxiosAdapter from 'services/api/adapters/axios';
 import { login } from 'services/auth';
 
 import { Button } from 'components/Button';
@@ -12,15 +11,13 @@ import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
 
-const apiService: APIService = new APIService(new AxiosAdapter());
-
 export default function Login({ history }) {
   const [isFetching, setFetching] = useState(false);
 
   const onFinish = async ({ email, password }) => {
     try {
       setFetching(true);
-      const token = await apiService.login(email, password);
+      const token = await APIService.login(email, password);
       login(token);
       history.push('/dashboard');
     } catch (err) {
