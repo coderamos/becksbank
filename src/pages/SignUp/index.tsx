@@ -3,7 +3,12 @@ import React from 'react';
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
-import { InputText, InputPassword } from 'components/Input';
+import {
+  InputText,
+  InputPassword,
+  InputEmail,
+  InputCpf
+} from 'components/Input';
 
 import * as s from './styles';
 
@@ -32,10 +37,30 @@ export default function SignUp() {
               label="name"
               name="username"
               rules={[
-                { required: true, message: 'input name cannot be empty!!' }
+                { required: true, message: 'input name cannot be empty!' }
               ]}
             >
               <InputText />
+            </FormItem>
+
+            <FormItem
+              label="cpf"
+              name="cpf"
+              rules={[
+                { required: true, message: 'input name cannot be empty!' }
+              ]}
+            >
+              <InputCpf />
+            </FormItem>
+
+            <FormItem
+              label="email"
+              name="email"
+              rules={[
+                { required: true, message: 'input name cannot be empty!' }
+              ]}
+            >
+              <InputEmail />
             </FormItem>
 
             <FormItem
