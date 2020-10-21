@@ -15,6 +15,7 @@ import User from 'repository/User';
 import APIService from 'services/api';
 
 import * as s from './styles';
+import Utils from '../../utils/Utils';
 
 export default function SignUp({ history }) {
   const [isFetching, setFetching] = useState(false);
@@ -56,6 +57,7 @@ export default function SignUp({ history }) {
             <FormItem
               label="name"
               name="name"
+              validateTrigger="onBlur"
               rules={[
                 { required: true, message: 'input name cannot be empty!' }
               ]}
@@ -66,18 +68,29 @@ export default function SignUp({ history }) {
             <FormItem
               label="cpf"
               name="document"
+              validateTrigger="onBlur"
               rules={[
-                { required: true, message: 'input name cannot be empty!' }
+                { required: true, message: 'cpf cannot be empty!' },
+                () => ({
+                  validator(rule, value) {
+                    if (!value || Utils.validarCPF(value)) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject('Please type a valid CPF!');
+                  }
+                })
               ]}
             >
-              <InputCpf />
+              <InputCpf maxLength={11} />
             </FormItem>
 
             <FormItem
               label="email"
               name="email"
+              validateTrigger="onBlur"
               rules={[
-                { required: true, message: 'input name cannot be empty!' }
+                { required: true, message: 'email cannot be empty!' },
+                { type: 'email', message: 'Please type a valid email' }
               ]}
             >
               <InputEmail />
@@ -86,6 +99,7 @@ export default function SignUp({ history }) {
             <FormItem
               label="password"
               name="password"
+              validateTrigger="onBlur"
               rules={[
                 { required: true, message: 'input password cannot be empty!' }
               ]}

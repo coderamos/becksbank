@@ -23,9 +23,20 @@ const Form = ({
   );
 };
 
-const FormItem = ({ children, label, name, rules }: FormItemProps) => {
+const FormItem = ({
+  children,
+  label,
+  name,
+  rules,
+  validateTrigger
+}: FormItemProps) => {
   return (
-    <s.FormItem label={label} name={name} rules={rules}>
+    <s.FormItem
+      label={label}
+      name={name}
+      rules={rules}
+      validateTrigger={validateTrigger}
+    >
       {children}
     </s.FormItem>
   );
