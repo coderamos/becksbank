@@ -33,7 +33,6 @@ export const HeaderContainer = styled(Layout.Header)`
 
 const screenSize = media.lessThan('medium')``[1];
 const size = [...screenSize].slice(0, 3).join('');
-console.log(size);
 
 export const Logo = styled.img.attrs({
   src: logoWhite

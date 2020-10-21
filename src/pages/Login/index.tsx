@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { message } from 'antd';
 
-import APIService from 'services/api';
-import { login } from 'services/auth';
+import {useAuth} from '../../hooks/auth';
+
+// import APIService from 'services/api';
+// import { login } from 'services/auth';
 
 import Button from 'components/Button';
 import { Container } from 'components/Container';
@@ -10,15 +12,33 @@ import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
+import { useHistory } from 'react-router-dom';
 
-export default function Login({ history }) {
+const Login: React.FC = () =>  {
   const [isFetching, setFetching] = useState(false);
 
-  const onFinish = async ({ email, password }) => {
+  const {signIn} = useAuth();
+  const history = useHistory();
+
+  // const onFinish = async ({ email, password }) => {
+  //   try {
+  //     setFetching(true);
+  //     const token = await APIService.login(email, password);
+  //     login(token);
+  //     history.push('/dashboard');
+  //   } catch (err) {
+  //     console.error('error on login', err);
+  //     message.error('Erro ao realizar o login. Verifique seu usário e senha');
+  //   } finally {
+  //     setFetching(false);
+  //   }
+  // };
+
+  const handleSubmit = useCallback(async ({email, password}) => {
+
     try {
       setFetching(true);
-      const token = await APIService.login(email, password);
-      login(token);
+      await signIn({email, password});
       history.push('/dashboard');
     } catch (err) {
       console.error('error on login', err);
@@ -26,7 +46,8 @@ export default function Login({ history }) {
     } finally {
       setFetching(false);
     }
-  };
+
+  }, [history, signIn])
 
   const onFinishFailed = errorInfo => {
     console.log('FAILED:', errorInfo);
@@ -40,7 +61,7 @@ export default function Login({ history }) {
           <Form
             name="basic"
             initialValues={{ remember: true }}
-            onFinish={onFinish}
+            onFinish={handleSubmit}
             onFinishFailed={onFinishFailed}
           >
             <FormItem
@@ -81,3 +102,5 @@ export default function Login({ history }) {
     </Container>
   );
 }
+
+export default Login;

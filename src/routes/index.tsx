@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import Route from './Route';
+// import Route from './Route';
 
 import Dashboard from 'pages/Dashboard';
 import Login from 'pages/Login';

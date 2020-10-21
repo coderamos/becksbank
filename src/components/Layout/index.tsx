@@ -2,17 +2,22 @@ import React from 'react';
 
 import { Layout } from 'antd';
 
+import {useAuth} from '../../hooks/auth';
+
 import Header from 'components/Header';
 import Content from 'components/Content';
 
 import * as s from './styles';
 
-const LayoutTeste: React.FC = ({ children }) => {
+const LayoutContainer: React.FC = ({ children }) => {
+
+  const {userData, signOut} = useAuth();
+
   return (
     <s.LayoutContainer>
       <Layout>
         <Layout>
-          <Header balance={300} userName={'Fulano'}/>
+          <Header balance={300} userName={userData.name} logout={signOut}/>
           <Content>{children}</Content>
         </Layout>
       </Layout>
@@ -20,4 +25,4 @@ const LayoutTeste: React.FC = ({ children }) => {
   );
 };
 
-export default LayoutTeste;
+export default LayoutContainer;

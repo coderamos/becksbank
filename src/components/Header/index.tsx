@@ -11,10 +11,10 @@ import * as s from './styles';
 type HeaderProps = {
   userName: string;
   balance: number;
-  // logout: () => void;
+  logout: () => void;
 };
 
-const Header: React.FC<HeaderProps> = ({ userName, balance }) => {
+const Header: React.FC<HeaderProps> = ({ userName, balance, logout }) => {
   useEffect(() => {
     const token = getToken();
     const decodeUser = decodeToken(token);
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ userName, balance }) => {
               <span>{userName}</span>
           </s.UserContent>
           <s.UserContent>
-            {/* <button onClick={}>Sair <LogoutOutlined /></button> */}
+            <button onClick={logout}>Sair <LogoutOutlined /></button>
           </s.UserContent>
         </s.UserContainer>
       </Container>
