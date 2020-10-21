@@ -79,6 +79,12 @@ export default class AxiosAdapter implements IAPIHandler {
       .then(res => res.data.balance);
   }
 
+  getAccountByUser(userId: number): Promise<Account[]> {
+    return this.api
+      .get<null, accountsResponse>(`/accounts/user/${userId}`)
+      .then(res => res.data);
+  }
+
   transferBalance(
     accountCode: string,
     destinationAccountCode: string,

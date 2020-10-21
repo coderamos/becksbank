@@ -32,6 +32,10 @@ class APIService implements IAPIHandler {
     return this.apiAdapter.getAccountBalance(accountCode);
   }
 
+  getAccountByUser(userId: number): Promise<Account[]> {
+    return this.apiAdapter.getAccountByUser(userId);
+  }
+
   transferBalance(
     accountCode: string,
     destinationAccountCode: string,

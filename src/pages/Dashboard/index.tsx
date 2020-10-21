@@ -13,8 +13,13 @@ export default function Dashboard() {
     APIService.getAllAccounts().then(allAccounts =>
       console.log('get accounts', allAccounts)
     );
+
     APIService.getStatements('conta2').then(statements =>
       console.log('account statements', statements)
+    );
+
+    APIService.getAccountByUser(1).then(accounts =>
+      console.log('get accounts by user', accounts)
     );
   }, []);
 

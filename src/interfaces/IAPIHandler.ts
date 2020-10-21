@@ -17,6 +17,8 @@ export default interface IAPIHandler {
 
   getAccountBalance(accountCode: string): Promise<number>;
 
+  getAccountByUser(userId: number): Promise<Account[]>;
+
   transferBalance(
     accountCode: string,
     destinationAccountCode: string,
