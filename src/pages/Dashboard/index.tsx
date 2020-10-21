@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Layout from 'components/Layout';
 
+import APIService from 'services/api';
+import AxiosAdapter from 'services/api/adapters/axios';
+
 import * as s from './styles';
 
+const apiService: APIService = new APIService(new AxiosAdapter());
+
 export default function Dashboard() {
+  useEffect(() => {
+    apiService.getAllAccounts().then(res => console.log('respondeu', res));
+  }, []);
+
   return (
     <s.DashboardContainer>
       <Layout>
