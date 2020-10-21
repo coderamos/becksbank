@@ -16,7 +16,7 @@ class APIService implements IAPIHandler {
     return this.apiAdapter.getAllAccounts();
   }
 
-  createUser(user: User): Promise<string> {
+  createUser(user: User): Promise<User> {
     return this.apiAdapter.createUser(user);
   }
 

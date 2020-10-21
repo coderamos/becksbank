@@ -10,7 +10,12 @@ type FeatureTypes = 'transfer' | 'extract';
 
 export default function Dashboard() {
   useEffect(() => {
-    APIService.getAllAccounts().then(res => console.log('respondeu', res));
+    APIService.getAllAccounts().then(allAccounts =>
+      console.log('get accounts', allAccounts)
+    );
+    APIService.getStatements('conta2').then(statements =>
+      console.log('account statements', statements)
+    );
   }, []);
 
   const [activeFeature, setActiveFeature] = useState<FeatureTypes>('transfer');

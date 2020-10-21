@@ -7,7 +7,7 @@ export default interface IAPIHandler {
   //   getUsers(): Promise<IUsers>;
   login(email: string, password: string): Promise<string>;
 
-  createUser(user: User): Promise<string>;
+  createUser(user: User): Promise<User>;
 
   getAllAccounts(): Promise<Account[]>;
 
