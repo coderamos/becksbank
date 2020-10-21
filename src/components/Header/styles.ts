@@ -7,7 +7,7 @@ import logoWhite from 'assets/images/logo-white.svg';
 
 export const HeaderContainer = styled(Layout.Header)`
   ${({ theme }) => css`
-  height: 12vh;
+  height: 10vh;
   background: rgb(23,101,45);
   background: linear-gradient(345deg, rgba(23,101,45,1) 0%, rgba(11,66,36,1) 30%, rgba(21,45,47,1) 65%, rgba(23,23,23,1) 100%);
   color: ${props => props.theme.colors.white};
@@ -73,8 +73,9 @@ export const SmallTitle = styled.span`
 export const Divisor = styled.div`
 
 ${media.greaterThan('medium')`
-  height: 8vh;
+  height: 6vh;
   border: 1px solid;
   margin: 0 20px;
+  opacity: 0.4;
 `}
 `;
