@@ -58,6 +58,12 @@ export const UserContainer = styled.div`
       width: 20%;
       margin-top: 0;
   `}
+
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
 `;
 
 export const UserContent = styled.div`

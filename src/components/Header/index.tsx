@@ -11,6 +11,7 @@ import * as s from './styles';
 type HeaderProps = {
   userName: string;
   balance: number;
+  // logout: () => void;
 };
 
 const Header: React.FC<HeaderProps> = ({ userName, balance }) => {
@@ -31,7 +32,11 @@ const Header: React.FC<HeaderProps> = ({ userName, balance }) => {
           </s.UserContent>
           <s.Divisor />
           <s.UserContent>
-            <LogoutOutlined />
+            <s.SmallTitle>Olá,</s.SmallTitle>
+              <span>{userName}</span>
+          </s.UserContent>
+          <s.UserContent>
+            {/* <button onClick={}>Sair <LogoutOutlined /></button> */}
           </s.UserContent>
         </s.UserContainer>
       </Container>
