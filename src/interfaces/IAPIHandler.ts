@@ -7,7 +7,7 @@ export default interface IAPIHandler {
   //   getUsers(): Promise<IUsers>;
   login(email: string, password: string): Promise<string>;
 
-  createUser(user: User): Promise<string>;
+  createUser(user: User): Promise<User>;
 
   getAllAccounts(): Promise<Account[]>;
 
@@ -16,6 +16,8 @@ export default interface IAPIHandler {
   getStatements(accountCode: string): Promise<Statement>;
 
   getAccountBalance(accountCode: string): Promise<number>;
+
+  getAccountByUser(userId: number): Promise<Account[]>;
 
   transferBalance(
     accountCode: string,

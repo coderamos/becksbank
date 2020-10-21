@@ -5,7 +5,7 @@ export default class Statement {
   ) {}
 }
 
-class Transaction {
+export class Transaction {
   constructor(
     public accountId: number,
     public dateTime: string,

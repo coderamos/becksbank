@@ -16,7 +16,7 @@ class APIService implements IAPIHandler {
     return this.apiAdapter.getAllAccounts();
   }
 
-  createUser(user: User): Promise<string> {
+  createUser(user: User): Promise<User> {
     return this.apiAdapter.createUser(user);
   }
 
@@ -30,6 +30,10 @@ class APIService implements IAPIHandler {
 
   getAccountBalance(accountCode: string): Promise<number> {
     return this.apiAdapter.getAccountBalance(accountCode);
+  }
+
+  getAccountByUser(userId: number): Promise<Account[]> {
+    return this.apiAdapter.getAccountByUser(userId);
   }
 
   transferBalance(
