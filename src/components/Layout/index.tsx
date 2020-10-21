@@ -13,7 +13,7 @@ const LayoutTeste: React.FC = ({ children }) => {
     <s.LayoutContainer>
       <Layout>
         <Layout>
-          <Header />
+          <Header balance={300} userName={'Fulano'}/>
           <Content>{children}</Content>
           <Footer />
         </Layout>
