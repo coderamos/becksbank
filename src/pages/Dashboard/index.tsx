@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Layout from 'components/Layout';
+
+import APIService from 'services/api';
 
 import * as s from './styles';
 
 type FeatureTypes = 'transfer' | 'extract';
 
 export default function Dashboard() {
+  useEffect(() => {
+    APIService.getAllAccounts().then(res => console.log('respondeu', res));
+  }, []);
+
   const [activeFeature, setActiveFeature] = useState<FeatureTypes>('transfer');
 
   const handleActiveFeature = feature => setActiveFeature(feature);

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { message } from 'antd';
 
 import APIService from 'services/api';
-import AxiosAdapter from 'services/api/adapters/axios';
-import { login as localStorageLogin } from 'services/auth';
+import { login } from 'services/auth';
 
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
@@ -11,19 +11,18 @@ import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
 
-const apiService: APIService = new APIService(new AxiosAdapter());
-
-export default function Login() {
+export default function Login({ history }) {
   const [isFetching, setFetching] = useState(false);
 
-  const onFinish = async ({ username, password }) => {
-    console.log('SUCCESS:', username + ' - ' + password);
+  const onFinish = async ({ email, password }) => {
     try {
       setFetching(true);
-      const token = await apiService.login(username, password);
-      localStorageLogin(token);
+      const token = await APIService.login(email, password);
+      login(token);
+      history.push('/dashboard');
     } catch (err) {
       console.error('error on login', err);
+      message.error('Erro ao realizar o login. Verifique seu usário e senha');
     } finally {
       setFetching(false);
     }
@@ -45,8 +44,8 @@ export default function Login() {
             onFinishFailed={onFinishFailed}
           >
             <FormItem
-              label="name"
-              name="username"
+              label="email"
+              name="email"
               rules={[
                 { required: true, message: 'input name cannot be empty!!' }
               ]}
