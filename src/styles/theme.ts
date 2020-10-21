@@ -29,7 +29,8 @@ export default {
     secondary: '#171717',
     error: '#ff0033',
     white: '#FFFFFF',
-    black: '#000000'
+    black: '#000000',
+    background: '#f0f2f5'
   },
   spacings: {
     xxsmall: '0.8rem',

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Layout from 'components/Layout';
+import Card from 'components/Card';
 
 import * as s from './styles';
 
@@ -8,17 +9,18 @@ export default function Dashboard() {
   return (
     <s.DashboardContainer>
       <Layout>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic iusto, esse
-        minima asperiores accusamus suscipit temporibus. Dolor modi cumque,
-        quibusdam illum sunt harum voluptates cupiditate? Nesciunt consectetur,
-        sint nisi, ullam, odit reprehenderit repudiandae pariatur sed distinctio
-        ex ab eos quam nam officia. Quisquam neque non eum vel doloremque quae,
-        unde minima illo soluta similique dolores eius facilis? Explicabo saepe
-        quaerat odio in ad dolorum eaque quia natus cum culpa maiores suscipit
-        quod mollitia, consectetur cupiditate. Obcaecati magni doloremque enim
-        veniam ut quia numquam dolor aspernatur eligendi quae maiores ipsa
-        tempora, aut, ex ipsam officiis nemo vel, reprehenderit consequatur
-        quidem. Eaque!
+        <s.CardsWrapper>
+          <Card>TRANSFERIR</Card>
+          <Card>EXTRATO</Card>
+        </s.CardsWrapper>
+        <s.DynamicContentWrapper>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+          voluptatum magnam debitis amet distinctio aut excepturi error
+          voluptatem earum ad illo velit ratione quidem libero esse est in
+          necessitatibus, eveniet quasi! Nihil optio iste minus architecto sint
+          autem sed harum similique aliquam! Doloremque, porro. Laudantium
+          recusandae consectetur vitae totam reprehenderit!
+        </s.DynamicContentWrapper>
       </Layout>
     </s.DashboardContainer>
   );
