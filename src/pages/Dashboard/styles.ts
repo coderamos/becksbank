@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import media from 'styled-media-query';
+import Card from 'components/Card';
 
 export const DashboardContainer = styled.main`
   ${() => css`
@@ -18,6 +18,12 @@ export const CardsWrapper = styled.section`
   `}
 `;
 
+export const FeatureCardWrapper = styled.div`
+  width: 100%;
+`;
+
+export const FeatureCard = styled(Card)``;
+
 export const DynamicContentWrapper = styled.main`
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
@@ -30,8 +36,11 @@ export const DynamicContentWrapper = styled.main`
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
     &:hover {
-      box-shadow: 0 10px 20px rgba(0, 18, 13, 0.19),
-        0 6px 6px rgba(0, 18, 13, 0.23);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     }
   `}
 `;
+
+export const TransferContentWrapper = styled.div``;
+
+export const ExtractContentWrapper = styled.div``;

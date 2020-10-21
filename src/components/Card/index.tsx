@@ -1,5 +1,4 @@
 import React from 'react';
-
 import * as s from './styles';
 
 type CardProps = {
