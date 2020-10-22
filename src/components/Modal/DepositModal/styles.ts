@@ -2,7 +2,7 @@ import { Modal as ModalAntd } from 'antd';
 import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 import styled, { css } from 'styled-components';
 
-import { Button } from 'components/Button';
+import Button from 'components/Button';
 
 export const Modal = styled(ModalAntd)``;
 
