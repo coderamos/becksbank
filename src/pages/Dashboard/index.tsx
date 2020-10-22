@@ -6,18 +6,28 @@ import Transfer from 'components/Transfer';
 import APIService from 'services/api';
 
 import * as s from './styles';
+import { Table } from 'antd';
 
 type FeatureTypes = 'transfer' | 'extract';
 
 export default function Dashboard() {
+  const [statements, setStatements] = useState([]);
+  const [isLoadingStatements, setIsLoadingStatements] = useState(false);
   useEffect(() => {
+    setIsLoadingStatements(true);
     APIService.getAllAccounts().then(allAccounts =>
       console.log('get accounts', allAccounts)
     );
 
-    APIService.getStatements('conta2').then(statements =>
-      console.log('account statements', statements)
-    );
+    APIService.getStatements('conta2')
+      .then(response => {
+        console.log('account statements', response);
+        setStatements(response.accountStatements);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+      .finally(() => setIsLoadingStatements(false));
 
     APIService.getAccountByUser(1).then(accounts =>
       console.log('get accounts by user', accounts)
@@ -46,7 +56,25 @@ export default function Dashboard() {
           )}
           {activeFeature === 'extract' && (
             <s.ExtractContentWrapper>
-              <strong>EXTRACT</strong>
+              <Table
+                rowKey="id"
+                loading={isLoadingStatements}
+                columns={[
+                  {
+                    title: 'Tipo de operação',
+                    dataIndex: 'typeOperation'
+                  },
+                  {
+                    title: 'Valor',
+                    dataIndex: 'valueTransaction'
+                  },
+                  {
+                    title: 'Data de movimentação',
+                    dataIndex: 'dateTime'
+                  }
+                ]}
+                dataSource={statements}
+              />
             </s.ExtractContentWrapper>
           )}
         </s.DynamicContentWrapper>
