@@ -13,6 +13,7 @@ type FeatureTypes = 'transfer' | 'extract';
 export default function Dashboard() {
   const [statements, setStatements] = useState([]);
   const [isLoadingStatements, setIsLoadingStatements] = useState(false);
+
   useEffect(() => {
     setIsLoadingStatements(true);
     APIService.getAllAccounts().then(allAccounts =>
@@ -29,13 +30,9 @@ export default function Dashboard() {
       })
       .finally(() => setIsLoadingStatements(false));
 
-    APIService.getAccountByUser(1).then(accounts =>
-      console.log('get accounts by user', accounts)
-    );
   }, []);
 
   const [activeFeature, setActiveFeature] = useState<FeatureTypes>('transfer');
-
   const handleActiveFeature = feature => setActiveFeature(feature);
   return (
     <s.DashboardContainer>

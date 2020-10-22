@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ThemeProvider } from 'styled-components';
+import AppProvider from './hooks';
 
 import Routes from './routes';
 
@@ -10,7 +11,9 @@ import theme from './styles/theme';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Routes />
+      <AppProvider>
+        <Routes />
+      </AppProvider>
       <GlobalStyles />
     </ThemeProvider>
   );
