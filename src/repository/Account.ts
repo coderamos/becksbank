@@ -5,7 +5,7 @@ export default class Account {
     public code: string,
     public userId: number,
     public user: User,
-    public balance?: number,
+    public balance: number,
     public id?: number
   ) {}
 }

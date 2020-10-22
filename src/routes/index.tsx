@@ -1,20 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-// import Route from './Route';
+import Route from './Route';
 
 import Dashboard from 'pages/Dashboard';
 import Login from 'pages/Login';
 import SignUp from 'pages/SignUp';
 import Admin from 'pages/Admin';
 
-export default function Routes() {
-  return (
+const Routes: React.FC = () => (
     <BrowserRouter>
-      <Route path="/" component={Login} exact />
-      <Route path="/signup" component={SignUp} exact />
-      <Route path="/dashboard" component={Dashboard} exact />
-      <Route path="/admin" component={Admin} exact />
+      <Route path="/" exact component={Login} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/dashboard" component={Dashboard} isPrivate/>
+      <Route path="/admin" component={Admin} />
     </BrowserRouter>
-  );
-}
+);
+
+export default Routes;

@@ -9,7 +9,7 @@ import Account from 'repository/Account';
 import DepositModal from 'components/Modal/DepositModal';
 import Layout from 'components/Layout';
 
-export default function Admin() {
+const Admin: React.FC = () => {
   const [allAccounts, setAccounts] = useState<Account[]>([]);
   const [isFetching, setFetching] = useState(false);
   const [isFetchingDeposit, setFetchingDeposit] = useState(false);
@@ -111,3 +111,5 @@ export default function Admin() {
     </Layout>
   );
 }
+
+export default Admin;

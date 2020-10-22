@@ -3,7 +3,6 @@ import {
   Route as ReactDOMRoute,
   RouteProps as ReactDOMRouteProps,
   Redirect,
-  useHistory
 } from 'react-router-dom';
 
 import { useAuth } from '../hooks/auth';
@@ -18,15 +17,18 @@ const Route: React.FC<RouteProps> = ({
   component: Component,
   ...rest
 }) => {
-  // const { userData } = useAuth();
+  const {getSession} = useAuth();
 
-  const history = useHistory();
+  const sessionActive = () => {
+    const session = getSession();
+    return !!session;
+  }
 
   return (
     <ReactDOMRoute
       {...rest}
       render={({ location }) => {
-        return isPrivate === !!true ? (
+        return isPrivate === (sessionActive()) ? (
           <Component />
         ) : (
           <Redirect

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { message } from 'antd';
+import { useHistory } from 'react-router-dom';
+
 
 import Button from 'components/Button';
 import { Container } from 'components/Container';
@@ -17,8 +19,9 @@ import APIService from 'services/api';
 import * as s from './styles';
 import Utils from '../../utils/Utils';
 
-export default function SignUp({ history }) {
+const SignUp: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
+  const history = useHistory();
 
   const onFinish = async values => {
     console.log('SUCCESS:', values);
@@ -125,3 +128,5 @@ export default function SignUp({ history }) {
     </Container>
   );
 }
+
+export default SignUp;

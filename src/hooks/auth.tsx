@@ -39,7 +39,7 @@ export const AuthProvider: React.FC = ({children}) => {
 
   const getSession = useCallback(() => {
     const userDecoded = JSON.stringify(jwt.decode(userToken));
-    return JSON.parse(userDecoded) || {}
+    return JSON.parse(userDecoded)
   },[userToken])
 
   const signIn = useCallback(async ({email, password}) => {
