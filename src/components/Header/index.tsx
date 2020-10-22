@@ -21,9 +21,9 @@ const Header: React.FC<HeaderProps> = ({ userName, balance, logout }) => {
           <s.UserContent>
             <s.UserName>Olá, {userName}</s.UserName>
             <Balance>{balance}</Balance>
-            <button onClick={logout}>Sair <LogoutOutlined /></button>
+            <s.Divisor />
+            <s.LogoutButton onClick={logout}>Sair <LogoutOutlined /></s.LogoutButton>
           </s.UserContent>
-          <s.Divisor />
         </s.UserContainer>
       </Container>
     </s.HeaderContainer>

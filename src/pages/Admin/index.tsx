@@ -23,7 +23,7 @@ const Admin: React.FC = () => {
 
   const columns = [
     {
-      title: 'Name',
+      title: 'Nome',
       dataIndex: 'name',
       key: 'name',
       render: (text: string, record: Account) => {
@@ -31,12 +31,12 @@ const Admin: React.FC = () => {
       }
     },
     {
-      title: 'Account Code',
+      title: 'Código conta',
       dataIndex: 'code',
       key: 'code'
     },
     {
-      title: 'Balance',
+      title: 'Saldo',
       dataIndex: 'balance',
       key: 'balance'
     },
@@ -48,7 +48,7 @@ const Admin: React.FC = () => {
       render: (_text: string, record: Account) => {
         return (
           <s.DepositButton onClick={() => handleDepositAccount(record)}>
-            Deposit
+            Depositar
           </s.DepositButton>
         );
       }

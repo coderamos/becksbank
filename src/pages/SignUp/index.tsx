@@ -58,7 +58,7 @@ const SignUp: React.FC = () => {
             onFinishFailed={onFinishFailed}
           >
             <FormItem
-              label="name"
+              label="Nome"
               name="name"
               validateTrigger="onBlur"
               rules={[
@@ -69,7 +69,7 @@ const SignUp: React.FC = () => {
             </FormItem>
 
             <FormItem
-              label="cpf"
+              label="CPF"
               name="document"
               validateTrigger="onBlur"
               rules={[
@@ -88,7 +88,7 @@ const SignUp: React.FC = () => {
             </FormItem>
 
             <FormItem
-              label="email"
+              label="E-mail"
               name="email"
               validateTrigger="onBlur"
               rules={[
@@ -100,7 +100,7 @@ const SignUp: React.FC = () => {
             </FormItem>
 
             <FormItem
-              label="password"
+              label="Senha"
               name="password"
               validateTrigger="onBlur"
               rules={[
@@ -112,15 +112,15 @@ const SignUp: React.FC = () => {
 
             <FormItem>
               <Button type="primary" htmlType="submit" loading={isFetching}>
-                create account
+                Criar conta
               </Button>
             </FormItem>
           </Form>
 
           <s.CreateAccountMessage>
-            already have an account?&ensp;
+            já possui uma conta?&ensp;
             <s.CreateAccountMessageLink to="/">
-              log in
+              entrar
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>

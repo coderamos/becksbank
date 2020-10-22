@@ -12,7 +12,7 @@ const Balance: React.FC<BalanceProps> = ({ children }) => {
   return (
     <s.BalanceContainer>
       {isVisible ? (
-        <s.BalanceContentVisible>R$ {children}</s.BalanceContentVisible>
+        <s.BalanceContentVisible>{children}</s.BalanceContentVisible>
       ) : (
         <s.BalanceContentInvisible />
       )}
