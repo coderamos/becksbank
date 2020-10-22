@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Dashboard from 'pages/Dashboard';
 import Login from 'pages/Login';
 import SignUp from 'pages/SignUp';
+import Admin from 'pages/Admin';
 
 export default function Routes() {
   return (
@@ -11,6 +12,7 @@ export default function Routes() {
       <Route path="/" component={Login} exact />
       <Route path="/signup" component={SignUp} exact />
       <Route path="/dashboard" component={Dashboard} exact />
+      <Route path="/admin" component={Admin} exact />
     </BrowserRouter>
   );
 }

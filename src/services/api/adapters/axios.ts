@@ -100,6 +100,6 @@ export default class AxiosAdapter implements IAPIHandler {
   }
 
   depositBalance(accountCode: string, value: number): Promise<Account> {
-    return this.api.post(`/transactions/${accountCode}/deposit`, { value });
+    return this.api.post(`/transactions/${accountCode}/deposit?value=${value}`);
   }
 }
