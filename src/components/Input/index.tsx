@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { Input, InputNumber } from 'antd';
+import { Input } from 'antd';
 import { IdcardOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 
 const inputStyle = css`
