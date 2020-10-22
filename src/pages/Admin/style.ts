@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Table as TableAntd } from 'antd';
 
-import { Button } from 'components/Button';
+import Button from 'components/Button';
 
 export const AdminContainer = styled.main`
   ${({ theme }) => css`

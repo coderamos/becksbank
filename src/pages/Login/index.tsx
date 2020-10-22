@@ -2,39 +2,40 @@ import React, { useCallback, useState } from 'react';
 import { message } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-import {useAuth} from '../../hooks/auth';
+import { useAuth } from '../../hooks/auth';
 
-import { Button } from 'components/Button';
+import Button from 'components/Button';
 import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
 
-const Login: React.FC = () =>  {
+const Login: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
 
-  const {signIn} = useAuth();
+  const { signIn } = useAuth();
   const history = useHistory();
 
-  const handleSubmit = useCallback(({email, password}) => {
+  const handleSubmit = useCallback(
+    ({ email, password }) => {
+      try {
+        setFetching(true);
+        signIn({ email, password });
+        history.push('/dashboard');
+      } catch (err) {
+        console.error('error on login', err);
+        message.error('Erro ao realizar o login. Verifique seu usário e senha');
+      } finally {
+        setFetching(false);
+      }
+    },
+    [signIn, history]
+  );
 
-    try {
-      setFetching(true);
-      signIn({email, password});
-      history.push('/dashboard');
-    } catch (err) {
-      console.error('error on login', err);
-      message.error('Erro ao realizar o login. Verifique seu usário e senha');
-    } finally {
-      setFetching(false);
-    }
-
-  }, [signIn, history])
-
-  const onFinishFailed = useCallback((errorInfo) => {
+  const onFinishFailed = useCallback(errorInfo => {
     console.log('FAILED:', errorInfo);
-  },[]);
+  }, []);
 
   return (
     <Container>
@@ -84,6 +85,6 @@ const Login: React.FC = () =>  {
       </s.LoginContainer>
     </Container>
   );
-}
+};
 
 export default Login;
