@@ -20,6 +20,10 @@ export const HeaderContainer = styled(Layout.Header)`
     display: flex;
     justify-content: space-between;
 
+    ${media.greaterThan('huge')`
+      height: 8rem;
+    `}
+
     & > div {
       align-items: center;
       display: flex;
@@ -40,8 +44,8 @@ export const Logo = styled.img.attrs({
   height: 3rem;
 
   ${media.greaterThan('medium')`
-      height: 4rem;
-    `}
+    height: 4rem;
+  `}
 `;
 
 export const UserContainer = styled.div`
@@ -50,16 +54,21 @@ export const UserContainer = styled.div`
 
 export const UserContent = styled.div`
   display: flex;
-  flex-direction: column;
-  text-align: right;
-`;
-
-export const Saluation = styled.span`
-  font-size: ${props => props.theme.font.sizes.small};
 `;
 
 export const UserName = styled.span`
-  text-transform: capitalize;
+  ${({ theme }) => css`
+    text-transform: capitalize;
+    font-size: ${theme.font.sizes.large};
+    font-weight: ${theme.font.light};
+    width: 30rem;
+    display: flex;
+    align-items: center;
+
+    ${media.lessThan('medium')`
+      display: none;
+    `}
+  `}
 `;
 
 export const BalanceValue = styled.span`

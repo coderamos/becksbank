@@ -8,7 +8,7 @@ const shineLinesAnimation = keyframes`
 export const BalanceContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
-    height: 3rem;
+    height: 4rem;
     width: 100%;
   `}
 `;
@@ -33,9 +33,9 @@ export const BalanceContentInvisible = styled.div`
     margin-right: ${theme.spacings.xxsmall};
     background-image: linear-gradient(
       90deg,
-      ${theme.colors.greenHigh} 0px,
-      ${theme.colors.primary} 40px,
-      ${theme.colors.greenHigh} 80px
+      ${theme.colors.primary} 0px,
+      ${theme.colors.greenHigh} 40px,
+      ${theme.colors.primary} 80px
     );
     background-size: 600px;
     animation: ${shineLinesAnimation} 2s infinite linear;

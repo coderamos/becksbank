@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-
-import { LogoutOutlined } from '@ant-design/icons';
+import React from 'react';
 
 import { Container } from 'components/Container';
 import Balance from 'components/Balance';
@@ -13,27 +11,16 @@ type HeaderProps = {
   logout: () => void;
 };
 
-const Header: React.FC<HeaderProps> = ({ userName, balance, logout }) => {
+const Header: React.FC<HeaderProps> = ({ userName, balance }) => {
   return (
     <s.HeaderContainer>
       <Container>
         <s.Logo />
         <s.UserContainer>
           <s.UserContent>
-            {/* <s.Saluation>olá,&ensp;</s.Saluation> */}
-            {/* <s.UserName>{userName}</s.UserName> */}
+            <s.UserName>Olá, {userName}</s.UserName>
             <Balance>{balance}</Balance>
           </s.UserContent>
-          {/* <s.Divisor /> */}
-          {/* <s.UserContent>
-            <s.SmallTitle>Olá,</s.SmallTitle>
-            <span>{userName}</span>
-          </s.UserContent> */}
-          {/* <s.UserContent>
-            <button onClick={logout}>
-              Sair <LogoutOutlined />
-            </button>
-          </s.UserContent> */}
         </s.UserContainer>
       </Container>
     </s.HeaderContainer>
