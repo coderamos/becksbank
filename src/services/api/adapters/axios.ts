@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 import IAPIHandler from 'interfaces/IAPIHandler';
-import { getToken } from 'services/auth';
+import {getToken } from 'hooks/auth';
 
 import Account from 'repository/Account';
 import User from 'repository/User';
@@ -14,7 +14,7 @@ type balanceResponse = { data: { balance: number } };
 type statementsResponse = {
   data: { accountStatements: Transaction[]; balance: number };
 };
-type accountsResponse = {
+export type accountsResponse = {
   data: Account[];
 };
 type createUserResponse = {

@@ -18,7 +18,7 @@ const Route: React.FC<RouteProps> = ({
   component: Component,
   ...rest
 }) => {
-  const { userData } = useAuth();
+  // const { userData } = useAuth();
 
   const history = useHistory();
 
@@ -26,7 +26,7 @@ const Route: React.FC<RouteProps> = ({
     <ReactDOMRoute
       {...rest}
       render={({ location }) => {
-        return isPrivate === !!userData ? (
+        return isPrivate === !!true ? (
           <Component />
         ) : (
           <Redirect
