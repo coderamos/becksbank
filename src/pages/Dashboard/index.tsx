@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Layout from 'components/Layout';
+import Transfer from 'components/Transfer';
 
 import APIService from 'services/api';
 
@@ -50,8 +51,7 @@ export default function Dashboard() {
         <s.DynamicContentWrapper>
           {activeFeature === 'transfer' && (
             <s.TransferContentWrapper>
-              <strong>TRANSFER</strong> Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Dolores, natus.
+              <Transfer />
             </s.TransferContentWrapper>
           )}
           {activeFeature === 'extract' && (

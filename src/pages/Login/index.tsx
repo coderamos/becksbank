@@ -4,7 +4,7 @@ import { message } from 'antd';
 import APIService from 'services/api';
 import { login } from 'services/auth';
 
-import { Button } from 'components/Button';
+import Button from 'components/Button';
 import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';

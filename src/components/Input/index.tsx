@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { Input } from 'antd';
 import { IdcardOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 
-const inputStyle = css`
+export const inputStyle = css`
   ${({ theme }) => css`
     border-radius: ${theme.border.radius};
     border: 2px solid ${theme.colors.greenHigh};
@@ -56,5 +56,9 @@ export const InputCpf = styled(Input).attrs({
 `;
 
 export const InputPassword = styled(Input.Password)`
+  ${inputStyle};
+`;
+
+export const InputCurrency = styled(Input)`
   ${inputStyle};
 `;
