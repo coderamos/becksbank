@@ -4,6 +4,7 @@ import { Form, FormItem } from 'components/Form';
 import Select from 'components/Select';
 import { InputCurrency } from 'components/Input';
 import Button from 'components/Button';
+
 import * as s from './styles';
 
 const Transfer: React.FC = () => {
@@ -14,6 +15,7 @@ const Transfer: React.FC = () => {
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
+
   return (
     <s.TransferContainer>
       <Form
@@ -38,15 +40,18 @@ const Transfer: React.FC = () => {
         >
           <InputCurrency />
         </FormItem>
+
+        <FormItem>
+          <s.ButtonsContainer>
+            <s.ButtonWrapper>
+              <Button outlined>clear</Button>
+            </s.ButtonWrapper>
+            <s.ButtonWrapper>
+              <Button htmlType="submit">transfer</Button>
+            </s.ButtonWrapper>
+          </s.ButtonsContainer>
+        </FormItem>
       </Form>
-      <s.ButtonsContainer>
-        <s.ButtonWrapper>
-          <Button outlined>clear</Button>
-        </s.ButtonWrapper>
-        <s.ButtonWrapper>
-          <Button>transfer</Button>
-        </s.ButtonWrapper>
-      </s.ButtonsContainer>
     </s.TransferContainer>
   );
 };
