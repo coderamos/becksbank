@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { message } from 'antd';
 
-import { Button } from 'components/Button';
+import Button from 'components/Button';
 import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import {

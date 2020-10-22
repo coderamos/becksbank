@@ -1,24 +1,15 @@
-import styled, { css } from 'styled-components';
-import { Button as ButtonAntd } from 'antd';
+import React from 'react';
 
-export const Button = styled(ButtonAntd)`
-  ${({ theme }) => css`
-    align-items: center;
-    background-color: ${theme.colors.primary};
-    border-radius: ${theme.border.radius};
-    border: none;
-    color: ${theme.colors.white};
-    display: flex;
-    font-size: ${theme.font.sizes.large};
-    font-weight: ${theme.font.light};
-    height: ${theme.spacings.xxlarge};
-    justify-content: center;
-    width: 100%;
+import { ButtonProps } from 'antd/es/button';
 
-    &:hover {
-      background-color: ${theme.colors.greenHigh};
-      border: none;
-      color: ${theme.colors.white};
-    }
-  `}
-`;
+import * as s from './styles';
+
+export type ButtonTypes = {
+  outlined?: boolean;
+} & ButtonProps;
+
+const Button: React.FC<ButtonTypes> = ({ children, outlined = false }) => {
+  return <s.Button outlined={outlined}>{children}</s.Button>;
+};
+
+export default Button;
