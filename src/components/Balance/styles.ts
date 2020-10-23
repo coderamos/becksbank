@@ -16,6 +16,7 @@ export const BalanceContainer = styled.div`
 export const BalanceContentVisible = styled.div`
   ${({ theme }) => css`
     align-items: center;
+    justify-content: center;
     display: flex;
     display: flex;
     font-size: ${theme.font.sizes.large};

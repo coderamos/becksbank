@@ -84,3 +84,9 @@ export const Divisor = styled.div`
     opacity: 0.4;
   `}
 `;
+
+export const LogoutButton = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`;

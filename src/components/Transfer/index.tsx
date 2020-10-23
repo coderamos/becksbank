@@ -25,14 +25,14 @@ const Transfer: React.FC = () => {
         onFinishFailed={onFinishFailed}
       >
         <FormItem
-          label="select a contact"
+          label="Selecione um contato"
           name="tranferContact"
           rules={[{ required: true, message: 'select one contact!' }]}
         >
           <Select />
         </FormItem>
         <FormItem
-          label="input value"
+          label="Valor a ser transferido"
           name="transferValue"
           rules={[
             { required: true, message: 'input password cannot be empty!' }
@@ -44,10 +44,10 @@ const Transfer: React.FC = () => {
         <FormItem>
           <s.ButtonsContainer>
             <s.ButtonWrapper>
-              <Button outlined>clear</Button>
+              <Button outlined>Limpar</Button>
             </s.ButtonWrapper>
             <s.ButtonWrapper>
-              <Button htmlType="submit">transfer</Button>
+              <Button htmlType="submit">Transferir</Button>
             </s.ButtonWrapper>
           </s.ButtonsContainer>
         </FormItem>

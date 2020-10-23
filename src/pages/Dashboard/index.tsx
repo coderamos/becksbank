@@ -10,7 +10,7 @@ import { Table } from 'antd';
 
 type FeatureTypes = 'transfer' | 'extract';
 
-export default function Dashboard() {
+const Dashboard: React.FC = () => {
   const [statements, setStatements] = useState([]);
   const [isLoadingStatements, setIsLoadingStatements] = useState(false);
 
@@ -79,3 +79,5 @@ export default function Dashboard() {
     </s.DashboardContainer>
   );
 }
+
+export default Dashboard;

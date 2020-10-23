@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { message } from 'antd';
+import { useHistory } from 'react-router-dom';
+
 
 import Button from 'components/Button';
 import { Container } from 'components/Container';
@@ -17,8 +19,9 @@ import APIService from 'services/api';
 import * as s from './styles';
 import Utils from '../../utils/Utils';
 
-export default function SignUp({ history }) {
+const SignUp: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
+  const history = useHistory();
 
   const onFinish = async values => {
     console.log('SUCCESS:', values);
@@ -55,7 +58,7 @@ export default function SignUp({ history }) {
             onFinishFailed={onFinishFailed}
           >
             <FormItem
-              label="name"
+              label="Nome"
               name="name"
               validateTrigger="onBlur"
               rules={[
@@ -66,7 +69,7 @@ export default function SignUp({ history }) {
             </FormItem>
 
             <FormItem
-              label="cpf"
+              label="CPF"
               name="document"
               validateTrigger="onBlur"
               rules={[
@@ -85,7 +88,7 @@ export default function SignUp({ history }) {
             </FormItem>
 
             <FormItem
-              label="email"
+              label="E-mail"
               name="email"
               validateTrigger="onBlur"
               rules={[
@@ -97,7 +100,7 @@ export default function SignUp({ history }) {
             </FormItem>
 
             <FormItem
-              label="password"
+              label="Senha"
               name="password"
               validateTrigger="onBlur"
               rules={[
@@ -109,15 +112,15 @@ export default function SignUp({ history }) {
 
             <FormItem>
               <Button type="primary" htmlType="submit" loading={isFetching}>
-                create account
+                Criar conta
               </Button>
             </FormItem>
           </Form>
 
           <s.CreateAccountMessage>
-            already have an account?&ensp;
+            já possui uma conta?&ensp;
             <s.CreateAccountMessageLink to="/">
-              log in
+              entrar
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
@@ -125,3 +128,5 @@ export default function SignUp({ history }) {
     </Container>
   );
 }
+
+export default SignUp;

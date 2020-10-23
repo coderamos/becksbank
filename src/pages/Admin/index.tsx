@@ -9,7 +9,7 @@ import Account from 'repository/Account';
 import DepositModal from 'components/Modal/DepositModal';
 import Layout from 'components/Layout';
 
-export default function Admin() {
+const Admin: React.FC = () => {
   const [allAccounts, setAccounts] = useState<Account[]>([]);
   const [isFetching, setFetching] = useState(false);
   const [isFetchingDeposit, setFetchingDeposit] = useState(false);
@@ -23,7 +23,7 @@ export default function Admin() {
 
   const columns = [
     {
-      title: 'Name',
+      title: 'Nome',
       dataIndex: 'name',
       key: 'name',
       render: (text: string, record: Account) => {
@@ -31,12 +31,12 @@ export default function Admin() {
       }
     },
     {
-      title: 'Account Code',
+      title: 'Código conta',
       dataIndex: 'code',
       key: 'code'
     },
     {
-      title: 'Balance',
+      title: 'Saldo',
       dataIndex: 'balance',
       key: 'balance'
     },
@@ -48,7 +48,7 @@ export default function Admin() {
       render: (_text: string, record: Account) => {
         return (
           <s.DepositButton onClick={() => handleDepositAccount(record)}>
-            Deposit
+            Depositar
           </s.DepositButton>
         );
       }
@@ -111,3 +111,5 @@ export default function Admin() {
     </Layout>
   );
 }
+
+export default Admin;

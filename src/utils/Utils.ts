@@ -30,6 +30,34 @@ const Utils = {
     if (rev === 10 || rev === 11) rev = 0;
     if (rev !== parseInt(cpf.charAt(10))) return false;
     return true;
+  },
+
+  formatMoney: (amount) => {
+    const decimalCount = 2;
+    const decimal = ',';
+    const thousands = '.';
+    const currencyPattern = 'R$ ';
+    let amountFormat;
+
+    if (typeof amount === 'number') {
+      amountFormat = amount;
+    } else {
+      try {
+        amountFormat = parseFloat(amount);
+      } catch (e) {
+        console.error(e);
+        amountFormat = 0;
+      }
+    }
+
+    if (amountFormat > 0) {
+      amountFormat = amountFormat.toFixed(decimalCount);
+      amountFormat = amountFormat.replace('.', decimal);
+      amountFormat = amountFormat.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
+      amountFormat = currencyPattern + amountFormat;
+      return amountFormat;
+    }
+    return 'R$ 0,00';
   }
 };
 

@@ -49,7 +49,7 @@ const Login: React.FC = () => {
             onFinishFailed={onFinishFailed}
           >
             <FormItem
-              label="email"
+              label="E-mail"
               name="email"
               rules={[
                 { required: true, message: 'input name cannot be empty!!' }
@@ -59,7 +59,7 @@ const Login: React.FC = () => {
             </FormItem>
 
             <FormItem
-              label="password"
+              label="Senha"
               name="password"
               rules={[
                 { required: true, message: 'input password cannot be empty!' }
@@ -70,15 +70,15 @@ const Login: React.FC = () => {
 
             <FormItem>
               <Button type="primary" htmlType="submit" loading={isFetching}>
-                login
+                Entrar
               </Button>
             </FormItem>
           </Form>
 
           <s.CreateAccountMessage>
-            or&ensp;
+            ou&ensp;
             <s.CreateAccountMessageLink to="/signup">
-              create my account
+              crie sua conta
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
