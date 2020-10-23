@@ -37,11 +37,8 @@ export const ConfirmButton = styled(Button)`
   `}
 `;
 
-export const CancelButton = styled(Button)`
-  ${({ theme }) => css`
-    background: ${theme.colors.white};
-    color: ${theme.colors.primary};
-    border: 1px solid ${theme.colors.greenLight};
-    margin: ${theme.spacings.xxsmall};
-  `}
+export const ButtonWrapper = styled.div`
+  width: 100%;
 `;
+
+export const CancelButton = styled(Button)``;

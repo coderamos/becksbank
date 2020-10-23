@@ -45,10 +45,16 @@ const DepositModal: React.FC<DepositModalProps> = ({
             <InputText />
           </FormItem>
           <s.ButtonGroup>
-            <s.CancelButton onClick={onCancel}>Cancelar</s.CancelButton>
-            <s.ConfirmButton loading={loading} htmlType="submit">
-              Confirmar
-            </s.ConfirmButton>
+            <s.ButtonWrapper>
+              <s.CancelButton outlined onClick={onCancel}>
+                Cancelar
+              </s.CancelButton>
+            </s.ButtonWrapper>
+            <s.ButtonWrapper>
+              <s.ConfirmButton loading={loading} htmlType="submit">
+                Confirmar
+              </s.ConfirmButton>
+            </s.ButtonWrapper>
           </s.ButtonGroup>
         </Form>
       </s.SectionForm>

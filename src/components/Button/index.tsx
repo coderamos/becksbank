@@ -8,15 +8,17 @@ import * as s from './styles';
 export type ButtonTypes = {
   outlined?: boolean;
   htmlType?: ButtonHTMLType;
+  onClick?: () => void;
 } & ButtonProps;
 
 const Button: React.FC<ButtonTypes> = ({
   children,
   outlined = false,
-  htmlType
+  htmlType,
+  onClick
 }) => {
   return (
-    <s.Button outlined={outlined} htmlType={htmlType}>
+    <s.Button outlined={outlined} htmlType={htmlType} onClick={onClick}>
       {children}
     </s.Button>
   );
