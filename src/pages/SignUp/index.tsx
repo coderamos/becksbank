@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { message } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-
 import Button from 'components/Button';
 import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
@@ -26,7 +25,7 @@ const SignUp: React.FC = () => {
   const onFinish = async values => {
     console.log('SUCCESS:', values);
     const { name, email, password, document } = values;
-    const user = new User(name, email, 'ADMIN', document, password);
+    const user = new User(name, email, 'USER', document, password);
 
     try {
       setFetching(true);
@@ -127,6 +126,6 @@ const SignUp: React.FC = () => {
       </s.SignUpContainer>
     </Container>
   );
-}
+};
 
 export default SignUp;
