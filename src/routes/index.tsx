@@ -9,12 +9,12 @@ import SignUp from 'pages/SignUp';
 import Admin from 'pages/Admin';
 
 const Routes: React.FC = () => (
-    <BrowserRouter>
-      <Route path="/" exact component={Login} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/dashboard" component={Dashboard} isPrivate/>
-      <Route path="/admin" component={Admin} />
-    </BrowserRouter>
+  <BrowserRouter>
+    <Route path="/" exact component={Login} />
+    <Route path="/signup" component={SignUp} />
+    <Route path="/dashboard" component={Dashboard} isPrivate />
+    <Route path="/admin" component={Admin} isPrivate />
+  </BrowserRouter>
 );
 
 export default Routes;
