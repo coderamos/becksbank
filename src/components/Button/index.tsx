@@ -13,7 +13,7 @@ export type ButtonTypes = {
 
 const Button: React.FC<ButtonTypes> = ({
   children,
-  outlined = false,
+  outlined,
   htmlType,
   onClick
 }) => {

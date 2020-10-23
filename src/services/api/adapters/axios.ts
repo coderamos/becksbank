@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 import IAPIHandler from 'interfaces/IAPIHandler';
-import {getToken } from 'hooks/auth';
+import { getToken } from 'hooks/auth';
 
 import Account from 'repository/Account';
 import User from 'repository/User';
@@ -100,6 +100,6 @@ export default class AxiosAdapter implements IAPIHandler {
   }
 
   depositBalance(accountCode: string, value: number): Promise<Account> {
-    return this.api.post(`/transactions/${accountCode}/deposit`, { value });
+    return this.api.post(`/transactions/${accountCode}/deposit?value=${value}`);
   }
 }
