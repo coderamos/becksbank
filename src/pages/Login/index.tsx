@@ -3,6 +3,7 @@ import { message } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
+import APIService from 'services/api';
 
 import Button from 'components/Button';
 import { Container } from 'components/Container';
@@ -18,10 +19,11 @@ const Login: React.FC = () => {
   const history = useHistory();
 
   const handleSubmit = useCallback(
-    ({ email, password }) => {
+    async ({ email, password }) => {
       try {
         setFetching(true);
-        signIn({ email, password });
+        const token = await APIService.login(email, password);
+        signIn(token);
         history.push('/dashboard');
       } catch (err) {
         console.error('error on login', err);
