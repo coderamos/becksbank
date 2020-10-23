@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Layout } from 'antd';
 
-import {useAuth, DecodeUser} from '../../hooks/auth';
+import { useAuth, DecodeUser } from 'hooks/auth';
 import APIService from 'services/api';
 
 import Utils from 'utils/Utils';
@@ -15,7 +15,7 @@ import * as s from './styles';
 const LayoutContainer: React.FC = ({ children }) => {
   const [userLogged, setUserLogged] = useState<DecodeUser>({} as DecodeUser);
   const [balance, setBalance] = useState('');
-  const {getSession, signOut} = useAuth();
+  const { getSession, signOut } = useAuth();
 
   useEffect(() => {
     const userLogged = getSession();
@@ -23,18 +23,21 @@ const LayoutContainer: React.FC = ({ children }) => {
 
     const handleUserAccount = async () => {
       const accounts = await APIService.getAccountByUser(userLogged.id);
-      setBalance(Utils.formatMoney(accounts[0].balance))
+      setBalance(Utils.formatMoney(accounts[0].balance));
     };
 
     handleUserAccount();
-
-  },[getSession]);
+  }, [getSession]);
 
   return (
     <s.LayoutContainer>
       <Layout>
         <Layout>
-          <Header balance={balance} userName={userLogged.name} logout={signOut}/>
+          <Header
+            balance={balance}
+            userName={userLogged.name}
+            logout={signOut}
+          />
           <Content>{children}</Content>
         </Layout>
       </Layout>

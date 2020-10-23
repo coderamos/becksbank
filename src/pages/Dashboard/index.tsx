@@ -4,6 +4,7 @@ import Layout from 'components/Layout';
 import Transfer from 'components/Transfer';
 
 import APIService from 'services/api';
+import { useAuth } from 'hooks/auth';
 
 import * as s from './styles';
 import { Table } from 'antd';
@@ -14,23 +15,32 @@ const Dashboard: React.FC = () => {
   const [statements, setStatements] = useState([]);
   const [isLoadingStatements, setIsLoadingStatements] = useState(false);
 
+  const { getSession } = useAuth();
+
   useEffect(() => {
     setIsLoadingStatements(true);
-    APIService.getAllAccounts().then(allAccounts =>
-      console.log('get accounts', allAccounts)
-    );
 
-    APIService.getStatements('conta2')
-      .then(response => {
-        console.log('account statements', response);
-        setStatements(response.accountStatements);
-      })
-      .catch(error => {
-        console.error(error);
-      })
-      .finally(() => setIsLoadingStatements(false));
+    const user = getSession();
 
-  }, []);
+    const getUserStatements = async () => {
+      try {
+        const account = await APIService.getAccountByUser(user.id);
+        if (!account.length) {
+          throw Error('Usuário ainda não possui conta.');
+        }
+        const { accountStatements } = await APIService.getStatements(
+          account[0].code
+        );
+        setStatements(accountStatements);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoadingStatements(false);
+      }
+    };
+
+    getUserStatements();
+  }, [getSession]);
 
   const [activeFeature, setActiveFeature] = useState<FeatureTypes>('transfer');
   const handleActiveFeature = feature => setActiveFeature(feature);
@@ -78,6 +88,6 @@ const Dashboard: React.FC = () => {
       </Layout>
     </s.DashboardContainer>
   );
-}
+};
 
 export default Dashboard;
