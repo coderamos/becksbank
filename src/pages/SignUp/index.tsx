@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { message } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Button from 'components/Button';
 import { Form, FormItem } from 'components/Form';
@@ -20,7 +20,7 @@ import SideContent from 'components/SideContent';
 
 const SignUp: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onFinish = async values => {
     console.log('SUCCESS:', values);
@@ -31,7 +31,7 @@ const SignUp: React.FC = () => {
       setFetching(true);
       await APIService.createUser(user);
       message.success('Conta criada com sucesso!');
-      history.push('/');
+      navigate('/signin');
     } catch (error) {
       console.error(error);
       message.error('Não foi possível criar a conta');

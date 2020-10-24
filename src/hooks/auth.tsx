@@ -1,4 +1,6 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import APIService from 'services/api';
 import jwt from 'jsonwebtoken';
 
 export type DecodeUser = {
@@ -9,7 +11,7 @@ export type DecodeUser = {
 };
 
 type AuthContextData = {
-  signIn(token: string): Promise<void>;
+  signIn(email: string, password: string): Promise<void>;
   signOut(): void;
   getSession(): DecodeUser;
   getToken(): string;
@@ -22,6 +24,7 @@ export const getToken = (): string => localStorage.getItem(TOKEN_KEY);
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
+  const navigate = useNavigate();
   const [userToken, setUserToken] = useState<string>(() => {
     const storageToken = localStorage.getItem(TOKEN_KEY);
     if (storageToken) {
@@ -35,15 +38,21 @@ export const AuthProvider: React.FC = ({ children }) => {
     return JSON.parse(userDecoded);
   }, [userToken]);
 
-  const signIn = useCallback(async token => {
-    localStorage.setItem(TOKEN_KEY, token);
+  const signIn = useCallback(async (email, password) => {
+    const token = await APIService.login(email, password);
     setUserToken(token);
-  }, []);
+    const userRole = await getSession();
+    if (userRole) {
+      navigate(userRole.auth === 'USER' ? '/dashboard' : '/admin');
+    }
+    localStorage.setItem(TOKEN_KEY, token);
+  }, [getSession, navigate]);
 
   const signOut = useCallback(() => {
     localStorage.removeItem(TOKEN_KEY);
     setUserToken('');
-  }, []);
+    navigate('/signin');
+  }, [navigate]);
 
   return (
     <AuthContext.Provider value={{ signIn, signOut, getSession, getToken }}>

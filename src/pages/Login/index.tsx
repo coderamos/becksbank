@@ -1,9 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { message } from 'antd';
-import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
-import APIService from 'services/api';
 
 import Button from 'components/Button';
 import { Form, FormItem } from 'components/Form';
@@ -17,15 +15,12 @@ const Login: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
 
   const { signIn } = useAuth();
-  const history = useHistory();
 
   const handleSubmit = useCallback(
     async ({ email, password }) => {
       try {
         setFetching(true);
-        const token = await APIService.login(email, password);
-        signIn(token);
-        history.push('/dashboard');
+        signIn(email, password);
       } catch (err) {
         console.error('error on login', err);
         message.error('Erro ao realizar o login. Verifique seu usário e senha');
@@ -33,12 +28,12 @@ const Login: React.FC = () => {
         setFetching(false);
       }
     },
-    [signIn, history]
+    [signIn]
   );
 
   const onFinishFailed = useCallback(errorInfo => {
     console.log('FAILED:', errorInfo);
-  }, []);
+  }, [signIn]);
 
   return (
     <s.LoginContainer>

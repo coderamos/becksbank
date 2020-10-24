@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
-import Route from './Route';
+import { useAuth } from '../hooks/auth';
 
 import Dashboard from 'pages/Dashboard';
 import Login from 'pages/Login';
@@ -10,17 +10,37 @@ import Admin from 'pages/Admin';
 import Extract from 'pages/Extract';
 import Transfers from 'pages/Transfers';
 import Payments from 'pages/Payments';
+import UnauthorizedPage from 'pages/Unauthorized';
 
-const Routes: React.FC = () => (
-  <BrowserRouter>
-    <Route path="/" exact component={Login} />
-    <Route path="/signup" component={SignUp} />
-    <Route path="/dashboard" component={Dashboard} isPrivate />
-    <Route path="/admin" component={Admin} isPrivate />
-    <Route path="/extract" component={Extract} isPrivate />
-    <Route path="/transfers" component={Transfers} isPrivate />
-    <Route path="/payments" component={Payments} isPrivate />
-  </BrowserRouter>
+const AppRoutes: React.FC = () => (
+  <Routes>
+    <Route path="/signin" element={<Login />} />
+    <Route path="/signup" element={<SignUp />} />
+    <ProtectedRoutes path="/dashboard" element={<Dashboard/>} roles={['USER']} />
+    <ProtectedRoutes path="/admin" element={<Admin/>} roles={['ADMIN']} />
+    <ProtectedRoutes path="/extract" element={<Extract/>} roles={['USER']} />
+    <ProtectedRoutes path="/transfers" element={<Transfers/>} roles={['USER']} />
+    <ProtectedRoutes path="/payments" element={<Payments/>} roles={['USER']} />
+    <Route path="/unauthorized" element={<UnauthorizedPage />} />
+  </Routes>
 );
 
-export default Routes;
+const ProtectedRoutes = (props) => {
+  const {getSession} = useAuth();
+
+  const isUserLogged = () => {
+    const session = getSession();
+    return !!session;
+  };
+
+  const isAuthorized = props.roles.includes(getSession() ? getSession().auth : '');
+
+  if (isUserLogged && isAuthorized ) {
+
+    return <Route {...props} />;
+
+  }
+  return <Navigate to={isUserLogged ? "/unauthorized" : "/signin"} />;
+};
+
+export default AppRoutes;
