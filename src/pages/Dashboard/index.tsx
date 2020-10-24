@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Layout from 'components/Layout';
 import * as Font from 'components/Fonts';
+import Card from 'components/Card';
 
 import APIService from 'services/api';
 import { useAuth } from 'hooks/auth';
@@ -65,7 +66,9 @@ const Dashboard: React.FC = () => {
   const handleActiveFeature = feature => setActiveFeature(feature);
   return (
     <Layout>
-      <Font.UpperTitle>TRANSFERÊNCIAS</Font.UpperTitle>
+      <Card>
+        <Font.BigTitle>TRANSFERÊNCIAS</Font.BigTitle>
+      </Card>
     </Layout>
 
     // <s.DashboardContainer>
