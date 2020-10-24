@@ -5,6 +5,7 @@ import Transfer from 'components/Transfer';
 
 import APIService from 'services/api';
 import { useAuth } from 'hooks/auth';
+import { useAccount } from 'hooks/account';
 import TransferDTO from 'repository/Tranfer';
 import Account from 'repository/Account';
 
@@ -16,15 +17,21 @@ type FeatureTypes = 'transfer' | 'extract';
 const Dashboard: React.FC = () => {
   const [statements, setStatements] = useState([]);
   const [isLoadingStatements, setIsLoadingStatements] = useState(false);
-  const [userAccount, setUserAccount] = useState<Account>(null);
+
+  const { userAccountData, refreshAccount } = useAccount();
 
   const { getSession } = useAuth();
 
   async function confirmTransfer(values: TransferDTO) {
-    console.log('values', values);
     try {
       const { accountCode, value } = values;
-      await APIService.transferBalance(userAccount.code, accountCode, value);
+      await APIService.transferBalance(
+        userAccountData.code,
+        accountCode,
+        value
+      );
+      message.success('Transferência realizada com sucesso');
+      refreshAccount();
       return Promise.resolve('ok');
     } catch (err) {
       message.error('Não foi possível fazer a transferência');
@@ -33,25 +40,15 @@ const Dashboard: React.FC = () => {
   }
 
   useEffect(() => {
-    const user = getSession();
-    const getUserAccount = async () => {
-      const account = await APIService.getAccountByUser(user.id);
-      if (!account.length) {
-        throw Error('Usuário ainda não possui conta.');
-      }
+    if (!userAccountData.code) {
+      return;
+    }
 
-      setUserAccount(account[0]);
-    };
-
-    getUserAccount();
-  }, [getSession]);
-
-  useEffect(() => {
     setIsLoadingStatements(true);
     const getUserStatements = async () => {
       try {
         const { accountStatements } = await APIService.getStatements(
-          userAccount.code
+          userAccountData.code
         );
 
         setStatements(accountStatements);
@@ -63,7 +60,7 @@ const Dashboard: React.FC = () => {
     };
 
     getUserStatements();
-  }, [getSession, userAccount]);
+  }, [getSession, userAccountData.code]);
 
   const [activeFeature, setActiveFeature] = useState<FeatureTypes>('transfer');
   const handleActiveFeature = feature => setActiveFeature(feature);
