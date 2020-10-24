@@ -15,10 +15,16 @@ const Button: React.FC<ButtonTypes> = ({
   children,
   outlined,
   htmlType,
-  onClick
+  onClick,
+  loading
 }) => {
   return (
-    <s.Button outlined={outlined} htmlType={htmlType} onClick={onClick}>
+    <s.Button
+      outlined={outlined}
+      htmlType={htmlType}
+      onClick={onClick}
+      loading={loading}
+    >
       {children}
     </s.Button>
   );

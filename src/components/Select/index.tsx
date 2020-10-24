@@ -2,11 +2,11 @@ import React from 'react';
 
 import * as s from './styles';
 
-const Select: React.FC = () => {
-  function onChange(value) {
-    console.log(`selected ${value}`);
-  }
+type SelectProps = {
+  onChange(value: string): void;
+};
 
+const Select: React.FC<SelectProps> = ({ onChange }) => {
   function onBlur() {
     console.log('blur');
   }
@@ -31,10 +31,10 @@ const Select: React.FC = () => {
         option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
       }
     >
-      <s.Option value="diego">Diego</s.Option>
-      <s.Option value="josimar">Josimar</s.Option>
-      <s.Option value="guilherme">Guilherme</s.Option>
-      <s.Option value="alyne">Alyne</s.Option>
+      <s.Option value="conta2">Marcilio</s.Option>
+      <s.Option value="minhacontinha">Josimar</s.Option>
+      <s.Option value="diegaofera">Diego Ramos</s.Option>
+      <s.Option value="testecontinha">Alyne</s.Option>
     </s.SelectContainer>
   );
 };
