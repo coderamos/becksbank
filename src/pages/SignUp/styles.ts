@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 
-import logo from 'assets/images/new-logo.svg';
+import logo from 'assets/images/logo.png';
 
 export const SignUpContainer = styled.div`
   display: flex;

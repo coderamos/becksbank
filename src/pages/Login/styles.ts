@@ -5,7 +5,7 @@ import {
   LockOutlined
 } from '@ant-design/icons';
 
-import logo from 'assets/images/new-logo.svg';
+import logo from 'assets/images/logo.png';
 
 export const LoginContainer = styled.div`
   display: flex;
