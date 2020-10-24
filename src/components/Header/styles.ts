@@ -1,8 +1,28 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import media from 'styled-media-query';
+import { Link } from 'react-router-dom';
 
 import logoWhite from 'assets/images/logo-white.svg';
 import { Layout } from 'antd';
+
+const hoverAnimation = keyframes`
+  0% { width: 0; };
+  100% { width: 100%; };
+`;
+
+const menuActivetemStyle = css`
+  ${({ theme }) => css`
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 1rem;
+      display: block;
+      height: 0.4rem;
+      background-color: ${theme.colors.germanYellow};
+      animation: ${hoverAnimation} 0.6s forwards;
+    }
+  `}
+`;
 
 export const HeaderContainer = styled(Layout.Header)`
   ${({ theme }) => css`
@@ -12,6 +32,7 @@ export const HeaderContainer = styled(Layout.Header)`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     background-color: ${theme.colors.greenHigh};
     color: ${props => props.theme.colors.white};
   `}
@@ -27,8 +48,34 @@ export const Logo = styled.img.attrs({
   `}
 `;
 
+export const LinksList = styled.ul`
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 0;
+
+  ${media.lessThan('large')`
+    display: none;
+  `}
+`;
+
+export const ListItem = styled.li`
+  ${({ theme }) => css`
+    position: relative;
+    &.active,
+    &:hover {
+      ${menuActivetemStyle};
+    }
+  `}
+`;
+
+export const MenuLink = styled(Link)``;
+
 export const UserInfoWrapper = styled.div`
   display: flex;
+  justify-content: flex-end;
+  min-width: 20%;
 `;
 
 export const UserName = styled.span`
