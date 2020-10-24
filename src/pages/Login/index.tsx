@@ -9,8 +9,9 @@ import Button from 'components/Button';
 import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';
 
-import * as s from './styles';
 import SideContent from 'components/SideContent';
+
+import * as s from './styles';
 
 const Login: React.FC = () => {
   const [isFetching, setFetching] = useState(false);

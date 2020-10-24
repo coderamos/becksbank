@@ -5,7 +5,7 @@ import * as s from './styles';
 const SideContent: React.FC = () => {
   return (
     <s.SideImageContainer>
-      <s.Overlay>
+      <s.OverlayWrapper>
         <s.OverlayTextWrapper>
           <s.OverlayTextTitle>
             Um banco legítimo e puro malte.
@@ -16,7 +16,7 @@ const SideContent: React.FC = () => {
             intenso modo de viver. O banco alemão mais amado no mundo!
           </s.OverlayTextDescription>
         </s.OverlayTextWrapper>
-      </s.Overlay>
+      </s.OverlayWrapper>
     </s.SideImageContainer>
   );
 };
