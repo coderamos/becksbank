@@ -3,7 +3,6 @@ import { message } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 import Button from 'components/Button';
-import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import {
   InputText,
@@ -45,8 +44,12 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <Container>
-      <s.SignUpContainer>
+    <s.SignUpContainer>
+      <s.SideImageContainer>
+        <s.Overlay />
+        <s.SideImage />
+      </s.SideImageContainer>
+      <s.SignupContent>
         <s.Content>
           <s.Logo />
 
@@ -123,8 +126,8 @@ const SignUp: React.FC = () => {
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
-      </s.SignUpContainer>
-    </Container>
+      </s.SignupContent>
+    </s.SignUpContainer>
   );
 };
 

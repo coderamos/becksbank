@@ -6,7 +6,6 @@ import { useAuth } from '../../hooks/auth';
 import APIService from 'services/api';
 
 import Button from 'components/Button';
-import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';
 
@@ -40,8 +39,17 @@ const Login: React.FC = () => {
   }, []);
 
   return (
-    <Container>
-      <s.LoginContainer>
+    <s.LoginContainer>
+      <s.SideImageContainer>
+        <s.Overlay>
+          <s.OverlayTextWrapper>
+            <s.OverlayTextTitle>Title</s.OverlayTextTitle>
+            <s.OverlayTextDescription>Descricao</s.OverlayTextDescription>
+          </s.OverlayTextWrapper>
+        </s.Overlay>
+        <s.SideImage />
+      </s.SideImageContainer>
+      <s.LoginContent>
         <s.Content>
           <s.Logo />
           <Form
@@ -84,8 +92,8 @@ const Login: React.FC = () => {
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
-      </s.LoginContainer>
-    </Container>
+      </s.LoginContent>
+    </s.LoginContainer>
   );
 };
 

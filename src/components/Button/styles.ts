@@ -6,7 +6,7 @@ import { ButtonTypes } from '.';
 export const Button = styled(ButtonAntd)<ButtonTypes>`
   ${({ theme, outlined }) => css`
     align-items: center;
-    background-color: ${outlined ? theme.colors.white : theme.colors.primary};
+    background-color: ${outlined ? theme.colors.white : theme.colors.black};
     border-radius: ${theme.border.radius};
     border: ${outlined
       ? `2px solid ${theme.colors.primary}`

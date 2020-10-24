@@ -5,14 +5,61 @@ import {
   LockOutlined
 } from '@ant-design/icons';
 
-import logo from 'assets/images/logo.svg';
+import logo from 'assets/images/new-logo.svg';
+import loginSide from 'assets/images/login-side-image-full.png';
 
 export const LoginContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+`;
+
+export const LoginContent = styled.div`
   display: flex;
   height: 100vh;
   align-items: center;
   display: flex;
   justify-content: center;
+  flex: 5;
+`;
+
+export const SideImageContainer = styled.div`
+  height: 100vh;
+  flex: 5;
+`;
+
+export const SideImage = styled.img.attrs({
+  src: loginSide
+})`
+  ${({ theme }) => css`
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: left;
+  `}
+`;
+
+export const Overlay = styled.div`
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  width: 50%;
+`;
+
+export const OverlayTextWrapper = styled.div`
+  /* align-items: center; */
+  display: flex;
+  border: 2px solid red;
+  /* flex-direction: column;
+  justify-content: center; */
+`;
+
+export const OverlayTextTitle = styled.div`
+  font-size: 50px;
+`;
+
+export const OverlayTextDescription = styled.div`
+  font-size: 30px;
 `;
 
 export const Content = styled.div`

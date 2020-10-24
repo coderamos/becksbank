@@ -61,7 +61,8 @@ const GlobalStyles: GlobalStyleComponent<
 
       ${!removeBackgroundColor &&
       css`
-        background-color: #f0f2f5;
+        background-color: ${theme.colors.white};
+        /* background-color: #f0f2f5; */
       `}
     }
   `}
