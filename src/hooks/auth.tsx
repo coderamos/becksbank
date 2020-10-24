@@ -51,7 +51,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const signOut = useCallback(() => {
     localStorage.removeItem(TOKEN_KEY);
     setUserToken('');
-    navigate('/signin');
+    navigate('/');
   }, [navigate]);
 
   return (
