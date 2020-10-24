@@ -2,14 +2,27 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 
-import logo from 'assets/images/logo.svg';
+import logo from 'assets/images/logo.png';
 
 export const SignUpContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: ${theme.colors.white};
+  `}
+`;
+
+export const SignupContent = styled.div`
   display: flex;
   height: 100vh;
   align-items: center;
   display: flex;
   justify-content: center;
+  flex: 5;
 `;
 
 export const Content = styled.div`

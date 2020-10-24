@@ -3,7 +3,6 @@ import { message } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 import Button from 'components/Button';
-import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import {
   InputText,
@@ -17,6 +16,7 @@ import APIService from 'services/api';
 
 import * as s from './styles';
 import Utils from '../../utils/Utils';
+import SideContent from 'components/SideContent';
 
 const SignUp: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
@@ -45,8 +45,9 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <Container>
-      <s.SignUpContainer>
+    <s.SignUpContainer>
+      <SideContent />
+      <s.SignupContent>
         <s.Content>
           <s.Logo />
 
@@ -123,8 +124,8 @@ const SignUp: React.FC = () => {
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
-      </s.SignUpContainer>
-    </Container>
+      </s.SignupContent>
+    </s.SignUpContainer>
   );
 };
 

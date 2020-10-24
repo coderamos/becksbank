@@ -5,14 +5,37 @@ import {
   LockOutlined
 } from '@ant-design/icons';
 
-import logo from 'assets/images/logo.svg';
+import logo from 'assets/images/logo.png';
 
 export const LoginContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: ${theme.colors.white};
+  `}
+`;
+
+export const LoginContent = styled.div`
   display: flex;
   height: 100vh;
   align-items: center;
   display: flex;
   justify-content: center;
+  flex: 5;
+`;
+
+export const FormTitle = styled.div`
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    border-left: 10px solid ${theme.colors.germanYellow};
+    font-size: ${theme.font.sizes.xlarge};
+    font-weight: ${theme.font.bolder};
+    margin: ${theme.spacings.small} 0;
+    padding: ${theme.spacings.xsmall};
+    height: 28px;
+  `}
 `;
 
 export const Content = styled.div`

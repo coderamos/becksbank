@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { Layout } from 'antd';
-
 import { useAuth, DecodeUser } from 'hooks/auth';
 import { useAccount } from 'hooks/account';
 
@@ -11,6 +9,7 @@ import Header from 'components/Header';
 import Content from 'components/Content';
 
 import * as s from './styles';
+import Footer from 'components/Footer';
 
 const LayoutContainer: React.FC = ({ children }) => {
   const [userLogged, setUserLogged] = useState<DecodeUser>({} as DecodeUser);
@@ -24,16 +23,13 @@ const LayoutContainer: React.FC = ({ children }) => {
 
   return (
     <s.LayoutContainer>
-      <Layout>
-        <Layout>
-          <Header
-            balance={Utils.formatMoney(userAccountData.balance)}
-            userName={userLogged.name}
-            logout={signOut}
-          />
-          <Content>{children}</Content>
-        </Layout>
-      </Layout>
+      <Header
+        balance={Utils.formatMoney(userAccountData.balance)}
+        userName={userLogged.name}
+        logout={signOut}
+      />
+      <Content>{children}</Content>
+      <Footer />
     </s.LayoutContainer>
   );
 };

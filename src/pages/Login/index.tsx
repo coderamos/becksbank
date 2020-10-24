@@ -6,11 +6,11 @@ import { useAuth } from '../../hooks/auth';
 import APIService from 'services/api';
 
 import Button from 'components/Button';
-import { Container } from 'components/Container';
 import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
+import SideContent from 'components/SideContent';
 
 const Login: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
@@ -40,8 +40,9 @@ const Login: React.FC = () => {
   }, []);
 
   return (
-    <Container>
-      <s.LoginContainer>
+    <s.LoginContainer>
+      <SideContent />
+      <s.LoginContent>
         <s.Content>
           <s.Logo />
           <Form
@@ -50,6 +51,9 @@ const Login: React.FC = () => {
             onFinish={handleSubmit}
             onFinishFailed={onFinishFailed}
           >
+            <s.FormTitle>
+              <span>Entrar</span>
+            </s.FormTitle>
             <FormItem
               label="E-mail"
               name="email"
@@ -84,8 +88,8 @@ const Login: React.FC = () => {
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>
         </s.Content>
-      </s.LoginContainer>
-    </Container>
+      </s.LoginContent>
+    </s.LoginContainer>
   );
 };
 
