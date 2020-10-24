@@ -6,11 +6,12 @@ export const SideImageContainer = styled.div`
   height: 100vh;
   flex: 5;
   background: no-repeat url(${loginSide});
+  background-size: cover;
 `;
 
-export const Overlay = styled.div`
+export const OverlayWrapper = styled.div`
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   width: 50%;
 `;
