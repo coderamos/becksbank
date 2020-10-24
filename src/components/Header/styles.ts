@@ -6,36 +6,14 @@ import { Layout } from 'antd';
 
 export const HeaderContainer = styled(Layout.Header)`
   ${({ theme }) => css`
-    height: 20vh;
-    /* background: linear-gradient(
-      345deg,
-      rgba(23, 101, 45, 1) 0%,
-      rgba(11, 66, 36, 1) 30%,
-      rgba(21, 45, 47, 1) 65%,
-      ${theme.colors.greenHigh} 100%
-    ); */
-    background-color: ${theme.colors.greenHigh};
-    color: ${props => props.theme.colors.white};
-    line-height: 20px;
-    align-items: center;
+    height: 10vh;
+    padding: 0;
+
     display: flex;
     justify-content: space-between;
-
-    /* ${media.greaterThan('huge')`
-      height: 8rem;
-    `} */
-
-    & > div {
-      align-items: center;
-      display: flex;
-      padding: 20px 0;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 100%;
-      flex-direction: row;
-
-      /* ${media.greaterThan('medium')``}; */
-    }
+    align-items: center;
+    background-color: ${theme.colors.greenHigh};
+    color: ${props => props.theme.colors.white};
   `}
 `;
 
@@ -49,11 +27,7 @@ export const Logo = styled.img.attrs({
   `}
 `;
 
-export const UserContainer = styled.div`
-  min-width: 12rem;
-`;
-
-export const UserContent = styled.div`
+export const UserInfoWrapper = styled.div`
   display: flex;
 `;
 
@@ -62,27 +36,14 @@ export const UserName = styled.span`
     text-transform: capitalize;
     font-size: ${theme.font.sizes.large};
     font-weight: ${theme.font.light};
-    width: 30rem;
-    display: flex;
-    align-items: center;
-
-    ${media.lessThan('medium')`
-      display: none;
-    `}
   `}
 `;
 
-export const BalanceValue = styled.span`
-  font-size: ${props => props.theme.font.sizes.small};
-  text-transform: capitalize;
-`;
-
 export const Divisor = styled.div`
-  ${media.greaterThan('medium')`
-    height: 6vh;
-    border: 1px solid;
-    margin: 0 20px;
-    opacity: 0.4;
+  ${({ theme }) => css`
+    border-left: 1px solid ${theme.colors.white};
+    margin: 0 ${theme.spacings.small};
+    opacity: 0.1;
   `}
 `;
 
