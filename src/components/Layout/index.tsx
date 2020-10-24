@@ -4,7 +4,6 @@ import { Layout } from 'antd';
 
 import { useAuth, DecodeUser } from 'hooks/auth';
 import { useAccount } from 'hooks/account';
-import APIService from 'services/api';
 
 import Utils from 'utils/Utils';
 
