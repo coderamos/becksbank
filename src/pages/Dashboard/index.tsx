@@ -7,7 +7,6 @@ import APIService from 'services/api';
 import { useAuth } from 'hooks/auth';
 import { useAccount } from 'hooks/account';
 import TransferDTO from 'repository/Tranfer';
-import Account from 'repository/Account';
 
 import * as s from './styles';
 import { Table, message } from 'antd';
