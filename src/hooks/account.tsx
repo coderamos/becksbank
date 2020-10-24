@@ -23,22 +23,29 @@ export const AccountProvider: React.FC = ({ children }) => {
   const [userAccountData, setUserAccount] = useState<Account>({} as Account);
 
   const { getSession } = useAuth();
-  const user = getSession();
 
-  const getAccountByUser = useCallback(async () => {
+  useEffect(() => {
+    const user = getSession();
+    const getAccountByUser = async () => {
+      if (!user) {
+        return;
+      }
+
+      const [account] = await APIService.getAccountByUser(user.id);
+      setUserAccount(account);
+    };
+
+    getAccountByUser();
+  }, [getSession]);
+
+  const refreshAccount = async () => {
+    const user = getSession();
     if (!user) {
       return;
     }
+
     const [account] = await APIService.getAccountByUser(user.id);
     setUserAccount(account);
-  }, [user]);
-
-  useEffect(() => {
-    getAccountByUser();
-  }, [getAccountByUser]);
-
-  const refreshAccount = () => {
-    getAccountByUser();
   };
 
   return (
