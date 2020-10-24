@@ -1,17 +1,22 @@
 import React from 'react';
 import { FormProps, FormItemProps } from 'antd/es/form';
+// import useForm from 'antd/es/form/hooks/useForm';
 
 import * as s from './styles';
+
+const useForm = s.FormContainer.useForm;
 
 const Form = ({
   children,
   name,
   initialValues,
   onFinish,
-  onFinishFailed
+  onFinishFailed,
+  form
 }: FormProps) => {
   return (
     <s.FormContainer
+      form={form}
       name={name}
       initialValues={initialValues}
       onFinish={onFinish}
@@ -42,4 +47,4 @@ const FormItem = ({
   );
 };
 
-export { Form, FormItem };
+export { Form, FormItem, useForm };
