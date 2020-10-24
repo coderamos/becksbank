@@ -3,10 +3,9 @@ import * as s from './styles';
 
 type CardProps = {
   children: React.ReactNode;
-  image?: React.ReactNode;
 };
 
-const Card: React.FC = ({ children, image }: CardProps) => {
+const Card: React.FC = ({ children }: CardProps) => {
   return <s.CardContainer>{children}</s.CardContainer>;
 };
 

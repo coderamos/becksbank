@@ -11,12 +11,15 @@ const fontBase = css`
 export const Text = styled.p`
   ${({ theme }) => css`
     ${fontBase};
-    font-size: ${theme.font.sizes.xsmall};
+    font-size: ${theme.font.sizes.medium};
   `}
 `;
 
 export const Description = styled(Text)`
-  opacity: 0.6;
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.xsmall};
+    opacity: 0.6;
+  `}
 `;
 
 export const Title = styled.h2`
