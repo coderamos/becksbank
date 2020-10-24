@@ -6,12 +6,16 @@ import * as Font from 'components/Fonts';
 import Button from 'components/Button';
 import * as s from './styles';
 
-const BalanceCard: React.FC = () => {
+type BalanceCardProps = {
+  value: string;
+};
+
+const BalanceCard: React.FC<BalanceCardProps> = ({ value }) => {
   return (
     <Card>
       <s.CardContent>
         <Font.Description>Saldo disponível</Font.Description>
-        <Font.BigTitle>23.400,89</Font.BigTitle>
+        <Font.BigTitle>{value}</Font.BigTitle>
         <s.WrapperButton>
           <Link to="/extract">
             <Button outlined>SALDO DETALHADO</Button>
