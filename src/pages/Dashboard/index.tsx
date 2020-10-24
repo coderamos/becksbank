@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Layout from 'components/Layout';
 import * as Font from 'components/Fonts';
 import Card from 'components/Card';
+import Payment from 'components/Payment';
 
 import APIService from 'services/api';
 import { useAuth } from 'hooks/auth';
@@ -66,9 +67,14 @@ const Dashboard: React.FC = () => {
   const handleActiveFeature = feature => setActiveFeature(feature);
   return (
     <Layout>
-      <Card>
-        <Font.BigTitle>TRANSFERÊNCIAS</Font.BigTitle>
-      </Card>
+      <div style={{ width: '50%' }}>
+        <Payment
+          title="Boleto Banco do Brasil"
+          code="3743453745687618381231872y178y1w1278178182"
+          value="R$ 1.678,90"
+          onClickPay={code => console.log('VAI PAGAR COM O CÓIGO', code)}
+        />
+      </div>
     </Layout>
 
     // <s.DashboardContainer>
