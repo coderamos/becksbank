@@ -6,7 +6,7 @@ import { Layout } from 'antd';
 
 export const HeaderContainer = styled(Layout.Header)`
   ${({ theme }) => css`
-    height: 10vh;
+    height: 20vh;
     /* background: linear-gradient(
       345deg,
       rgba(23, 101, 45, 1) 0%,

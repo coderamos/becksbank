@@ -4,6 +4,7 @@ const fontBase = css`
   ${({ theme }) => css`
     color: ${theme.colors.greenHigh};
     font-weight: ${theme.font.bold};
+    margin: 0;
   `}
 `;
 
