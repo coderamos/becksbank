@@ -1,24 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Form, FormItem } from 'components/Form';
+import { Form, FormItem, useForm } from 'components/Form';
 import Select from 'components/Select';
 import { InputCurrency } from 'components/Input';
 import Button from 'components/Button';
 
+import TransferDTO from 'repository/Tranfer';
+
 import * as s from './styles';
 
-const Transfer: React.FC = () => {
+type TransferProps = {
+  onConfirm(values: TransferDTO): Promise<string>;
+};
+
+const Transfer: React.FC<TransferProps> = ({ onConfirm }) => {
+  const [formInstance] = useForm();
+  const [isFetching, setIsFetching] = useState(false);
+
   const onFinish = values => {
-    console.log('Success:', values);
+    setIsFetching(true);
+    onConfirm(values)
+      .then(() => {
+        formInstance.resetFields();
+      })
+      .finally(() => setIsFetching(false));
+  };
+
+  const onCancel = () => {
+    formInstance.resetFields();
   };
 
   const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
   };
 
+  const handleSelectUser = value => {
+    console.log('handle user');
+  };
+
   return (
     <s.TransferContainer>
       <Form
+        form={formInstance}
         name="basic"
         initialValues={{ remember: true }}
         onFinish={onFinish}
@@ -26,14 +49,14 @@ const Transfer: React.FC = () => {
       >
         <FormItem
           label="Selecione um contato"
-          name="tranferContact"
+          name="accountCode"
           rules={[{ required: true, message: 'select one contact!' }]}
         >
-          <Select />
+          <Select onChange={handleSelectUser} />
         </FormItem>
         <FormItem
           label="Valor a ser transferido"
-          name="transferValue"
+          name="value"
           rules={[
             { required: true, message: 'input password cannot be empty!' }
           ]}
@@ -44,10 +67,14 @@ const Transfer: React.FC = () => {
         <FormItem>
           <s.ButtonsContainer>
             <s.ButtonWrapper>
-              <Button outlined>Limpar</Button>
+              <Button outlined onClick={onCancel}>
+                Limpar
+              </Button>
             </s.ButtonWrapper>
             <s.ButtonWrapper>
-              <Button htmlType="submit">Transferir</Button>
+              <Button loading={isFetching} htmlType="submit">
+                Transferir
+              </Button>
             </s.ButtonWrapper>
           </s.ButtonsContainer>
         </FormItem>
