@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 
 import logo from 'assets/images/new-logo.svg';
-import loginSide from 'assets/images/login-side-image-full.png';
 
 export const SignUpContainer = styled.div`
   display: flex;
@@ -70,27 +69,4 @@ export const CreateAccountMessageLink = styled(Link)`
       color: ${theme.colors.greenLight};
     }
   `}
-`;
-
-export const SideImageContainer = styled.div`
-  height: 100vh;
-  flex: 5;
-`;
-
-export const SideImage = styled.img.attrs({
-  src: loginSide
-})`
-  ${({ theme }) => css`
-    height: 100vh;
-    width: 100%;
-    object-fit: cover;
-    object-position: left;
-  `}
-`;
-
-export const Overlay = styled.div`
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  position: absolute;
-  width: 50%;
 `;

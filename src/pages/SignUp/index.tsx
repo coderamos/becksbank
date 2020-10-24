@@ -16,6 +16,7 @@ import APIService from 'services/api';
 
 import * as s from './styles';
 import Utils from '../../utils/Utils';
+import SideContent from 'components/SideContent';
 
 const SignUp: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
@@ -45,10 +46,7 @@ const SignUp: React.FC = () => {
 
   return (
     <s.SignUpContainer>
-      <s.SideImageContainer>
-        <s.Overlay />
-        <s.SideImage />
-      </s.SideImageContainer>
+      <SideContent />
       <s.SignupContent>
         <s.Content>
           <s.Logo />

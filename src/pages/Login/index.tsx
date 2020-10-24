@@ -10,6 +10,7 @@ import { Form, FormItem } from 'components/Form';
 import { InputText, InputPassword } from 'components/Input';
 
 import * as s from './styles';
+import SideContent from 'components/SideContent';
 
 const Login: React.FC = () => {
   const [isFetching, setFetching] = useState(false);
@@ -40,15 +41,7 @@ const Login: React.FC = () => {
 
   return (
     <s.LoginContainer>
-      <s.SideImageContainer>
-        <s.Overlay>
-          <s.OverlayTextWrapper>
-            <s.OverlayTextTitle>Title</s.OverlayTextTitle>
-            <s.OverlayTextDescription>Descricao</s.OverlayTextDescription>
-          </s.OverlayTextWrapper>
-        </s.Overlay>
-        <s.SideImage />
-      </s.SideImageContainer>
+      <SideContent />
       <s.LoginContent>
         <s.Content>
           <s.Logo />
@@ -58,6 +51,9 @@ const Login: React.FC = () => {
             onFinish={handleSubmit}
             onFinishFailed={onFinishFailed}
           >
+            <s.FormTitle>
+              <span>Entrar</span>
+            </s.FormTitle>
             <FormItem
               label="E-mail"
               name="email"

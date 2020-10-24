@@ -12,16 +12,19 @@ export default {
     light: 300,
     normal: 400,
     bold: 600,
+    bolder: 800,
     sizes: {
       xsmall: '1.2rem',
       small: '1.4rem',
       medium: '1.6rem',
       large: '1.8rem',
-      xlarge: '2.0rem',
-      xxlarge: '2.8rem'
+      xlarge: '2.4rem',
+      xxlarge: '3rem',
+      xxxlarge: '5rem'
     }
   },
   colors: {
+    germanYellow: '#FFCF00',
     primary: '#0B4224',
     greenHigh: '#00120D',
     greenMedium: '#152D2F',
