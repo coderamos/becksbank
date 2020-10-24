@@ -64,48 +64,50 @@ const Dashboard: React.FC = () => {
   const [activeFeature, setActiveFeature] = useState<FeatureTypes>('transfer');
   const handleActiveFeature = feature => setActiveFeature(feature);
   return (
-    <s.DashboardContainer>
-      <Layout>
-        <s.CardsWrapper>
-          <s.FeatureCardWrapper onClick={() => handleActiveFeature('transfer')}>
-            <s.FeatureCard>TRANSFERIR</s.FeatureCard>
-          </s.FeatureCardWrapper>
-          <s.FeatureCardWrapper onClick={() => handleActiveFeature('extract')}>
-            <s.FeatureCard>EXTRATO</s.FeatureCard>
-          </s.FeatureCardWrapper>
-        </s.CardsWrapper>
-        <s.DynamicContentWrapper>
-          {activeFeature === 'transfer' && (
-            <s.TransferContentWrapper>
-              <Transfer onConfirm={confirmTransfer} />
-            </s.TransferContentWrapper>
-          )}
-          {activeFeature === 'extract' && (
-            <s.ExtractContentWrapper>
-              <Table
-                rowKey="id"
-                loading={isLoadingStatements}
-                columns={[
-                  {
-                    title: 'Tipo de operação',
-                    dataIndex: 'typeOperation'
-                  },
-                  {
-                    title: 'Valor',
-                    dataIndex: 'valueTransaction'
-                  },
-                  {
-                    title: 'Data de movimentação',
-                    dataIndex: 'dateTime'
-                  }
-                ]}
-                dataSource={statements}
-              />
-            </s.ExtractContentWrapper>
-          )}
-        </s.DynamicContentWrapper>
-      </Layout>
-    </s.DashboardContainer>
+    <Layout>AAAAAAAAAA</Layout>
+
+    // <s.DashboardContainer>
+    //   <Layout>
+    //     <s.CardsWrapper>
+    //       <s.FeatureCardWrapper onClick={() => handleActiveFeature('transfer')}>
+    //         <s.FeatureCard>TRANSFERIR</s.FeatureCard>
+    //       </s.FeatureCardWrapper>
+    //       <s.FeatureCardWrapper onClick={() => handleActiveFeature('extract')}>
+    //         <s.FeatureCard>EXTRATO</s.FeatureCard>
+    //       </s.FeatureCardWrapper>
+    //     </s.CardsWrapper>
+    //     <s.DynamicContentWrapper>
+    //       {activeFeature === 'transfer' && (
+    //         <s.TransferContentWrapper>
+    //           <Transfer onConfirm={confirmTransfer} />
+    //         </s.TransferContentWrapper>
+    //       )}
+    //       {activeFeature === 'extract' && (
+    //         <s.ExtractContentWrapper>
+    //           <Table
+    //             rowKey="id"
+    //             loading={isLoadingStatements}
+    //             columns={[
+    //               {
+    //                 title: 'Tipo de operação',
+    //                 dataIndex: 'typeOperation'
+    //               },
+    //               {
+    //                 title: 'Valor',
+    //                 dataIndex: 'valueTransaction'
+    //               },
+    //               {
+    //                 title: 'Data de movimentação',
+    //                 dataIndex: 'dateTime'
+    //               }
+    //             ]}
+    //             dataSource={statements}
+    //           />
+    //         </s.ExtractContentWrapper>
+    //       )}
+    //     </s.DynamicContentWrapper>
+    //   </Layout>
+    // </s.DashboardContainer>
   );
 };
 

@@ -7,22 +7,23 @@ import { Layout } from 'antd';
 export const HeaderContainer = styled(Layout.Header)`
   ${({ theme }) => css`
     height: 10vh;
-    background: linear-gradient(
+    /* background: linear-gradient(
       345deg,
       rgba(23, 101, 45, 1) 0%,
       rgba(11, 66, 36, 1) 30%,
       rgba(21, 45, 47, 1) 65%,
-      rgba(23, 23, 23, 1) 100%
-    );
+      ${theme.colors.greenHigh} 100%
+    ); */
+    background-color: ${theme.colors.greenHigh};
     color: ${props => props.theme.colors.white};
     line-height: 20px;
     align-items: center;
     display: flex;
     justify-content: space-between;
 
-    ${media.greaterThan('huge')`
+    /* ${media.greaterThan('huge')`
       height: 8rem;
-    `}
+    `} */
 
     & > div {
       align-items: center;
@@ -33,7 +34,7 @@ export const HeaderContainer = styled(Layout.Header)`
       width: 100%;
       flex-direction: row;
 
-      ${media.greaterThan('medium')``};
+      /* ${media.greaterThan('medium')``}; */
     }
   `}
 `;

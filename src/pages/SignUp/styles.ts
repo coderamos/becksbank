@@ -5,12 +5,15 @@ import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 import logo from 'assets/images/logo.png';
 
 export const SignUpContainer = styled.div`
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  ${({ theme }) => css`
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: ${theme.colors.white};
+  `}
 `;
 
 export const SignupContent = styled.div`

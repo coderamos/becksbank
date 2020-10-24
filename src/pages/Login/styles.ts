@@ -8,9 +8,12 @@ import {
 import logo from 'assets/images/logo.png';
 
 export const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: ${theme.colors.white};
+  `}
 `;
 
 export const LoginContent = styled.div`
