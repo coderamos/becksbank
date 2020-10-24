@@ -68,7 +68,7 @@ const Dashboard: React.FC = () => {
   return (
     <Layout>
       <div style={{ width: '50%' }}>
-        <BalanceCard />
+        <BalanceCard value="23.456,99" />
       </div>
       <div style={{ width: '50%' }}>
         <PaymentCard
