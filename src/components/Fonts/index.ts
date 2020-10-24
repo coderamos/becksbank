@@ -39,5 +39,6 @@ export const UpperTitle = styled.h3`
     text-transform: uppercase;
     font-weight: ${theme.font.normal};
     font-size: ${theme.font.sizes.medium};
+    margin: 0;
   `}
 `;
