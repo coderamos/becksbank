@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { message } from 'antd';
 
 import Layout from 'components/Layout';
 import PaymentCard from 'components/PaymentCard';
 import BalanceCard from 'components/BalanceCard';
 import PaymentModal from 'components/Modal/PaymentModal';
-import DepositModal from 'components/Modal/DepositModal';
+import ExtractList from 'components/ExtractList';
 import { CardWrapperColumn, CardWrapperRow } from 'components/CardWrapper';
 
 import APIService from 'services/api';
@@ -12,38 +13,20 @@ import { useAuth } from 'hooks/auth';
 import { useAccount } from 'hooks/account';
 import TransferDTO from 'repository/Tranfer';
 
-import * as s from './styles';
-import { message } from 'antd';
-
-const mockPayment = {
-  id: 89,
-  code:
-    '32303230313032342D3030323530302D4F542D3030312F31313131312D3030322F3030383434',
-  dueDate: '2020-10-24',
-  value: 1254.89,
-  category: 'Alimentação',
-  originUser: {
-    userName: '3',
-    bankName: 'Becks',
-    accountCode: '11111'
-  },
-  destinationUser: {
-    userName: null,
-    bankName: 'External',
-    accountCode: '11111'
-  }
-};
-
-type FeatureTypes = 'transfer' | 'extract';
+import { Transaction } from 'repository/Statement';
+import PaymentSlip from 'repository/PaymentSlip';
 
 const Dashboard: React.FC = () => {
-  const [statements, setStatements] = useState([]);
-  const [isLoadingStatements, setIsLoadingStatements] = useState(false);
+  const [statements, setStatements] = useState<Transaction[]>([]);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [lastPayment, setLastPayment] = useState<PaymentSlip>(
+    {} as PaymentSlip
+  );
 
   const { userAccountData, refreshAccount } = useAccount();
 
   const { getSession } = useAuth();
+  const user = getSession();
 
   async function confirmTransfer(values: TransferDTO) {
     try {
@@ -67,26 +50,32 @@ const Dashboard: React.FC = () => {
       return;
     }
 
-    setIsLoadingStatements(true);
     const getUserStatements = async () => {
       try {
         const { accountStatements } = await APIService.getStatements(
           userAccountData.code
         );
 
-        setStatements(accountStatements);
+        setStatements(accountStatements.slice(0, 3));
       } catch (err) {
         console.error(err);
-      } finally {
-        setIsLoadingStatements(false);
       }
     };
 
     getUserStatements();
   }, [getSession, userAccountData.code]);
 
-  const [activeFeature, setActiveFeature] = useState<FeatureTypes>('transfer');
-  const handleActiveFeature = feature => setActiveFeature(feature);
+  useEffect(() => {
+    const getAllPayments = async () => {
+      const allPayments = await APIService.getPaymentsByUser(user.id);
+      const paymentsFiltered = allPayments.filter(payment => !payment.paid);
+
+      if (paymentsFiltered.length) {
+        setLastPayment(paymentsFiltered[0]);
+      }
+    };
+    getAllPayments();
+  }, [user.id]);
 
   function confirmPayment(code: string) {
     setShowPaymentModal(false);
@@ -102,114 +91,23 @@ const Dashboard: React.FC = () => {
       <CardWrapperRow>
         <CardWrapperColumn>
           <BalanceCard />
-
           <PaymentCard
-            title="Boleto Banco do Brasil"
-            code="3743453745687618381231872y178y1w1278178182"
-            value="R$ 1.678,90"
+            payment={lastPayment}
             onClickPay={code => setShowPaymentModal(true)}
-          />
-
-          <DepositModal
-            title="Transferência"
-            account={{
-              code: 'etyre',
-              userId: 1,
-              user: {
-                name: 'Josimar Gomes',
-                email: 'josimargomesdev@gmail.com',
-                document: '112312323',
-                role: 'USER'
-              },
-              balance: 39
-            }}
-            loading={false}
-            visible={showPaymentModal}
-            onCancel={hidePaymentModal}
-            onConfirm={confirmPayment}
           />
         </CardWrapperColumn>
-
         <CardWrapperColumn>
           <BalanceCard />
-
-          <PaymentCard
-            title="Boleto Banco do Brasil"
-            code="3743453745687618381231872y178y1w1278178182"
-            value="R$ 1.678,90"
-            onClickPay={code => setShowPaymentModal(true)}
-          />
-
-          <DepositModal
-            title="Transferência"
-            account={{
-              code: 'etyre',
-              userId: 1,
-              user: {
-                name: 'Josimar Gomes',
-                email: 'josimargomesdev@gmail.com',
-                document: '112312323',
-                role: 'USER'
-              },
-              balance: 39
-            }}
-            loading={false}
+          <ExtractList extracts={statements} />
+          <PaymentModal
             visible={showPaymentModal}
-            onCancel={hidePaymentModal}
+            paymentSlip={lastPayment}
             onConfirm={confirmPayment}
+            onCancel={hidePaymentModal}
           />
-          {/* <PaymentModal
-        visible={showPaymentModal}
-        paymentSlip={mockPayment}
-        onConfirm={confirmPayment}
-        onCancel={hidePaymentModal}
-      /> */}
         </CardWrapperColumn>
       </CardWrapperRow>
     </Layout>
-
-    // <s.DashboardContainer>
-    //   <Layout>
-    //     <s.CardsWrapper>
-    //       <s.FeatureCardWrapper onClick={() => handleActiveFeature('transfer')}>
-    //         <s.FeatureCard>TRANSFERIR</s.FeatureCard>
-    //       </s.FeatureCardWrapper>
-    //       <s.FeatureCardWrapper onClick={() => handleActiveFeature('extract')}>
-    //         <s.FeatureCard>EXTRATO</s.FeatureCard>
-    //       </s.FeatureCardWrapper>
-    //     </s.CardsWrapper>
-    //     <s.DynamicContentWrapper>
-    //       {activeFeature === 'transfer' && (
-    //         <s.TransferContentWrapper>
-    //           <Transfer onConfirm={confirmTransfer} />
-    //         </s.TransferContentWrapper>
-    //       )}
-    //       {activeFeature === 'extract' && (
-    //         <s.ExtractContentWrapper>
-    //           <Table
-    //             rowKey="id"
-    //             loading={isLoadingStatements}
-    //             columns={[
-    //               {
-    //                 title: 'Tipo de operação',
-    //                 dataIndex: 'typeOperation'
-    //               },
-    //               {
-    //                 title: 'Valor',
-    //                 dataIndex: 'valueTransaction'
-    //               },
-    //               {
-    //                 title: 'Data de movimentação',
-    //                 dataIndex: 'dateTime'
-    //               }
-    //             ]}
-    //             dataSource={statements}
-    //           />
-    //         </s.ExtractContentWrapper>
-    //       )}
-    //     </s.DynamicContentWrapper>
-    //   </Layout>
-    // </s.DashboardContainer>
   );
 };
 

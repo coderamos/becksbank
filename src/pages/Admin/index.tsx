@@ -6,19 +6,19 @@ import * as s from './style';
 import APIService from 'services/api';
 import Account from 'repository/Account';
 
-import DepositModal from 'components/Modal/DepositModal';
+import TransactionModal from 'components/Modal/TransactiontModal';
 import Layout from 'components/Layout';
 
 const Admin: React.FC = () => {
   const [allAccounts, setAccounts] = useState<Account[]>([]);
   const [isFetching, setFetching] = useState(false);
   const [isFetchingDeposit, setFetchingDeposit] = useState(false);
-  const [showDepositModal, setShowDepositModal] = useState(false);
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
   const [accountSelected, setAccountSelected] = useState<Account>(null);
 
   function handleDepositAccount(account: Account) {
     setAccountSelected(account);
-    setShowDepositModal(true);
+    setShowTransactionModal(true);
   }
 
   const columns = [
@@ -76,7 +76,7 @@ const Admin: React.FC = () => {
     try {
       setFetchingDeposit(true);
       await APIService.depositBalance(accountCode, value);
-      setShowDepositModal(false);
+      setShowTransactionModal(false);
 
       getAllAccounts();
 
@@ -90,7 +90,7 @@ const Admin: React.FC = () => {
   }
 
   function cancelDeposit() {
-    setShowDepositModal(false);
+    setShowTransactionModal(false);
   }
 
   return (
@@ -103,9 +103,9 @@ const Admin: React.FC = () => {
           dataSource={allAccounts}
           columns={columns}
         />
-        <DepositModal
+        <TransactionModal
           title="Depósito"
-          visible={showDepositModal}
+          visible={showTransactionModal}
           onConfirm={confirmDeposit}
           onCancel={cancelDeposit}
           account={accountSelected}

@@ -7,7 +7,7 @@ import * as Font from 'components/Fonts';
 import * as s from './styles';
 import InputCurrency from 'components/InputCurrency';
 
-type DepositModalProps = {
+type TransactionModalProps = {
   onCancel(): void;
   onConfirm: (accountCode: string, value: string) => Promise<void>;
   visible: boolean;
@@ -16,7 +16,7 @@ type DepositModalProps = {
   title: string;
 };
 
-const DepositModal: React.FC<DepositModalProps> = ({
+const TransactionModal: React.FC<TransactionModalProps> = ({
   onCancel,
   onConfirm,
   visible,
@@ -68,4 +68,4 @@ const DepositModal: React.FC<DepositModalProps> = ({
   );
 };
 
-export default DepositModal;
+export default TransactionModal;

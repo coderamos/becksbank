@@ -1,26 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Tag } from 'antd';
 
 import Card from 'components/Card';
 import * as Font from 'components/Fonts';
 import Button from 'components/Button';
 import * as s from './styles';
 
+import PaymentSlip from 'repository/PaymentSlip';
+import Utils from 'utils/Utils';
+
 type PaymentProps = {
-  title: string;
-  code: string;
-  value: string;
+  payment: PaymentSlip;
   onClickPay(code: string): void;
 };
 
-const Payment: React.FC<PaymentProps> = ({
-  title,
-  code,
-  value,
-  onClickPay
-}) => {
+const Payment: React.FC<PaymentProps> = ({ payment, onClickPay }) => {
   function onPay() {
-    onClickPay(code);
+    onClickPay(payment.code);
+  }
+  let title = 'Boleto Banco ';
+  if (payment.destinationUser && payment.destinationUser.bankName) {
+    title += payment.destinationUser.bankName;
   }
 
   return (
@@ -28,8 +29,8 @@ const Payment: React.FC<PaymentProps> = ({
       <Font.Description>Última cobrança</Font.Description>
       <s.PaymentContent>
         <Font.Title>{title}</Font.Title>
-        <Font.Description>{code}</Font.Description>
-        <Font.Text>{value}</Font.Text>
+        <Font.Description>{payment.code}</Font.Description>
+        <Font.Text>{Utils.formatMoney(payment.value)}</Font.Text>
       </s.PaymentContent>
       <s.ButtonGroup>
         <s.ButtonWrapper>
@@ -46,22 +47,3 @@ const Payment: React.FC<PaymentProps> = ({
 };
 
 export default Payment;
-
-// {
-//     "id": 86,
-//     "code": "32303230313032342D3030323530302D4F542D3030312F31313131312D3030312F3030383434",
-//     "dueDate": "2020-10-24",
-//     "value": 25,
-//     "user": {
-//       "id": 81,
-//       "documentNumber": "3",
-//       "email": "3",
-//       "role": "ADMIN",
-//       "password": "3",
-//       "name": "3"
-//     },
-//     "originAccountCode": "11111",
-//     "destinationAccountCode": "00844",
-//     "destinationBankCode": "001",
-//     "category": "OTHERS"
-//   }
