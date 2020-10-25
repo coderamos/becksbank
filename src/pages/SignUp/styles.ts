@@ -34,7 +34,7 @@ export const Content = styled.div`
     flex-direction: column;
     height: 100vh;
     justify-content: center;
-    padding: 0 calc(${theme.spacings.small});
+    padding: 0 ${theme.spacings.small};
     width: 100%;
 
     ${media.greaterThan('medium')`
