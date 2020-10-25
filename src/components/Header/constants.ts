@@ -1,7 +1,7 @@
 export const headerLinks = [
   {
     title: 'Início',
-    link: '/dashboard'
+    link: '/'
   },
   {
     title: 'Transferir',

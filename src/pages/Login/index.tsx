@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/auth';
 
 import Button from 'components/Button';
 import { Form, FormItem } from 'components/Form';
-import { InputText, InputPassword } from 'components/Input';
+import { InputEmail, InputPassword } from 'components/Input';
 
 import SideContent from 'components/SideContent';
 
@@ -30,9 +30,9 @@ const Login: React.FC = () => {
     [signIn]
   );
 
-  const onFinishFailed = useCallback(errorInfo => {
-    console.log('FAILED:', errorInfo);
-  }, []);
+  // const onFinishFailed = useCallback(errorInfo => {
+  //   console.log('FAILED:', errorInfo);
+  // }, []);
 
   return (
     <s.LoginContainer>
@@ -44,7 +44,6 @@ const Login: React.FC = () => {
             name="basic"
             initialValues={{ remember: true }}
             onFinish={handleSubmit}
-            onFinishFailed={onFinishFailed}
           >
             <s.FormTitle>
               <span>Entrar</span>
@@ -52,18 +51,26 @@ const Login: React.FC = () => {
             <FormItem
               label="E-mail"
               name="email"
+              validateTrigger="onBlur"
               rules={[
-                { required: true, message: 'input name cannot be empty!!' }
+                {
+                  required: true,
+                  message: 'O campo E-mail deve ser informado!'
+                },
+                { type: 'email', message: 'O E-mail informado não é válido!' }
               ]}
             >
-              <InputText />
+              <InputEmail />
             </FormItem>
 
             <FormItem
               label="Senha"
               name="password"
               rules={[
-                { required: true, message: 'input password cannot be empty!' }
+                {
+                  required: true,
+                  message: 'O campo Senha deve ser informado!'
+                }
               ]}
             >
               <InputPassword />

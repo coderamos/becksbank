@@ -47,7 +47,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         const userRole = jwt.decode(token) as DecodeUser;
 
         if (userRole) {
-          navigate(userRole.auth === 'USER' ? '/dashboard' : '/admin');
+          navigate(userRole.auth === 'USER' ? '/' : '/admin');
         }
         localStorage.setItem(TOKEN_KEY, token);
         return Promise.resolve();
@@ -61,7 +61,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const signOut = useCallback(() => {
     localStorage.removeItem(TOKEN_KEY);
     setUserToken('');
-    navigate('/');
+    navigate('/login');
   }, [navigate]);
 
   return (

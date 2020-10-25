@@ -12,29 +12,24 @@ import * as s from './styles';
 const Transfers: React.FC = () => {
   const [contactsAccounts, setContactsAccounts] = useState<Account[]>([]);
 
-  const {getAllAccounts} = useAccount();
+  const { getAllAccounts } = useAccount();
 
   useEffect(() => {
-
     const getContacts = async () => {
       const teste = await getAllAccounts();
       setContactsAccounts(teste);
-      console.log("Accounts", teste);
     };
 
     getContacts();
-
   }, [getAllAccounts]);
 
   return (
     <Layout>
       <s.Container>
-        {contactsAccounts &&  <CardTransfer contacts={contactsAccounts} />}
-        <BalanceCard value="23.456,99"/>
+        {contactsAccounts && <CardTransfer contacts={contactsAccounts} />}
+        <BalanceCard value="23.456,99" />
       </s.Container>
-
     </Layout>
-
   );
 };
 
