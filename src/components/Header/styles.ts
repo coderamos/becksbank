@@ -2,7 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 import media from 'styled-media-query';
 import { Link } from 'react-router-dom';
 
-import logoWhite from 'assets/images/logo-white.svg';
+import logoWhite from 'assets/images/logo-white.png';
 import { Layout } from 'antd';
 
 const hoverAnimation = keyframes`
