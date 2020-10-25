@@ -11,7 +11,7 @@ export type DecodeUser = {
 };
 
 type AuthContextData = {
-  signIn(email: string, password: string): Promise<void>;
+  signIn(email: string, password: string): Promise<void | Error>;
   signOut(): void;
   getSession(): DecodeUser;
   getToken(): string;
@@ -38,15 +38,25 @@ export const AuthProvider: React.FC = ({ children }) => {
     return JSON.parse(userDecoded);
   }, [userToken]);
 
-  const signIn = useCallback(async (email, password) => {
-    const token = await APIService.login(email, password);
-    setUserToken(token);
-    const userRole = await getSession();
-    if (userRole) {
-      navigate(userRole.auth === 'USER' ? '/dashboard' : '/admin');
-    }
-    localStorage.setItem(TOKEN_KEY, token);
-  }, [getSession, navigate]);
+  const signIn = useCallback(
+    async (email, password) => {
+      try {
+        const token = await APIService.login(email, password);
+
+        setUserToken(token);
+        const userRole = jwt.decode(token) as DecodeUser;
+
+        if (userRole) {
+          navigate(userRole.auth === 'USER' ? '/dashboard' : '/admin');
+        }
+        localStorage.setItem(TOKEN_KEY, token);
+        return Promise.resolve();
+      } catch (err) {
+        return Promise.reject(err);
+      }
+    },
+    [navigate]
+  );
 
   const signOut = useCallback(() => {
     localStorage.removeItem(TOKEN_KEY);

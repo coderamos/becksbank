@@ -20,11 +20,10 @@ const Login: React.FC = () => {
     async ({ email, password }) => {
       try {
         setFetching(true);
-        signIn(email, password);
+        await signIn(email, password);
       } catch (err) {
         console.error('error on login', err);
         message.error('Erro ao realizar o login. Verifique seu usário e senha');
-      } finally {
         setFetching(false);
       }
     },
@@ -33,7 +32,7 @@ const Login: React.FC = () => {
 
   const onFinishFailed = useCallback(errorInfo => {
     console.log('FAILED:', errorInfo);
-  }, [signIn]);
+  }, []);
 
   return (
     <s.LoginContainer>
