@@ -41,14 +41,16 @@ export const AccountProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     getAccountByUser();
-  }, [getAccountByUser]);
+  }, []);
 
   const refreshAccount = () => {
     getAccountByUser();
   };
 
   return (
-    <AccountContext.Provider value={{ userAccountData, refreshAccount, getAllAccounts }}>
+    <AccountContext.Provider
+      value={{ userAccountData, refreshAccount, getAllAccounts }}
+    >
       {children}
     </AccountContext.Provider>
   );

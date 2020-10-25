@@ -41,6 +41,7 @@ const FormItem = ({
       name={name}
       rules={rules}
       validateTrigger={validateTrigger}
+      // required={true}
     >
       {children}
     </s.FormItem>

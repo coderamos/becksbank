@@ -2,6 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { Input } from 'antd';
+import MaskedInput from 'antd-mask-input';
+
 import { IdcardOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 
 export const inputStyle = css`
@@ -49,8 +51,9 @@ export const InputEmail = styled(Input).attrs({
   ${inputStyle};
 `;
 
-export const InputCpf = styled(Input).attrs({
-  suffix: <IdcardOutlined />
+export const InputCpf = styled(MaskedInput).attrs({
+  suffix: <IdcardOutlined />,
+  mask: '111.111.111-11'
 })`
   ${inputStyle};
 `;

@@ -23,7 +23,6 @@ const SignUp: React.FC = () => {
   const navigate = useNavigate();
 
   const onFinish = async values => {
-    console.log('SUCCESS:', values);
     const { name, email, password, document } = values;
     const user = new User(name, email, 'USER', document, password);
 
@@ -31,7 +30,7 @@ const SignUp: React.FC = () => {
       setFetching(true);
       await APIService.createUser(user);
       message.success('Conta criada com sucesso!');
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       console.error(error);
       message.error('Não foi possível criar a conta');
@@ -40,9 +39,9 @@ const SignUp: React.FC = () => {
     }
   };
 
-  const onFinishFailed = errorInfo => {
-    console.log('FAILED:', errorInfo);
-  };
+  // const onFinishFailed = errorInfo => {
+  //   console.log('FAILED:', errorInfo);
+  // };
 
   return (
     <s.SignUpContainer>
@@ -55,14 +54,14 @@ const SignUp: React.FC = () => {
             name="basic"
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
           >
             <FormItem
+              required
               label="Nome"
               name="name"
               validateTrigger="onBlur"
               rules={[
-                { required: true, message: 'input name cannot be empty!' }
+                { required: true, message: 'O campo Nome deve ser informado!' }
               ]}
             >
               <InputText />
@@ -73,13 +72,13 @@ const SignUp: React.FC = () => {
               name="document"
               validateTrigger="onBlur"
               rules={[
-                { required: true, message: 'cpf cannot be empty!' },
+                { required: true, message: 'O campo CPF deve ser informado!' },
                 () => ({
                   validator(rule, value) {
                     if (!value || Utils.validarCPF(value)) {
                       return Promise.resolve();
                     }
-                    return Promise.reject('Please type a valid CPF!');
+                    return Promise.reject('Por favor, informe um CPF válido!');
                   }
                 })
               ]}
@@ -92,8 +91,14 @@ const SignUp: React.FC = () => {
               name="email"
               validateTrigger="onBlur"
               rules={[
-                { required: true, message: 'email cannot be empty!' },
-                { type: 'email', message: 'Please type a valid email' }
+                {
+                  required: true,
+                  message: 'O campo E-mail deve ser informado!'
+                },
+                {
+                  type: 'email',
+                  message: 'Por favor, informe um E-mail válido!'
+                }
               ]}
             >
               <InputEmail />
@@ -104,7 +109,7 @@ const SignUp: React.FC = () => {
               name="password"
               validateTrigger="onBlur"
               rules={[
-                { required: true, message: 'input password cannot be empty!' }
+                { required: true, message: 'O campo Senha deve ser informado!' }
               ]}
             >
               <InputPassword />

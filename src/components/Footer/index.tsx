@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           <s.Column>
             <s.TitleColumn>Links</s.TitleColumn>
             <nav aria-labelledby="footer resources">
-              <Link to="/dashboard">
+              <Link to="/">
                 <a>início</a>
               </Link>
               <Link to="/transfers">

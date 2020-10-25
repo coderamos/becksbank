@@ -14,13 +14,9 @@ import UnauthorizedPage from 'pages/Unauthorized';
 
 const AppRoutes: React.FC = () => (
   <Routes>
-    <Route path="/" element={<Login />} />
+    <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
-    <ProtectedRoutes
-      path="/dashboard"
-      element={<Dashboard />}
-      roles={['USER']}
-    />
+    <ProtectedRoutes path="/" element={<Dashboard />} roles={['USER']} />
     <ProtectedRoutes path="/admin" element={<Admin />} roles={['ADMIN']} />
     <ProtectedRoutes path="/extract" element={<Extract />} roles={['USER']} />
     <ProtectedRoutes
@@ -48,7 +44,7 @@ const ProtectedRoutes = props => {
   if (isUserLogged && isAuthorized) {
     return <Route {...props} />;
   }
-  return <Navigate to={isUserLogged ? '/unauthorized' : '/'} />;
+  return <Navigate to={isUserLogged ? '/unauthorized' : '/login'} />;
 };
 
 export default AppRoutes;

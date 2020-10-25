@@ -88,7 +88,6 @@ const Dashboard: React.FC = () => {
   const handleActiveFeature = feature => setActiveFeature(feature);
 
   function confirmPayment(code: string) {
-    console.log('confomre', code);
     setShowPaymentModal(false);
     return Promise.resolve();
   }
