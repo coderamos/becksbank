@@ -22,8 +22,6 @@ const Transfers: React.FC = () => {
 
   const { getAllAccounts, userAccountData, refreshAccount } = useAccount();
 
-  console.log('userAccountData', userAccountData);
-
   useEffect(() => {
     const getContacts = async () => {
       const accounts = await getAllAccounts();

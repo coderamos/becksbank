@@ -2,6 +2,7 @@
 import User from 'repository/User';
 import Account from 'repository/Account';
 import Statement from 'repository/Statement';
+import PaymentSlip from 'repository/PaymentSlip';
 
 export default interface IAPIHandler {
   //   getUsers(): Promise<IUsers>;
@@ -27,5 +28,7 @@ export default interface IAPIHandler {
 
   depositBalance(accountCode: string, value: string): Promise<Account>;
 
-  makePayment(paymentSlipCode: string): Promise<void>;
+  makePayment(paymentSlipCode: string): Promise<any>;
+
+  getPaymentsByUser(userId: number): Promise<PaymentSlip[]>;
 }

@@ -2,6 +2,7 @@ import IAPIHandler from 'interfaces/IAPIHandler';
 import Account from 'repository/Account';
 import User from 'repository/User';
 import Statement from 'repository/Statement';
+import PaymentSlip from 'repository/PaymentSlip';
 
 import AxiosAdapter from './adapters/axios';
 
@@ -52,8 +53,12 @@ class APIService implements IAPIHandler {
     return this.apiAdapter.depositBalance(accountCode, value);
   }
 
-  makePayment(paymentSlipCode: string): Promise<void> {
+  makePayment(paymentSlipCode: string): Promise<any> {
     return this.apiAdapter.makePayment(paymentSlipCode);
+  }
+
+  getPaymentsByUser(userId: number): Promise<PaymentSlip[]> {
+    return this.apiAdapter.getPaymentsByUser(userId);
   }
 }
 

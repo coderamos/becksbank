@@ -6,7 +6,8 @@ export default class PaymentSlip {
     public value: number,
     public originUser: OriginUser,
     public destinationUser: DestinationUser,
-    public category: string
+    public category: string,
+    public paid: boolean
   ) {}
 }
 

@@ -5,6 +5,7 @@ import { getToken } from 'hooks/auth';
 
 import Account from 'repository/Account';
 import User from 'repository/User';
+import PaymentSlip from 'repository/PaymentSlip';
 import Statement, { Transaction } from 'repository/Statement';
 
 const BASE_URL = 'https://beertech-bank.herokuapp.com';
@@ -19,6 +20,9 @@ export type accountsResponse = {
 };
 type createUserResponse = {
   data: User;
+};
+type paymentsResponse = {
+  data: PaymentSlip[];
 };
 
 export default class AxiosAdapter implements IAPIHandler {
@@ -103,7 +107,16 @@ export default class AxiosAdapter implements IAPIHandler {
     return this.api.post(`/transactions/${accountCode}/deposit?value=${value}`);
   }
 
-  makePayment(paymentSlipCode: string): Promise<void> {
-    return this.api.post(`//payment-slips/code/${paymentSlipCode}`);
+  makePayment(paymentSlipCode: string): Promise<any> {
+    return this.api.post(`/payment-slips/code/${paymentSlipCode}`).then(res => {
+      console.log('res', res);
+      return res;
+    });
+  }
+
+  getPaymentsByUser(userId: number): Promise<PaymentSlip[]> {
+    return this.api
+      .get<null, paymentsResponse>(`/payment-slips/user/${userId}`)
+      .then(res => res.data);
   }
 }
