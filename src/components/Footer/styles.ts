@@ -6,16 +6,16 @@ import { UpperTitle } from 'components/Fonts';
 import logo from 'assets/images/logo.png';
 
 export const FooterContainer = styled.footer`
-  border: 4px solid blue;
   ${({ theme }) => css`
     height: 25vh;
     height: auto;
     background-color: ${theme.colors.white};
-    clip-path: polygon(0 25%, 100% 0%, 100% 100%, 0 100%);
+    clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0 100%);
+    padding-top: calc(${theme.spacings.xxlarge});
 
     ${media.greaterThan('medium')`
-      padding-top: calc(${theme.spacings.xxlarge} * 2);
       clip-path: polygon(0 25%, 100% 0%, 100% 100%, 0 100%);
+      padding-top: calc(${theme.spacings.xxlarge} * 2);
     `};
   `};
 `;

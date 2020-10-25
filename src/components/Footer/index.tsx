@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         <s.Content>
           <s.Column>
             <s.TitleColumn>TESTE</s.TitleColumn>
-            <a href="mailto:sac@becksbank">sac@becksbank</a>
+            <a href="mailto:sac@becksbank">sac@becksbank.com</a>
           </s.Column>
 
           <s.Column>
