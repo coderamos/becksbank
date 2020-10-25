@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Layout from 'components/Layout';
-import {CardWrapperRow, CardWrapperColumn} from 'components/CardWrapper';
+import { CardWrapperRow, CardWrapperColumn } from 'components/CardWrapper';
 import BalanceCard from 'components/BalanceCard';
 import PublicityCard from 'components/PublicityCard';
 import PaymentList from 'components/PaymentList';
@@ -9,7 +9,7 @@ import PaymentModal from 'components/Modal/PaymentModal';
 
 import PaymentSlip from 'repository/PaymentSlip';
 import APIService from 'services/api';
-import { useAccount } from 'hooks/account';
+import { useAuth } from 'hooks/auth';
 
 const Payments: React.FC = () => {
   const [payments, setPayments] = useState<PaymentSlip[]>([]);
@@ -17,15 +17,28 @@ const Payments: React.FC = () => {
   const [paymentSelected, setPaymentSelected] = useState<PaymentSlip>(
     {} as PaymentSlip
   );
-  const { userAccountData } = useAccount();
 
-  const getPayments = async (userId: number) => {
-    const allPayments = await APIService.getPaymentsByUser(userId);
+  const { getSession } = useAuth();
+
+  const getPayments = async () => {
+    const user = getSession();
+    const allPayments = await APIService.getPaymentsByUser(user.id);
+    allPayments.sort((paymentA, paymentB) => {
+      if (paymentA.paid) {
+        return 1;
+      }
+
+      if (paymentB.paid) {
+        return -1;
+      }
+
+      return 0;
+    });
     setPayments(allPayments);
   };
 
   useEffect(() => {
-    getPayments(userAccountData.userId);
+    getPayments();
   }, []);
 
   function showPaymentModal(payment: PaymentSlip) {
@@ -38,7 +51,8 @@ const Payments: React.FC = () => {
   }
 
   function confirmPayment() {
-    getPayments(userAccountData.userId);
+    getPayments();
+    hidePaymentModal();
   }
 
   return (

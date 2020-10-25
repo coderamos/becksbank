@@ -11,6 +11,7 @@ export class Transaction {
     public dateTime: string,
     public id: number,
     public typeOperation: string,
-    public valueTransaction: string
+    public valueTransaction: string,
+    public paymentCategory?: string
   ) {}
 }
