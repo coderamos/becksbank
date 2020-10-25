@@ -7,7 +7,7 @@ import logo from 'assets/images/logo.png';
 
 export const FooterContainer = styled.footer`
   ${({ theme }) => css`
-    height: 25vh;
+    width: 100%;
     height: auto;
     background-color: ${theme.colors.white};
     clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0 100%);
@@ -25,7 +25,7 @@ export const Content = styled.div`
     display: grid;
     gap: ${theme.grid.gutter};
     grid-template-columns: 1fr 1fr;
-    margin-top: ${theme.spacings.medium};
+
     ${media.greaterThan('medium')`
       grid-template-columns: repeat(4, 1fr);
     `}
