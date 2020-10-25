@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 const fontBase = css`
   ${({ theme }) => css`
@@ -11,7 +12,10 @@ const fontBase = css`
 export const Text = styled.p`
   ${({ theme }) => css`
     ${fontBase};
-    font-size: ${theme.font.sizes.medium};
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.large};
+    `}
   `}
 `;
 
@@ -25,6 +29,7 @@ export const Description = styled(Text)`
 export const Title = styled.h2`
   ${({ theme }) => css`
     ${fontBase};
+
     font-size: ${theme.font.sizes.large};
   `}
 `;
@@ -32,7 +37,12 @@ export const Title = styled.h2`
 export const BigTitle = styled.h1`
   ${({ theme }) => css`
     ${fontBase};
-    font-size: ${theme.font.sizes.xxxlarge};
+    font-size: ${theme.font.sizes.xlarge};
+    line-height: 1;
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.xxxlarge};
+    `}
   `}
 `;
 
