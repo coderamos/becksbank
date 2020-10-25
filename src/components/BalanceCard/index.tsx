@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import { Link } from 'react-router-dom';
 
 import Card from 'components/Card';
@@ -17,9 +17,11 @@ const BalanceCard: React.FC = () => {
     <Card>
       <s.CardContent>
         <Font.Description>Saldo disponível</Font.Description>
-        <Font.BigTitle>
-          {Utils.formatMoney(userAccountData.balance)}
-        </Font.BigTitle>
+        <s.BalanceWrapper>
+          <s.BalanceImage />
+          <Font.BigTitle>{Utils.formatMoney(userAccountData.balance)}</Font.BigTitle>
+        </s.BalanceWrapper>
+
         <s.WrapperButton>
           <Link to="/extract">
             <Button outlined>SALDO DETALHADO</Button>
@@ -30,4 +32,4 @@ const BalanceCard: React.FC = () => {
   );
 };
 
-export default BalanceCard;
+export default memo(BalanceCard);
