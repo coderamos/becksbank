@@ -30,10 +30,6 @@ const Login: React.FC = () => {
     [signIn]
   );
 
-  // const onFinishFailed = useCallback(errorInfo => {
-  //   console.log('FAILED:', errorInfo);
-  // }, []);
-
   return (
     <s.LoginContainer>
       <SideContent />
@@ -45,9 +41,7 @@ const Login: React.FC = () => {
             initialValues={{ remember: true }}
             onFinish={handleSubmit}
           >
-            <s.FormTitle>
-              <span>Entrar</span>
-            </s.FormTitle>
+            <s.FormTitle>Entrar</s.FormTitle>
             <FormItem
               label="E-mail"
               name="email"

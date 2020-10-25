@@ -9,7 +9,7 @@ export const SideImageContainer = styled.div`
   background: no-repeat url(${loginSide});
   background-size: cover;
 
-  ${media.lessThan('huge')`
+  ${media.lessThan('large')`
     display: none;
   `}
 `;
