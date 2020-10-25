@@ -1,14 +1,18 @@
 import React from 'react';
-import {Title, Description} from '../Fonts';
+import { Title, Description } from '../Fonts';
 
 import * as s from './styles';
 
 type ListProps = {
-  title: string;
+  title: string | React.ReactElement;
   description: string;
-}
+};
 
-const ListItemAction: React.FC<ListProps> = ({title, description, children}) => {
+const ListItemAction: React.FC<ListProps> = ({
+  title,
+  description,
+  children
+}) => {
   return (
     <s.ListItemContainer>
       <s.ListItemData>
@@ -17,7 +21,7 @@ const ListItemAction: React.FC<ListProps> = ({title, description, children}) => 
       </s.ListItemData>
       {children}
     </s.ListItemContainer>
-  )
-}
+  );
+};
 
 export default ListItemAction;

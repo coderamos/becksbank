@@ -32,7 +32,7 @@ const Utils = {
     return true;
   },
 
-  formatMoney: (amount) => {
+  formatMoney: amount => {
     const decimalCount = 2;
     const decimal = ',';
     const thousands = '.';
@@ -50,14 +50,14 @@ const Utils = {
       }
     }
 
-    if (amountFormat > 0) {
-      amountFormat = amountFormat.toFixed(decimalCount);
-      amountFormat = amountFormat.replace('.', decimal);
-      amountFormat = amountFormat.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
-      amountFormat = currencyPattern + amountFormat;
-      return amountFormat;
-    }
-    return 'R$ 0,00';
+    // if (amountFormat > 0) {
+    amountFormat = amountFormat.toFixed(decimalCount);
+    amountFormat = amountFormat.replace('.', decimal);
+    amountFormat = amountFormat.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
+    amountFormat = currencyPattern + amountFormat;
+    return amountFormat;
+    // }
+    // return 'R$ 0,00';
   }
 };
 

@@ -6,8 +6,7 @@ import PaymentModal from 'components/Modal/PaymentModal';
 
 import PaymentSlip from 'repository/PaymentSlip';
 import APIService from 'services/api';
-
-import * as s from './styles';
+import { useAuth } from 'hooks/auth';
 
 const Payments: React.FC = () => {
   const [payments, setPayments] = useState<PaymentSlip[]>([]);
@@ -16,8 +15,22 @@ const Payments: React.FC = () => {
     {} as PaymentSlip
   );
 
+  const { getSession } = useAuth();
+
   const getPayments = async () => {
-    const allPayments = await APIService.getPaymentsByUser(78);
+    const user = getSession();
+    const allPayments = await APIService.getPaymentsByUser(user.id);
+    allPayments.sort((paymentA, paymentB) => {
+      if (paymentA.paid) {
+        return 1;
+      }
+
+      if (paymentB.paid) {
+        return -1;
+      }
+
+      return 0;
+    });
     setPayments(allPayments);
   };
 
@@ -35,8 +48,8 @@ const Payments: React.FC = () => {
   }
 
   function confirmPayment() {
-    console.log('confirmou PAGAMENTOS');
     getPayments();
+    hidePaymentModal();
   }
 
   return (
