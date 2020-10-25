@@ -13,6 +13,6 @@ export const headerLinks = [
   },
   {
     title: 'Extrato',
-    link: '/extracts'
+    link: '/extract'
   }
 ];
