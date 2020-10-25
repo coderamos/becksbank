@@ -6,7 +6,7 @@ import { ButtonHTMLType } from 'antd/lib/button/button';
 import * as s from './styles';
 
 export type ButtonTypes = {
-  outlined?: boolean;
+  outlined?: boolean | string;
   htmlType?: ButtonHTMLType;
   onClick?: () => void;
 } & ButtonProps;
@@ -20,7 +20,7 @@ const Button: React.FC<ButtonTypes> = ({
 }) => {
   return (
     <s.Button
-      outlined={outlined}
+      outlined={outlined ? 'true' : 'false'}
       htmlType={htmlType}
       onClick={onClick}
       loading={loading}

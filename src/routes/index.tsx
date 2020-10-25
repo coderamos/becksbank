@@ -36,7 +36,7 @@ const AppRoutes: React.FC = () => (
 const ProtectedRoutes = props => {
   const { getSession } = useAuth();
 
-  const isAdmin = getSession()?.auth == 'ADMIN';
+  const isAdmin = getSession()?.auth === 'ADMIN';
 
   const isUserLogged = () => {
     const session = getSession();

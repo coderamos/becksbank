@@ -15,7 +15,6 @@ const GlobalStyles: GlobalStyleComponent<
   GlobalStylesProps,
   DefaultTheme
 > = createGlobalStyle`
-  /* @import '~antd/dist/antd.css'; */
 
   @font-face {
     font-family: 'Poppins';
