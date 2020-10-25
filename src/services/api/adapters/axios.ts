@@ -88,7 +88,7 @@ export default class AxiosAdapter implements IAPIHandler {
   transferBalance(
     accountCode: string,
     destinationAccountCode: string,
-    value: number
+    value: string
   ): Promise<Account> {
     return this.api.post<null, Account>(
       `/transactions/${accountCode}/transfer`,
@@ -99,7 +99,11 @@ export default class AxiosAdapter implements IAPIHandler {
     );
   }
 
-  depositBalance(accountCode: string, value: number): Promise<Account> {
+  depositBalance(accountCode: string, value: string): Promise<Account> {
     return this.api.post(`/transactions/${accountCode}/deposit?value=${value}`);
+  }
+
+  makePayment(paymentSlipCode: string): Promise<void> {
+    return this.api.post(`//payment-slips/code/${paymentSlipCode}`);
   }
 }

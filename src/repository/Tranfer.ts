@@ -1,3 +1,3 @@
 export default class Tranfer {
-  constructor(public accountCode: string, public value: number) {}
+  constructor(public accountCode: string, public value: string) {}
 }

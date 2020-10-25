@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import * as s from './styles';
+import * as Font from 'components/Fonts';
+import Button from 'components/Button';
 
-import { InputText } from 'components/Input';
-import { Form, FormItem } from 'components/Form';
 import Account from 'repository/Account';
 
 type DepositModalProps = {
   onCancel(): void;
-  onConfirm: (accountCode: string, value: number) => void;
+  onConfirm: (accountCode: string, value: string) => Promise<void>;
   visible: boolean;
   account: Account;
   loading: boolean;
+  title: string;
 };
 
 const DepositModal: React.FC<DepositModalProps> = ({
@@ -19,45 +20,45 @@ const DepositModal: React.FC<DepositModalProps> = ({
   onConfirm,
   visible,
   account,
-  loading
+  title
 }) => {
-  async function deposit({ value }) {
-    onConfirm(account.code, value);
+  const [value, setValue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const userName = account ? account.user.name : '';
+
+  async function deposit() {
+    setLoading(true);
+    onConfirm(account.code, value)
+      .then(() => {
+        setValue('');
+      })
+      .finally(() => setLoading(false));
+  }
+
+  function handleChangeValue(event: React.ChangeEvent<HTMLInputElement>) {
+    setValue(event.target.value);
   }
 
   return (
     <s.Modal footer={null} visible={visible} onCancel={onCancel}>
-      <span>Depositar para: </span>
-      <s.UserContent>
-        <s.UserIcon />
-        {account ? account.user.name : ''}
-      </s.UserContent>
-      <s.SectionForm>
-        <Form onFinish={deposit}>
-          <FormItem
-            label="Digite o valor"
-            name="value"
-            validateTrigger="onBlur"
-            rules={[
-              { required: true, message: 'input value cannot be empty!' }
-            ]}
-          >
-            <InputText />
-          </FormItem>
-          <s.ButtonGroup>
-            <s.ButtonWrapper>
-              <s.CancelButton outlined onClick={onCancel}>
-                Cancelar
-              </s.CancelButton>
-            </s.ButtonWrapper>
-            <s.ButtonWrapper>
-              <s.ConfirmButton loading={loading} htmlType="submit">
-                Confirmar
-              </s.ConfirmButton>
-            </s.ButtonWrapper>
-          </s.ButtonGroup>
-        </Form>
-      </s.SectionForm>
+      <Font.Description>{title}</Font.Description>
+      <s.Content>
+        <s.Title>{userName}</s.Title>
+        <Font.Description>Digite o valor</Font.Description>
+        <s.InputValue value={value} onChange={handleChangeValue} />
+        <s.ButtonGroup>
+          <s.ButtonWrapper>
+            <Button loading={loading} onClick={deposit}>
+              CONFIRMAR
+            </Button>
+          </s.ButtonWrapper>
+          <s.ButtonWrapper>
+            <Button outlined onClick={onCancel}>
+              CANCELAR
+            </Button>
+          </s.ButtonWrapper>
+        </s.ButtonGroup>
+      </s.Content>
     </s.Modal>
   );
 };

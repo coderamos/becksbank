@@ -22,8 +22,10 @@ export default interface IAPIHandler {
   transferBalance(
     accountCode: string,
     destinationAccountCode: string,
-    value: number
+    value: string
   ): Promise<Account>;
 
-  depositBalance(accountCode: string, value: number): Promise<Account>;
+  depositBalance(accountCode: string, value: string): Promise<Account>;
+
+  makePayment(paymentSlipCode: string): Promise<void>;
 }

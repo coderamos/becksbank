@@ -72,15 +72,18 @@ const Admin: React.FC = () => {
     getAllAccounts();
   }, []);
 
-  async function confirmDeposit(accountCode: string, value: number) {
+  async function confirmDeposit(accountCode: string, value: string) {
     try {
       setFetchingDeposit(true);
       await APIService.depositBalance(accountCode, value);
       setShowDepositModal(false);
-      // Não precisa fazer outra request, o ideal seria alterar apenas com a resposta de sucesso
+
       getAllAccounts();
+
+      return Promise.resolve();
     } catch (err) {
       message.error('Não foi possível realizar o depósito');
+      return Promise.reject();
     } finally {
       setFetchingDeposit(false);
     }
@@ -101,6 +104,7 @@ const Admin: React.FC = () => {
           columns={columns}
         />
         <DepositModal
+          title="Depósito"
           visible={showDepositModal}
           onConfirm={confirmDeposit}
           onCancel={cancelDeposit}
@@ -110,6 +114,6 @@ const Admin: React.FC = () => {
       </s.AdminContainer>
     </Layout>
   );
-}
+};
 
 export default Admin;
