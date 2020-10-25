@@ -17,6 +17,7 @@ const Extract: React.FC = () => {
   useEffect(() => {
     const getExtracts = async () => {
       const allExtracts = await APIService.getStatements(userAccountData.code);
+      allExtracts.accountStatements.reverse();
       setAccountStatements(allExtracts.accountStatements);
     };
 

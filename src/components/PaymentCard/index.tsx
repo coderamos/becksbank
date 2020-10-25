@@ -27,21 +27,32 @@ const Payment: React.FC<PaymentProps> = ({ payment, onClickPay }) => {
   return (
     <Card>
       <Font.Description>Última cobrança</Font.Description>
-      <s.PaymentContent>
-        <Font.Title>{title}</Font.Title>
-        <Font.Description>{payment.code}</Font.Description>
-        <Font.Text>{Utils.formatMoney(payment.value)}</Font.Text>
-      </s.PaymentContent>
-      <s.ButtonGroup>
-        <s.ButtonWrapper>
-          <Button onClick={onPay}>PAGAR</Button>
-        </s.ButtonWrapper>
-        <s.ButtonWrapper>
-          <Link to="/payments">
-            <Button outlined>LISTAR TUDO</Button>
-          </Link>
-        </s.ButtonWrapper>
-      </s.ButtonGroup>
+      {payment.id ? (
+        <>
+          <s.PaymentContent>
+            <Font.Title>{title}</Font.Title>
+            <Font.Description>{payment.code}</Font.Description>
+            <Font.Text>{Utils.formatMoney(payment.value)}</Font.Text>
+          </s.PaymentContent>
+          <s.ButtonGroup>
+            <s.ButtonWrapper>
+              <Button onClick={onPay}>PAGAR</Button>
+            </s.ButtonWrapper>
+            <s.ButtonWrapper>
+              <Link to="/payments">
+                <Button outlined>LISTAR TUDO</Button>
+              </Link>
+            </s.ButtonWrapper>
+          </s.ButtonGroup>
+        </>
+      ) : (
+        <s.NotPayments>
+          <s.Image />
+          <s.Message>
+            Você não possui pagamentos pendentes. Aproveite e faça um churrasco!
+          </s.Message>
+        </s.NotPayments>
+      )}
     </Card>
   );
 };

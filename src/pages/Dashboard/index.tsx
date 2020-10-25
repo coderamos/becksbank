@@ -11,7 +11,6 @@ import { CardWrapperColumn, CardWrapperRow } from 'components/CardWrapper';
 import APIService from 'services/api';
 import { useAuth } from 'hooks/auth';
 import { useAccount } from 'hooks/account';
-import TransferDTO from 'repository/Tranfer';
 
 import { Transaction } from 'repository/Statement';
 import PaymentSlip from 'repository/PaymentSlip';
@@ -28,62 +27,46 @@ const Dashboard: React.FC = () => {
   const { getSession } = useAuth();
   const user = getSession();
 
-  async function confirmTransfer(values: TransferDTO) {
+  const getAllPayments = async (userId: number) => {
+    const allPayments = await APIService.getPaymentsByUser(userId);
+    const paymentsFiltered = allPayments.filter(payment => !payment.paid);
+
+    const payment = paymentsFiltered.length
+      ? paymentsFiltered[0]
+      : ({} as PaymentSlip);
+
+    setLastPayment(payment);
+  };
+
+  const getUserStatements = async (accountCode: string) => {
     try {
-      const { accountCode, value } = values;
-      await APIService.transferBalance(
-        userAccountData.code,
-        accountCode,
-        value
-      );
-      message.success('Transferência realizada com sucesso');
-      refreshAccount();
-      return Promise.resolve('ok');
+      const { accountStatements } = await APIService.getStatements(accountCode);
+
+      accountStatements.reverse();
+      setStatements(accountStatements.slice(0, 3));
     } catch (err) {
-      message.error('Não foi possível fazer a transferência');
-      return Promise.reject('error');
+      console.error(err);
     }
-  }
+  };
 
   useEffect(() => {
-    if (!userAccountData.code) {
-      return;
-    }
-
-    const getUserStatements = async () => {
-      try {
-        const { accountStatements } = await APIService.getStatements(
-          userAccountData.code
-        );
-
-        setStatements(accountStatements.slice(0, 3));
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    getUserStatements();
-  }, [getSession, userAccountData.code]);
-
-  useEffect(() => {
-    const getAllPayments = async () => {
-      const allPayments = await APIService.getPaymentsByUser(user.id);
-      const paymentsFiltered = allPayments.filter(payment => !payment.paid);
-
-      if (paymentsFiltered.length) {
-        setLastPayment(paymentsFiltered[0]);
-      }
-    };
-    getAllPayments();
-  }, [user.id]);
+    getAllPayments(user.id);
+    getUserStatements(userAccountData.code);
+  }, [user.id, userAccountData.code]);
 
   function confirmPayment(code: string) {
     setShowPaymentModal(false);
-    return Promise.resolve();
+    getUserStatements(userAccountData.code);
+    getAllPayments(user.id);
+    refreshAccount();
   }
 
   function hidePaymentModal() {
     setShowPaymentModal(false);
+  }
+
+  function viewPaymentModal() {
+    setShowPaymentModal(true);
   }
 
   return (
@@ -91,10 +74,7 @@ const Dashboard: React.FC = () => {
       <CardWrapperRow>
         <CardWrapperColumn>
           <BalanceCard />
-          <PaymentCard
-            payment={lastPayment}
-            onClickPay={code => setShowPaymentModal(true)}
-          />
+          <PaymentCard payment={lastPayment} onClickPay={viewPaymentModal} />
         </CardWrapperColumn>
         <CardWrapperColumn>
           <BalanceCard />
