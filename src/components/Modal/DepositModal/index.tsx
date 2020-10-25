@@ -5,6 +5,7 @@ import Button from 'components/Button';
 
 import * as Font from 'components/Fonts';
 import * as s from './styles';
+import InputCurrency from 'components/InputCurrency';
 
 type DepositModalProps = {
   onCancel(): void;
@@ -49,6 +50,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
           onChange={handleChangeValue}
           placeholder="Digite o valor"
         />
+        <InputCurrency />
         <s.ButtonGroup>
           <s.ButtonWrapper>
             <Button loading={loading} onClick={deposit}>

@@ -13,8 +13,7 @@ import { useAccount } from 'hooks/account';
 import TransferDTO from 'repository/Tranfer';
 
 import * as s from './styles';
-import { Table, message } from 'antd';
-import Utils from 'utils/Utils';
+import { message } from 'antd';
 
 const mockPayment = {
   id: 89,
@@ -102,7 +101,7 @@ const Dashboard: React.FC = () => {
     <Layout>
       <CardWrapperRow>
         <CardWrapperColumn>
-          <BalanceCard value={Utils.formatMoney(userAccountData.balance)} />
+          <BalanceCard />
 
           <PaymentCard
             title="Boleto Banco do Brasil"
@@ -132,7 +131,7 @@ const Dashboard: React.FC = () => {
         </CardWrapperColumn>
 
         <CardWrapperColumn>
-          <BalanceCard value={Utils.formatMoney(userAccountData.balance)} />
+          <BalanceCard />
 
           <PaymentCard
             title="Boleto Banco do Brasil"
