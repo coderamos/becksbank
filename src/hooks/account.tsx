@@ -25,6 +25,7 @@ export const AccountProvider: React.FC = ({ children }) => {
 
   const { getSession } = useAuth();
   const user = getSession();
+  const userId = user ? user.id : null;
 
   const getAccountByUser = useCallback(async () => {
     if (!user) {
@@ -41,7 +42,7 @@ export const AccountProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     getAccountByUser();
-  }, []);
+  }, [userId]);
 
   const refreshAccount = () => {
     getAccountByUser();
