@@ -1,4 +1,4 @@
-export default class Payment {
+export default class PaymentSlip {
   constructor(
     public id: number,
     public code: string,

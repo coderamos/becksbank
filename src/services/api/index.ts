@@ -39,7 +39,7 @@ class APIService implements IAPIHandler {
   transferBalance(
     accountCode: string,
     destinationAccountCode: string,
-    value: number
+    value: string
   ): Promise<Account> {
     return this.apiAdapter.transferBalance(
       accountCode,
@@ -48,8 +48,12 @@ class APIService implements IAPIHandler {
     );
   }
 
-  depositBalance(accountCode: string, value: number): Promise<Account> {
+  depositBalance(accountCode: string, value: string): Promise<Account> {
     return this.apiAdapter.depositBalance(accountCode, value);
+  }
+
+  makePayment(paymentSlipCode: string): Promise<void> {
+    return this.apiAdapter.makePayment(paymentSlipCode);
   }
 }
 

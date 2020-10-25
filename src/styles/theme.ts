@@ -20,7 +20,7 @@ export default {
       large: '1.8rem',
       xlarge: '2.4rem',
       xxlarge: '3rem',
-      xxxlarge: '5rem'
+      xxxlarge: '4.5rem'
     }
   },
   colors: {
