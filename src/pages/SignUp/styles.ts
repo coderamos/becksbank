@@ -19,12 +19,13 @@ export const SignUpContainer = styled.div`
 `;
 
 export const SignupContent = styled.div`
+  width: 100%;
   display: flex;
-  height: 100vh;
   align-items: center;
-  display: flex;
-  justify-content: center;
-  flex: 5;
+
+  ${media.greaterThan('large')`
+    width: 50%;
+  `}
 `;
 
 export const Content = styled.div`
@@ -37,8 +38,8 @@ export const Content = styled.div`
     padding: 0 ${theme.spacings.small};
     width: 100%;
 
-    ${media.greaterThan('medium')`
-      padding: 0 calc(${theme.spacings.xxlarge} * 4);
+    ${media.greaterThan('large')`
+      padding: 0 calc(${theme.spacings.xxlarge} * 2);
     `}
   `}
 `;
@@ -47,8 +48,11 @@ export const Logo = styled.img.attrs({
   src: logo
 })`
   ${({ theme }) => css`
-    height: 80px;
+    height: 8rem;
     margin-bottom: ${theme.spacings.xxlarge};
+    ${media.greaterThan('medium')`
+      padding: 0 calc(${theme.spacings.xxlarge} * 4);
+    `}
   `}
 `;
 

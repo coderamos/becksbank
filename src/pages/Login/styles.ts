@@ -12,31 +12,22 @@ import logo from 'assets/images/logo.png';
 export const LoginContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
+    background-color: ${theme.colors.white};
     flex-direction: row;
     height: 100vh;
-    background-color: ${theme.colors.white};
   `}
 `;
 
 export const LoginContent = styled.div`
-  display: flex;
-  height: 100vh;
   align-items: center;
   display: flex;
+  display: flex;
+  height: 100vh;
   justify-content: center;
-  flex: 5;
-`;
+  width: 100%;
 
-export const FormTitle = styled.div`
-  ${({ theme }) => css`
-    align-items: center;
-    display: flex;
-    border-left: 10px solid ${theme.colors.germanYellow};
-    font-size: ${theme.font.sizes.xlarge};
-    font-weight: ${theme.font.bolder};
-    margin: ${theme.spacings.small} 0;
-    padding: ${theme.spacings.xsmall};
-    height: 28px;
+  ${media.greaterThan('large')`
+    width: 50%;
   `}
 `;
 
@@ -47,12 +38,25 @@ export const Content = styled.div`
     flex-direction: column;
     height: 100vh;
     justify-content: center;
+    padding: 0 ${theme.spacings.small};
     width: 100%;
-    padding: 0 calc(${theme.spacings.small});
 
-    ${media.greaterThan('medium')`
-      padding: 0 calc(${theme.spacings.xxlarge} * 4);
+    ${media.greaterThan('large')`
+      padding: 0 calc(${theme.spacings.xxlarge} * 2);
     `}
+  `}
+`;
+
+export const FormTitle = styled.h2`
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    border-left: 10px solid ${theme.colors.germanYellow};
+    font-size: ${theme.font.sizes.xlarge};
+    font-weight: ${theme.font.bolder};
+    margin: ${theme.spacings.small} 0;
+    padding: ${theme.spacings.xsmall};
+    height: 28px;
   `}
 `;
 

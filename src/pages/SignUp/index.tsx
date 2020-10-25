@@ -39,10 +39,6 @@ const SignUp: React.FC = () => {
     }
   };
 
-  // const onFinishFailed = errorInfo => {
-  //   console.log('FAILED:', errorInfo);
-  // };
-
   return (
     <s.SignUpContainer>
       <SideContent />
