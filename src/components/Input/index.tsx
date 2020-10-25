@@ -9,7 +9,7 @@ import { IdcardOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 export const inputStyle = css`
   ${({ theme }) => css`
     border-radius: ${theme.border.radius};
-    border: 2px solid ${theme.colors.greenHigh};
+    border: 2px solid ${theme.colors.black};
     height: ${theme.spacings.xxlarge};
 
     .ant-input {
@@ -21,6 +21,16 @@ export const inputStyle = css`
         font-weight: ${theme.font.normal};
         opacity: 0.5;
       }
+    }
+
+    .ant-input-number-input-wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .ant-input-number-handler-wrap {
+      display: none!important;
     }
 
     &:hover {
@@ -35,6 +45,10 @@ export const inputStyle = css`
       &:active {
         color: ${theme.colors.greenLight};
       }
+    }
+
+    span {
+      margin: 0;
     }
   `}
 `;

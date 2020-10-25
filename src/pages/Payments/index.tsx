@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import Layout from 'components/Layout';
+import { CardWrapperRow, CardWrapperColumn } from 'components/CardWrapper';
+import BalanceCard from 'components/BalanceCard';
+import PublicityCard from 'components/PublicityCard';
 import PaymentList from 'components/PaymentList';
 import PaymentModal from 'components/Modal/PaymentModal';
 
@@ -54,10 +57,17 @@ const Payments: React.FC = () => {
 
   return (
     <Layout>
-      <PaymentList
-        payments={payments}
-        onClick={payment => showPaymentModal(payment)}
-      />
+      <CardWrapperRow>
+        <PaymentList
+          payments={payments}
+          onClick={payment => showPaymentModal(payment)}
+        />
+        <CardWrapperColumn>
+          <BalanceCard />
+          <PublicityCard />
+        </CardWrapperColumn>
+      </CardWrapperRow>
+
       <PaymentModal
         onCancel={hidePaymentModal}
         onConfirm={confirmPayment}

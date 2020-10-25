@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
+
 import { Link } from 'react-router-dom';
 import { UserOutlined as UserOutlinedIcon } from '@ant-design/icons';
 
@@ -17,29 +19,40 @@ export const SignUpContainer = styled.div`
 `;
 
 export const SignupContent = styled.div`
+  width: 100%;
   display: flex;
-  height: 100vh;
   align-items: center;
-  display: flex;
-  justify-content: center;
-  flex: 5;
+
+  ${media.greaterThan('large')`
+    width: 50%;
+  `}
 `;
 
 export const Content = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  width: 40rem;
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: 0 ${theme.spacings.small};
+    width: 100%;
+
+    ${media.greaterThan('large')`
+      padding: 0 calc(${theme.spacings.xxlarge} * 2);
+    `}
+  `}
 `;
 
 export const Logo = styled.img.attrs({
   src: logo
 })`
   ${({ theme }) => css`
-    height: 80px;
+    height: 8rem;
     margin-bottom: ${theme.spacings.xxlarge};
+    ${media.greaterThan('medium')`
+      padding: 0 calc(${theme.spacings.xxlarge} * 4);
+    `}
   `}
 `;
 

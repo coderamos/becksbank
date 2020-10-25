@@ -9,6 +9,7 @@ export const FooterContainer = styled.footer`
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
     clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0 100%);
+    margin-top: calc(${theme.spacings.xxlarge});
     padding-top: calc(${theme.spacings.xxlarge});
 
     ${media.greaterThan('medium')`

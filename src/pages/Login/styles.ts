@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
+
 import { Link } from 'react-router-dom';
 import {
   UserOutlined as UserOutlinedIcon,
@@ -10,22 +12,42 @@ import logo from 'assets/images/logo.png';
 export const LoginContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
+    background-color: ${theme.colors.white};
     flex-direction: row;
     height: 100vh;
-    background-color: ${theme.colors.white};
   `}
 `;
 
 export const LoginContent = styled.div`
-  display: flex;
-  height: 100vh;
   align-items: center;
   display: flex;
+  display: flex;
+  height: 100vh;
   justify-content: center;
-  flex: 5;
+  width: 100%;
+
+  ${media.greaterThan('large')`
+    width: 50%;
+  `}
 `;
 
-export const FormTitle = styled.div`
+export const Content = styled.div`
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    padding: 0 ${theme.spacings.small};
+    width: 100%;
+
+    ${media.greaterThan('large')`
+      padding: 0 calc(${theme.spacings.xxlarge} * 2);
+    `}
+  `}
+`;
+
+export const FormTitle = styled.h2`
   ${({ theme }) => css`
     align-items: center;
     display: flex;
@@ -36,15 +58,6 @@ export const FormTitle = styled.div`
     padding: ${theme.spacings.xsmall};
     height: 28px;
   `}
-`;
-
-export const Content = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  width: 40rem;
 `;
 
 export const Logo = styled.img.attrs({

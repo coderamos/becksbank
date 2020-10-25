@@ -5,6 +5,9 @@ import {Text} from 'components/Fonts';
 import logoPix from 'assets/images/pix-bc-logo.png';
 
 export const CardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
 `;
 
