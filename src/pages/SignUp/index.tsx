@@ -124,7 +124,7 @@ const SignUp: React.FC = () => {
 
           <s.CreateAccountMessage>
             já possui uma conta?&ensp;
-            <s.CreateAccountMessageLink to="/">
+            <s.CreateAccountMessageLink to="/login">
               entrar
             </s.CreateAccountMessageLink>
           </s.CreateAccountMessage>

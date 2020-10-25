@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ userName, logout }) => {
           <s.UserName>{`Olá, ${userName}`}</s.UserName>
           <s.Divisor />
           <s.LogoutButton onClick={logout}>
-            <LogoutOutlined />
+            <LogoutOutlined title="Sair" />
           </s.LogoutButton>
         </s.UserInfoWrapper>
       </s.HeaderContainer>
