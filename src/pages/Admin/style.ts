@@ -9,7 +9,6 @@ export const AdminContainer = styled.main`
     display: flex;
     flex-direction: column;
     height: 100vh;
-    padding: ${theme.spacings.xxlarge};
   `}
 `;
 
@@ -17,6 +16,4 @@ export const Table = styled(TableAntd)`
   width: 100%;
 `;
 
-export const DepositButton = styled(Button)`
-  width: 100px;
-`;
+export const DepositButton = styled(Button)``;

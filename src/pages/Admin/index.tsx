@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { message } from 'antd';
 
-import * as s from './style';
-
 import APIService from 'services/api';
 import Account from 'repository/Account';
 
 import DepositModal from 'components/Modal/DepositModal';
 import Layout from 'components/Layout';
+
+import * as s from './style';
 
 const Admin: React.FC = () => {
   const [allAccounts, setAccounts] = useState<Account[]>([]);

@@ -1,4 +1,4 @@
-export const headerLinks = [
+export const userHeaderLinks = [
   {
     title: 'Início',
     link: '/'
@@ -14,5 +14,12 @@ export const headerLinks = [
   {
     title: 'Extrato',
     link: '/extract'
+  }
+];
+
+export const adminHeaderLinks = [
+  {
+    title: 'Início',
+    link: '/'
   }
 ];

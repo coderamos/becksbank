@@ -23,7 +23,7 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: grid;
     gap: ${theme.grid.gutter};
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
 
     ${media.greaterThan('medium')`
       grid-template-columns: repeat(4, 1fr);
@@ -48,6 +48,12 @@ export const TitleColumn = styled(UpperTitle)`
   ${({ theme }) => css`
     color: ${theme.colors.greenHigh};
     font-weight: 700;
+    text-align: left;
+
+    ${media.greaterThan('small')`
+      border-bottom: 4px solid ${theme.colors.black};
+      margin-bottom: ${theme.spacings.xxsmall};
+    `}
   `}
 `;
 
@@ -55,6 +61,8 @@ export const Column = styled.div`
   ${({ theme }) => css`
     a,
     span {
+      text-align: left;
+
       display: block;
       color: ${theme.colors.greenHigh};
       text-decoration: none;
