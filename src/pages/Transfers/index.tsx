@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { message } from 'antd';
 
 import Layout from 'components/Layout';
-import {CardWrapperRow, CardWrapperColumn} from 'components/CardWrapper';
+import { CardWrapperRow, CardWrapperColumn } from 'components/CardWrapper';
 import CardTransfer from 'components/CardTransfer';
 import BalanceCard from 'components/BalanceCard';
-import DepositModal from 'components/Modal/DepositModal';
+import TransactionModal from 'components/Modal/TransactiontModal';
 
 import { useAccount } from 'hooks/account';
 import Account from 'repository/Account';
@@ -68,7 +68,7 @@ const Transfers: React.FC = () => {
           <BalanceCard />
         </CardWrapperColumn>
       </CardWrapperRow>
-      <DepositModal
+      <TransactionModal
         title="Transferência"
         account={accountSelected}
         loading={false}

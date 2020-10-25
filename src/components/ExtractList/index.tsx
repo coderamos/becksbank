@@ -1,5 +1,5 @@
 import React from 'react';
-import {format, parseISO} from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 import Card from '../Card';
 import * as Font from '../Fonts';
@@ -10,7 +10,7 @@ import Utils from 'utils/Utils';
 
 import * as s from './styles';
 
-type ContactProps = {
+type ExtractProps = {
   extracts: Transaction[];
 };
 
@@ -31,7 +31,7 @@ const getTitleFormat = ({ valueTransaction, dateTime }: Transaction) => {
   );
 };
 
-const CardTransfer: React.FC<ContactProps> = ({ extracts }) => {
+const CardTransfer: React.FC<ExtractProps> = ({ extracts }) => {
   return (
     <Card>
       <Font.Description>Extratos</Font.Description>
