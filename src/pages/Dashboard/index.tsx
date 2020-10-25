@@ -5,6 +5,7 @@ import PaymentCard from 'components/PaymentCard';
 import BalanceCard from 'components/BalanceCard';
 import PaymentModal from 'components/Modal/PaymentModal';
 import DepositModal from 'components/Modal/DepositModal';
+import { CardWrapperColumn, CardWrapperRow } from 'components/CardWrapper';
 
 import APIService from 'services/api';
 import { useAuth } from 'hooks/auth';
@@ -98,41 +99,73 @@ const Dashboard: React.FC = () => {
 
   return (
     <Layout>
-      <div style={{ width: '50%' }}>
-        <BalanceCard value="23.456,99" />
-      </div>
-      <div style={{ width: '50%' }}>
-        <PaymentCard
-          title="Boleto Banco do Brasil"
-          code="3743453745687618381231872y178y1w1278178182"
-          value="R$ 1.678,90"
-          onClickPay={code => setShowPaymentModal(true)}
-        />
-      </div>
-      <DepositModal
-        title="Transferência"
-        account={{
-          code: 'etyre',
-          userId: 1,
-          user: {
-            name: 'Josimar Gomes',
-            email: 'josimargomesdev@gmail.com',
-            document: '112312323',
-            role: 'USER'
-          },
-          balance: 39
-        }}
-        loading={false}
-        visible={showPaymentModal}
-        onCancel={hidePaymentModal}
-        onConfirm={confirmPayment}
-      />
-      {/* <PaymentModal
+      <CardWrapperRow>
+        <CardWrapperColumn>
+          <BalanceCard value="23.456,99" />
+
+          <PaymentCard
+            title="Boleto Banco do Brasil"
+            code="3743453745687618381231872y178y1w1278178182"
+            value="R$ 1.678,90"
+            onClickPay={code => setShowPaymentModal(true)}
+          />
+
+          <DepositModal
+            title="Transferência"
+            account={{
+              code: 'etyre',
+              userId: 1,
+              user: {
+                name: 'Josimar Gomes',
+                email: 'josimargomesdev@gmail.com',
+                document: '112312323',
+                role: 'USER'
+              },
+              balance: 39
+            }}
+            loading={false}
+            visible={showPaymentModal}
+            onCancel={hidePaymentModal}
+            onConfirm={confirmPayment}
+          />
+        </CardWrapperColumn>
+
+        <CardWrapperColumn>
+          <BalanceCard value="23.456,99" />
+
+          <PaymentCard
+            title="Boleto Banco do Brasil"
+            code="3743453745687618381231872y178y1w1278178182"
+            value="R$ 1.678,90"
+            onClickPay={code => setShowPaymentModal(true)}
+          />
+
+          <DepositModal
+            title="Transferência"
+            account={{
+              code: 'etyre',
+              userId: 1,
+              user: {
+                name: 'Josimar Gomes',
+                email: 'josimargomesdev@gmail.com',
+                document: '112312323',
+                role: 'USER'
+              },
+              balance: 39
+            }}
+            loading={false}
+            visible={showPaymentModal}
+            onCancel={hidePaymentModal}
+            onConfirm={confirmPayment}
+          />
+          {/* <PaymentModal
         visible={showPaymentModal}
         paymentSlip={mockPayment}
         onConfirm={confirmPayment}
         onCancel={hidePaymentModal}
       /> */}
+        </CardWrapperColumn>
+      </CardWrapperRow>
     </Layout>
 
     // <s.DashboardContainer>
