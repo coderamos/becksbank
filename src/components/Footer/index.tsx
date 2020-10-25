@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from 'components/Container';
+import { userHeaderLinks, adminHeaderLinks } from 'components/Header/constants';
+import { useAuth } from 'hooks/auth';
 
 import * as s from './styles';
 
 const Footer: React.FC = () => {
+  const { getSession } = useAuth();
+  const isAdmin = getSession()?.auth === 'ADMIN';
+
+  const menuLinks = isAdmin ? adminHeaderLinks : userHeaderLinks;
+
   return (
     <s.FooterContainer>
       <Container>
@@ -18,33 +25,20 @@ const Footer: React.FC = () => {
           <s.Column>
             <s.TitleColumn>Follow Us</s.TitleColumn>
             <nav aria-labelledby="social media">
-              <span>
-                github
-              </span>
-              <span>
-                linkedin
-              </span>
-              <span>
-                twitter
-              </span>
+              <span>github</span>
+              <span>linkedin</span>
+              <span>twitter</span>
             </nav>
           </s.Column>
 
           <s.Column>
             <s.TitleColumn>Links</s.TitleColumn>
             <nav aria-labelledby="footer resources">
-              <Link to="/">
-                Início
-              </Link>
-              <Link to="/transfers">
-                Transferências
-              </Link>
-              <Link to="/payments">
-                Pagamentos
-              </Link>
-              <Link to="/payments">
-                Extrato
-              </Link>
+              {menuLinks.map(menuItem => (
+                <Link key={menuItem.link} to={menuItem.link}>
+                  {menuItem.title}
+                </Link>
+              ))}
             </nav>
           </s.Column>
 
