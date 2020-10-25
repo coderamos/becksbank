@@ -7,6 +7,5 @@ export const Container = styled.div`
     margin-right: auto;
     padding-left: calc(${theme.grid.gutter} / 2);
     padding-right: calc(${theme.grid.gutter} / 2);
-    color: white; //REMOVER
   `}
 `;
