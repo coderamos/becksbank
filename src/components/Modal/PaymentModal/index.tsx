@@ -23,9 +23,14 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
 }) => {
   const [loading, setLoading] = useState(false);
 
-  const title = paymentSlip.destinationUser.userName || 'Empresa Fictícia Ltda';
-  const description = `Banco ${paymentSlip.destinationUser.bankName}
-  | Conta: ${paymentSlip.destinationUser.accountCode}`;
+  const title =
+    paymentSlip?.destinationUser?.userName || 'Empresa Fictícia Ltda';
+
+  const bankName = paymentSlip?.destinationUser?.bankName || '';
+  const accountCode = paymentSlip?.destinationUser?.accountCode || '';
+
+  const description = `Banco ${bankName}
+  | Conta: ${accountCode}`;
   const value = Utils.formatMoney(paymentSlip.value);
 
   async function handleConfirm() {
