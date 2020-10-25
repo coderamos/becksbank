@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tag } from 'antd';
+import {format, parseISO} from 'date-fns';
 
 import Card from '../Card';
 import * as Font from '../Fonts';
@@ -24,7 +25,7 @@ const CardTransfer: React.FC<ContactProps> = ({ payments, onClick }) => {
       {payments.map(payment => {
         const title = `Boleto | Banco ${payment.destinationUser.bankName}`;
         const description = `Vencimento: ${
-          payment.dueDate
+          format(parseISO(payment.dueDate), 'dd/MM/yyyy')
         } | ${Utils.formatMoney(payment.value)}`;
         return (
           <ListItemAction
@@ -46,7 +47,7 @@ const CardTransfer: React.FC<ContactProps> = ({ payments, onClick }) => {
       {payments.length <=0 && (
         <s.NotPayments>
           <s.Image />
-          <s.Message>Você não possui pagamentos pendentes Aproveite e faça um churrasco!</s.Message>
+          <s.Message>Você não possui pagamentos pendentes. Aproveite e faça um churrasco!</s.Message>
         </s.NotPayments>
 
       )}

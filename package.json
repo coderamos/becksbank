@@ -12,6 +12,7 @@
     "antd": "^4.7.0",
     "antd-mask-input": "^0.1.14",
     "axios": "^0.20.0",
+    "date-fns": "^2.16.1",
     "history": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
     "react": "^16.13.1",
