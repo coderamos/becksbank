@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import * as s from './styles';
-import * as Font from 'components/Fonts';
+import Account from 'repository/Account';
 import Button from 'components/Button';
 
-import Account from 'repository/Account';
+import * as Font from 'components/Fonts';
+import * as s from './styles';
 
 type DepositModalProps = {
   onCancel(): void;
@@ -41,7 +41,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
 
   return (
     <s.Modal footer={null} visible={visible} onCancel={onCancel}>
-      <Font.Description>{title}</Font.Description>
+      <Font.Description>{title} tetet</Font.Description>
       <s.Content>
         <s.Title>{userName}</s.Title>
         <s.InputValue

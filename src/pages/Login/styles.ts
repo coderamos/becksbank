@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
+
 import { Link } from 'react-router-dom';
 import {
   UserOutlined as UserOutlinedIcon,
@@ -39,12 +41,19 @@ export const FormTitle = styled.div`
 `;
 
 export const Content = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  width: 40rem;
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100%;
+    padding: 0 calc(${theme.spacings.small});
+
+    ${media.greaterThan('medium')`
+      padding: 0 calc(${theme.spacings.xxlarge} * 4);
+    `}
+  `}
 `;
 
 export const Logo = styled.img.attrs({

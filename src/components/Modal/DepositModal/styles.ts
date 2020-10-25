@@ -1,14 +1,19 @@
-import { Modal as ModalAntd } from 'antd';
 import styled, { css } from 'styled-components';
+
+import { Modal as ModalAntd } from 'antd';
 
 import * as Font from 'components/Fonts';
 import { InputCurrency } from 'components/Input';
 
-export const Modal = styled(ModalAntd)``;
+export const Modal = styled(ModalAntd)`
+  ${({ theme }) => css`
+    padding: 0 calc(${theme.grid.gutter} / 2);
+  `}
+`;
 
 export const Content = styled.div`
   ${({ theme }) => css`
-    padding: 65px 30px;
+    padding: ${theme.spacings.xxlarge} ${theme.spacings.medium};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,9 +24,12 @@ export const Content = styled.div`
 export const Title = styled(Font.BigTitle)``;
 
 export const ButtonWrapper = styled.div`
-  ${() => css`
-    width: 170px;
-    margin: 5px;
+  ${({ theme }) => css`
+    width: 100%;
+
+    & + div {
+      margin-left: ${theme.spacings.xxsmall};
+    }
   `}
 `;
 
