@@ -31,7 +31,7 @@ const SignUp: React.FC = () => {
       setFetching(true);
       await APIService.createUser(user);
       message.success('Conta criada com sucesso!');
-      navigate('/signin');
+      navigate('/');
     } catch (error) {
       console.error(error);
       message.error('Não foi possível criar a conta');

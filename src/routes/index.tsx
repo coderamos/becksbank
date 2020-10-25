@@ -16,31 +16,39 @@ const AppRoutes: React.FC = () => (
   <Routes>
     <Route path="/" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
-    <ProtectedRoutes path="/dashboard" element={<Dashboard/>} roles={['USER']} />
-    <ProtectedRoutes path="/admin" element={<Admin/>} roles={['ADMIN']} />
-    <ProtectedRoutes path="/extract" element={<Extract/>} roles={['USER']} />
-    <ProtectedRoutes path="/transfers" element={<Transfers/>} roles={['USER']} />
-    <ProtectedRoutes path="/payments" element={<Payments/>} roles={['USER']} />
+    <ProtectedRoutes
+      path="/dashboard"
+      element={<Dashboard />}
+      roles={['USER']}
+    />
+    <ProtectedRoutes path="/admin" element={<Admin />} roles={['ADMIN']} />
+    <ProtectedRoutes path="/extract" element={<Extract />} roles={['USER']} />
+    <ProtectedRoutes
+      path="/transfers"
+      element={<Transfers />}
+      roles={['USER']}
+    />
+    <ProtectedRoutes path="/payments" element={<Payments />} roles={['USER']} />
     <Route path="/unauthorized" element={<UnauthorizedPage />} />
   </Routes>
 );
 
-const ProtectedRoutes = (props) => {
-  const {getSession} = useAuth();
+const ProtectedRoutes = props => {
+  const { getSession } = useAuth();
 
   const isUserLogged = () => {
     const session = getSession();
     return !!session;
   };
 
-  const isAuthorized = props.roles.includes(getSession() ? getSession().auth : '');
+  const isAuthorized = props.roles.includes(
+    getSession() ? getSession().auth : ''
+  );
 
-  if (isUserLogged && isAuthorized ) {
-
+  if (isUserLogged && isAuthorized) {
     return <Route {...props} />;
-
   }
-  return <Navigate to={isUserLogged ? "/unauthorized" : "/"} />;
+  return <Navigate to={isUserLogged ? '/unauthorized' : '/'} />;
 };
 
 export default AppRoutes;
