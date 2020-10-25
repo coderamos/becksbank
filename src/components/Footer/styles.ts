@@ -23,7 +23,7 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: grid;
     gap: ${theme.grid.gutter};
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
 
     ${media.greaterThan('medium')`
       grid-template-columns: repeat(4, 1fr);
