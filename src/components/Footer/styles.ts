@@ -7,8 +7,6 @@ import logo from 'assets/images/logo.png';
 
 export const FooterContainer = styled.footer`
   ${({ theme }) => css`
-    width: 100%;
-    height: auto;
     background-color: ${theme.colors.white};
     clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0 100%);
     padding-top: calc(${theme.spacings.xxlarge});
@@ -35,10 +33,13 @@ export const Content = styled.div`
 export const Logo = styled.img.attrs({
   src: logo
 })`
-  height: 3rem;
+  ${({ theme }) => css`
+    height: 3rem;
+    margin-bottom: ${theme.spacings.small};
 
-  ${media.greaterThan('medium')`
-    height: 4rem;
+    ${media.greaterThan('medium')`
+      height: 4rem;
+    `}
   `}
 `;
 
@@ -72,5 +73,6 @@ export const CopyrightWrapper = styled.div`
     margin-top: ${theme.spacings.large};
     margin-bottom: ${theme.spacings.medium};
     text-align: center;
+    margin: 0;
   `}
 `;
