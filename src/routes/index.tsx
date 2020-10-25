@@ -14,8 +14,8 @@ import UnauthorizedPage from 'pages/Unauthorized';
 
 const AppRoutes: React.FC = () => (
   <Routes>
-    <Route path="/login" element={<Login />} />
-    <Route path="/signup" element={<SignUp />} />
+    <ProtectedRoutes path="/login" element={<Login />} />
+    <ProtectedRoutes path="/signup" element={<SignUp />} roles={['USER']} />
     <ProtectedRoutes path="/" element={<Dashboard />} roles={['USER']} />
     <ProtectedRoutes path="/admin" element={<Admin />} roles={['ADMIN']} />
     <ProtectedRoutes path="/extract" element={<Extract />} roles={['USER']} />
@@ -32,19 +32,36 @@ const AppRoutes: React.FC = () => (
 const ProtectedRoutes = props => {
   const { getSession } = useAuth();
 
+  const isAdmin = getSession()?.auth == 'ADMIN';
+
   const isUserLogged = () => {
     const session = getSession();
     return !!session;
   };
 
-  const isAuthorized = props.roles.includes(
+  const isAuthorized = props.roles?.includes(
     getSession() ? getSession().auth : ''
   );
 
-  if (isUserLogged && isAuthorized) {
+  const isLoginOrSignupRoute = ['/login', '/signup'].includes(props.path);
+
+  if (isUserLogged() && isAdmin && props.path !== '/admin') {
+    return <Navigate to={'/admin'} />;
+  }
+
+  if (isUserLogged() && isAuthorized) {
+    if (isLoginOrSignupRoute) {
+      return <Navigate to={'/'} />;
+    } else {
+      return <Route {...props} />;
+    }
+  }
+
+  if (!isUserLogged() && isLoginOrSignupRoute) {
     return <Route {...props} />;
   }
-  return <Navigate to={isUserLogged ? '/unauthorized' : '/login'} />;
+
+  return <Navigate to={isUserLogged() ? '/unauthorized' : '/login'} />;
 };
 
 export default AppRoutes;
