@@ -24,7 +24,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
 }) => {
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(false);
-  const userName = account ? account.user.name : '';
+  const userName = account?.user ? account.user.name : '';
 
   async function deposit() {
     setLoading(true);
@@ -44,8 +44,11 @@ const DepositModal: React.FC<DepositModalProps> = ({
       <Font.Description>{title}</Font.Description>
       <s.Content>
         <s.Title>{userName}</s.Title>
-        <Font.Description>Digite o valor</Font.Description>
-        <s.InputValue value={value} onChange={handleChangeValue} />
+        <s.InputValue
+          value={value}
+          onChange={handleChangeValue}
+          placeholder="Digite o valor"
+        />
         <s.ButtonGroup>
           <s.ButtonWrapper>
             <Button loading={loading} onClick={deposit}>

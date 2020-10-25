@@ -11,27 +11,26 @@ import * as s from './styles';
 
 type ContactProps = {
   contacts: Account[];
-}
+  onClick(contact: Account): void;
+};
 
-const CardTransfer: React.FC<ContactProps> = ({contacts}) => {
-
+const CardTransfer: React.FC<ContactProps> = ({ contacts, onClick }) => {
   return (
     <Card>
       <Font.Description>Contatos</Font.Description>
-      {contacts.map((contact) => (
+      {contacts.map(contact => (
         <ListItemAction
           key={contact.id}
           title={contact.user.name}
           description={contact.user.email}
         >
           <s.ButtonWrapper>
-          <Button>Transferir</Button>
+            <Button onClick={() => onClick(contact)}>Transferir</Button>
           </s.ButtonWrapper>
-
         </ListItemAction>
       ))}
     </Card>
-  )
-}
+  );
+};
 
 export default CardTransfer;
