@@ -14,7 +14,11 @@ import UnauthorizedPage from 'pages/Unauthorized';
 
 const AppRoutes: React.FC = () => (
   <Routes>
-    <ProtectedRoutes path="/login" element={<Login />} />
+    <ProtectedRoutes
+      path="/login"
+      element={<Login />}
+      roles={['USER', 'ADMIN']}
+    />
     <ProtectedRoutes path="/signup" element={<SignUp />} roles={['USER']} />
     <ProtectedRoutes path="/" element={<Dashboard />} roles={['USER']} />
     <ProtectedRoutes path="/admin" element={<Admin />} roles={['ADMIN']} />
