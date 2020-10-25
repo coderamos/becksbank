@@ -1,4 +1,5 @@
 import React from 'react';
+import { format, parseISO } from 'date-fns';
 
 import Card from '../Card';
 import * as Font from '../Fonts';
@@ -16,6 +17,7 @@ type ExtractProps = {
 const getTitleFormat = ({ valueTransaction, dateTime }: Transaction) => {
   const isDanger = parseInt(valueTransaction) < 0;
   const value = Utils.formatMoney(valueTransaction);
+  const parsedDate = format(parseISO(dateTime), 'dd/MM/yyyy');
 
   return (
     <s.TitleWrapper>
@@ -24,7 +26,7 @@ const getTitleFormat = ({ valueTransaction, dateTime }: Transaction) => {
       ) : (
         <s.TitleValue>{value}</s.TitleValue>
       )}
-      <s.TitleDate>{dateTime}</s.TitleDate>
+      <s.TitleDate>{parsedDate}</s.TitleDate>
     </s.TitleWrapper>
   );
 };
