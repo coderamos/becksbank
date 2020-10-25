@@ -9,7 +9,7 @@ import { IdcardOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 export const inputStyle = css`
   ${({ theme }) => css`
     border-radius: ${theme.border.radius};
-    border: 2px solid ${theme.colors.greenHigh};
+    border: 2px solid ${theme.colors.black};
     height: ${theme.spacings.xxlarge};
 
     .ant-input {
@@ -35,6 +35,10 @@ export const inputStyle = css`
       &:active {
         color: ${theme.colors.greenLight};
       }
+    }
+
+    span {
+      margin: 0;
     }
   `}
 `;

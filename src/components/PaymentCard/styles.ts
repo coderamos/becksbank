@@ -15,8 +15,10 @@ export const ButtonGroup = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  ${() => css`
-    width: 190px;
-    margin-left: 10px;
+  ${({ theme }) => css`
+    width: 100%;
+    & + div {
+      margin-left: ${theme.spacings.xxsmall};
+    }
   `}
 `;

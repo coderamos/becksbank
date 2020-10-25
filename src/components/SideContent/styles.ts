@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 import loginSide from 'assets/images/login-side-image-full.png';
 
@@ -7,6 +8,10 @@ export const SideImageContainer = styled.div`
   flex: 5;
   background: no-repeat url(${loginSide});
   background-size: cover;
+
+  ${media.lessThan('huge')`
+    display: none;
+  `}
 `;
 
 export const OverlayWrapper = styled.div`
