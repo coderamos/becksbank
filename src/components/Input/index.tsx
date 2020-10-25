@@ -23,6 +23,16 @@ export const inputStyle = css`
       }
     }
 
+    .ant-input-number-input-wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .ant-input-number-handler-wrap {
+      display: none!important;
+    }
+
     &:hover {
       border: 2px solid ${theme.colors.greenLight};
     }

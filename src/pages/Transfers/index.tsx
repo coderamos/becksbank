@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { message } from 'antd';
 
 import Layout from 'components/Layout';
+import {CardWrapperRow, CardWrapperColumn} from 'components/CardWrapper';
 import CardTransfer from 'components/CardTransfer';
 import BalanceCard from 'components/BalanceCard';
 import DepositModal from 'components/Modal/DepositModal';
@@ -9,9 +10,6 @@ import DepositModal from 'components/Modal/DepositModal';
 import { useAccount } from 'hooks/account';
 import Account from 'repository/Account';
 import APIService from 'services/api';
-import Utils from 'utils/Utils';
-
-import * as s from './styles';
 
 const Transfers: React.FC = () => {
   const [contactsAccounts, setContactsAccounts] = useState<Account[]>([]);
@@ -59,15 +57,17 @@ const Transfers: React.FC = () => {
 
   return (
     <Layout>
-      <s.Container>
+      <CardWrapperRow>
         {contactsAccounts && (
           <CardTransfer
             onClick={showModalTransfer}
             contacts={contactsAccounts}
           />
         )}
-        <BalanceCard value={Utils.formatMoney(userAccountData.balance)} />
-      </s.Container>
+        <CardWrapperColumn>
+          <BalanceCard />
+        </CardWrapperColumn>
+      </CardWrapperRow>
       <DepositModal
         title="Transferência"
         account={accountSelected}

@@ -18,27 +18,15 @@ const Footer: React.FC = () => {
           <s.Column>
             <s.TitleColumn>Follow Us</s.TitleColumn>
             <nav aria-labelledby="social media">
-              <a
-                href="http://github.com/becksbank"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <span>
                 github
-              </a>
-              <a
-                href="https://www.linkedin.com/company/becksbank"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              </span>
+              <span>
                 linkedin
-              </a>
-              <a
-                href="https://twitter.com/becksbank"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              </span>
+              <span>
                 twitter
-              </a>
+              </span>
             </nav>
           </s.Column>
 
@@ -46,16 +34,16 @@ const Footer: React.FC = () => {
             <s.TitleColumn>Links</s.TitleColumn>
             <nav aria-labelledby="footer resources">
               <Link to="/">
-                <a>início</a>
+                Início
               </Link>
               <Link to="/transfers">
-                <a>transferências</a>
+                Transferências
               </Link>
               <Link to="/payments">
-                <a>pagamentos</a>
+                Pagamentos
               </Link>
               <Link to="/payments">
-                <a>extrato</a>
+                Extrato
               </Link>
             </nav>
           </s.Column>

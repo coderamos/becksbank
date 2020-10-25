@@ -20,6 +20,7 @@ const CardTransfer: React.FC<ContactProps> = ({ payments, onClick }) => {
   return (
     <Card>
       <Font.Description>Pagamentos</Font.Description>
+      <div>
       {payments.map(payment => {
         const title = `Boleto | Banco ${payment.destinationUser.bankName}`;
         const description = `Vencimento: ${
@@ -41,6 +42,14 @@ const CardTransfer: React.FC<ContactProps> = ({ payments, onClick }) => {
           </ListItemAction>
         );
       })}
+      </div>
+      {payments.length <=0 && (
+        <s.NotPayments>
+          <s.Image />
+          <s.Message>Você não possui pagamentos pendentes Aproveite e faça um churrasco!</s.Message>
+        </s.NotPayments>
+
+      )}
     </Card>
   );
 };
