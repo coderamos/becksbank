@@ -23,7 +23,7 @@ type TimerProps = {
 const Countdown: React.FC<TimerProps> = ({timerKey, onComplete}) => {
   return (
     <s.CountdownContainer>
-      Esta transação encerra em...
+      Tempo restante para confirmar pagamento
       <CountdownCircleTimer
           isPlaying
           key={timerKey}
