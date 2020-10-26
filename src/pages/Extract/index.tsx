@@ -28,9 +28,7 @@ const Extract: React.FC = () => {
 
   return (
     <Layout>
-      <CardWrapperRow>
-          <ExtractList loading={loading} extracts={statement} />
-      </CardWrapperRow>
+      <ExtractList loading={loading} extracts={statement} />
     </Layout>
   );
 };
