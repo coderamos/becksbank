@@ -26,6 +26,7 @@ export const Title = styled(Font.BigTitle)`
     width: 100%;
     text-align: center;
     margin-bottom: ${theme.spacings.medium};
+    text-transform: capitalize;
   `}
 `;
 

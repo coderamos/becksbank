@@ -26,7 +26,7 @@ const BalanceCard: React.FC = () => {
           </s.BalanceWrapper>
           <s.WrapperButton>
             <Link to="/extract">
-              <Button outlined>SALDO DETALHADO</Button>
+              <Button outlined>EXTRATO DETALHADO</Button>
             </Link>
           </s.WrapperButton>
         </s.ContentWrapper>
