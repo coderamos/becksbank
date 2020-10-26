@@ -12,7 +12,6 @@ import * as s from './styles';
 
 type HeaderProps = {
   userName: string;
-  balance: string;
   logout: () => void;
   onClick?: () => void;
 };

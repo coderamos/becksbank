@@ -15,6 +15,7 @@ import { Transaction } from 'repository/Statement';
 import PaymentSlip from 'repository/PaymentSlip';
 
 const Dashboard: React.FC = () => {
+  const [timerKey, setTimerKey] = useState(0);
   const [statements, setStatements] = useState<Transaction[]>([]);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [lastPayment, setLastPayment] = useState<PaymentSlip>(
@@ -66,6 +67,7 @@ const Dashboard: React.FC = () => {
 
   function viewPaymentModal() {
     setShowPaymentModal(true);
+    setTimerKey((prevKey) => prevKey + 1);
   }
 
   return (
@@ -82,6 +84,7 @@ const Dashboard: React.FC = () => {
             paymentSlip={lastPayment}
             onConfirm={confirmPayment}
             onCancel={hidePaymentModal}
+            timerKey={timerKey}
           />
         </CardWrapperColumn>
       </CardWrapperRow>
