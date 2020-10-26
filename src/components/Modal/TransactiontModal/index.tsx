@@ -42,7 +42,7 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
 
   return (
     <s.Modal footer={null} visible={visible} onCancel={onCancel}>
-      <Font.Description>{title} tetet</Font.Description>
+      <Font.Description>{title}</Font.Description>
       <s.Content>
         <s.Title>{userName}</s.Title>
         <s.InputValue

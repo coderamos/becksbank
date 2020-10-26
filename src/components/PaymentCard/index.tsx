@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Tag } from 'antd';
 
 import Card from 'components/Card';
 import * as Font from 'components/Fonts';

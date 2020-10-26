@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { message } from 'antd';
 
 import Layout from 'components/Layout';
 import PaymentCard from 'components/PaymentCard';
