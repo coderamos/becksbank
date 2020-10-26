@@ -1,0 +1,623 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentCard Component Tests renders the component 1`] = `
+.c0 {
+  border-radius: 1.2rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .ant-card-body {
+  width: 100%;
+}
+
+.c1 {
+  color: #00120D;
+  font-weight: 600;
+  margin: 0;
+}
+
+.c2 {
+  opacity: 0.6;
+  font-size: 1.8rem;
+}
+
+.c5 {
+  color: #00120D;
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px 0;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c4 {
+  width: 100%;
+}
+
+.c6 {
+  text-transform: capitalize;
+}
+
+.c7 {
+  text-transform: lowercase;
+}
+
+.c9 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 0.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 5.6rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 100%;
+  background-color: #000000;
+  border: 2px solid transparent;
+  color: #FFFFFF;
+}
+
+.c9:hover,
+.c9:focus,
+.c9:active {
+  background-color: rgba(0,0,0,0.85);
+  border: 2px solid transparent;
+  color: #FFFFFF;
+}
+
+.c8 {
+  width: 118px;
+}
+
+@media (min-width:768px) {
+  .c1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    font-size: 1.6rem;
+  }
+}
+
+<Component
+  theme={
+    Object {
+      "border": Object {
+        "radius": "0.4rem",
+      },
+      "colors": Object {
+        "background": "#f0f2f5",
+        "black": "#000000",
+        "error": "#ff0033",
+        "germanYellow": "#FFCF00",
+        "greenHigh": "#00120D",
+        "greenLight": "#17652D",
+        "greenMedium": "#152D2F",
+        "greenWhite": "#C5D9CB",
+        "primary": "#0B4224",
+        "secondary": "#171717",
+        "white": "#FFFFFF",
+      },
+      "font": Object {
+        "bold": 600,
+        "bolder": 800,
+        "family": "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+        "light": 300,
+        "normal": 400,
+        "sizes": Object {
+          "large": "1.8rem",
+          "medium": "1.6rem",
+          "small": "1.4rem",
+          "xlarge": "2.4rem",
+          "xsmall": "1.2rem",
+          "xxlarge": "3rem",
+          "xxxlarge": "4.5rem",
+        },
+      },
+      "grid": Object {
+        "container": "130rem",
+        "gutter": "3.2rem",
+      },
+      "layers": Object {
+        "alwaysOnTop": 50,
+        "base": 10,
+        "menu": 20,
+        "modal": 40,
+        "overlay": 30,
+      },
+      "spacings": Object {
+        "large": "4.0rem",
+        "medium": "3.2rem",
+        "small": "2.4rem",
+        "xlarge": "4.8rem",
+        "xsmall": "1.6rem",
+        "xxlarge": "5.6rem",
+        "xxsmall": "0.8rem",
+      },
+    }
+  }
+>
+  <CardTransfer
+    onClick={[Function]}
+    payments={
+      Array [
+        Object {
+          "category": "OTHERS",
+          "code": "32303230313033312D3130303130302D4F542D3030312F37383935322D3030312F766963746F",
+          "destinationUser": Object {
+            "accountCode": "victo",
+            "bankName": "Becks",
+            "userName": "victor",
+          },
+          "dueDate": "2020-10-31",
+          "id": 106,
+          "originUser": Object {
+            "accountCode": "78952",
+            "bankName": "Becks",
+            "userName": "Juvenal Rodriguez",
+          },
+          "paid": 0,
+          "value": 1001,
+        },
+        Object {
+          "category": "OTHERS",
+          "code": "32303230313032392D3231303239302D4F542D3030312F37383935322D3030312F766963746F",
+          "destinationUser": Object {
+            "accountCode": "victo",
+            "bankName": "Becks",
+            "userName": "victor",
+          },
+          "dueDate": "2020-10-29",
+          "id": 100,
+          "originUser": Object {
+            "accountCode": "78952",
+            "bankName": "Becks",
+            "userName": "Juvenal Rodriguez",
+          },
+          "paid": 1,
+          "value": 2102.9,
+        },
+        Object {
+          "category": "OTHERS",
+          "code": "32303230313033312D3131303039302D4F542D3030312F37383935322D3030312F766963746F",
+          "destinationUser": Object {
+            "accountCode": "victo",
+            "bankName": "Becks",
+            "userName": "victor",
+          },
+          "dueDate": "2020-10-31",
+          "id": 105,
+          "originUser": Object {
+            "accountCode": "78952",
+            "bankName": "Becks",
+            "userName": "Juvenal Rodriguez",
+          },
+          "paid": 1,
+          "value": 1100.9,
+        },
+        Object {
+          "category": "SERVICES",
+          "code": "32303230313033312D3035303130302D53452D3030312F37383935322D3030312F636F6E7461",
+          "destinationUser": Object {
+            "accountCode": "conta",
+            "bankName": "Becks",
+            "userName": "Marcilio",
+          },
+          "dueDate": "2020-10-31",
+          "id": 114,
+          "originUser": Object {
+            "accountCode": "78952",
+            "bankName": "Becks",
+            "userName": "Juvenal Rodriguez",
+          },
+          "paid": 1,
+          "value": 501,
+        },
+        Object {
+          "category": "OTHERS",
+          "code": "32303230313033312D3031303039302D4F542D3030312F37383935322D3030312F766963746F",
+          "destinationUser": Object {
+            "accountCode": "victo",
+            "bankName": "Becks",
+            "userName": "victor",
+          },
+          "dueDate": "2020-10-31",
+          "id": 104,
+          "originUser": Object {
+            "accountCode": "78952",
+            "bankName": "Becks",
+            "userName": "Juvenal Rodriguez",
+          },
+          "paid": 0,
+          "value": 100.9,
+        },
+      ]
+    }
+  >
+    <Card>
+      <Styled(Card)>
+        <Card
+          className="c0"
+        >
+          <div
+            className="ant-card ant-card-bordered c0"
+          >
+            <div
+              className="ant-card-body"
+              style={Object {}}
+            >
+              <Styled(styled.p)>
+                <p
+                  className="c1 c2"
+                >
+                  Pagamentos
+                </p>
+              </Styled(styled.p)>
+              <div>
+                <ListItemAction
+                  description="Vencimento: 31/10/2020 | R$ 1.001,00"
+                  key="106"
+                  title="Boleto | Banco Becks"
+                >
+                  <styled.div>
+                    <div
+                      className="c3"
+                    >
+                      <styled.div>
+                        <div
+                          className="c4"
+                        >
+                          <Styled(styled.h2)>
+                            <h2
+                              className="c5 c6"
+                            >
+                              Boleto | Banco Becks
+                            </h2>
+                          </Styled(styled.h2)>
+                          <Styled(Styled(styled.p))>
+                            <p
+                              className="c1 c2 c7"
+                            >
+                              Vencimento: 31/10/2020 | R$ 1.001,00
+                            </p>
+                          </Styled(Styled(styled.p))>
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="c8"
+                        >
+                          <Button
+                            onClick={[Function]}
+                          >
+                            <Styled(Button)
+                              onClick={[Function]}
+                              outlined="false"
+                            >
+                              <Button
+                                block={false}
+                                className="c9"
+                                ghost={false}
+                                htmlType="button"
+                                loading={false}
+                                onClick={[Function]}
+                                outlined="false"
+                              >
+                                <Wave>
+                                  <button
+                                    className="ant-btn c9"
+                                    onClick={[Function]}
+                                    outlined="false"
+                                    type="button"
+                                  >
+                                    <LoadingIcon
+                                      existIcon={false}
+                                      loading={false}
+                                      prefixCls="ant-btn"
+                                    >
+                                      <CSSMotion
+                                        motionName="ant-btn-loading-icon-motion"
+                                        onAppearActive={[Function]}
+                                        onAppearStart={[Function]}
+                                        onEnterActive={[Function]}
+                                        onEnterStart={[Function]}
+                                        onLeaveActive={[Function]}
+                                        onLeaveStart={[Function]}
+                                        removeOnLeave={true}
+                                        visible={false}
+                                      >
+                                        <DomWrapper />
+                                      </CSSMotion>
+                                    </LoadingIcon>
+                                    <span
+                                      key=".0"
+                                    >
+                                      Pagar
+                                    </span>
+                                  </button>
+                                </Wave>
+                              </Button>
+                            </Styled(Button)>
+                          </Button>
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItemAction>
+                <ListItemAction
+                  description="Vencimento: 29/10/2020 | R$ 2.102,90"
+                  key="100"
+                  title="Boleto | Banco Becks"
+                >
+                  <styled.div>
+                    <div
+                      className="c3"
+                    >
+                      <styled.div>
+                        <div
+                          className="c4"
+                        >
+                          <Styled(styled.h2)>
+                            <h2
+                              className="c5 c6"
+                            >
+                              Boleto | Banco Becks
+                            </h2>
+                          </Styled(styled.h2)>
+                          <Styled(Styled(styled.p))>
+                            <p
+                              className="c1 c2 c7"
+                            >
+                              Vencimento: 29/10/2020 | R$ 2.102,90
+                            </p>
+                          </Styled(Styled(styled.p))>
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="c8"
+                        >
+                          <Tag
+                            color="green"
+                          >
+                            <span
+                              className="ant-tag ant-tag-green"
+                              style={
+                                Object {
+                                  "backgroundColor": undefined,
+                                }
+                              }
+                            >
+                              PAGO
+                            </span>
+                          </Tag>
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItemAction>
+                <ListItemAction
+                  description="Vencimento: 31/10/2020 | R$ 1.100,90"
+                  key="105"
+                  title="Boleto | Banco Becks"
+                >
+                  <styled.div>
+                    <div
+                      className="c3"
+                    >
+                      <styled.div>
+                        <div
+                          className="c4"
+                        >
+                          <Styled(styled.h2)>
+                            <h2
+                              className="c5 c6"
+                            >
+                              Boleto | Banco Becks
+                            </h2>
+                          </Styled(styled.h2)>
+                          <Styled(Styled(styled.p))>
+                            <p
+                              className="c1 c2 c7"
+                            >
+                              Vencimento: 31/10/2020 | R$ 1.100,90
+                            </p>
+                          </Styled(Styled(styled.p))>
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="c8"
+                        >
+                          <Tag
+                            color="green"
+                          >
+                            <span
+                              className="ant-tag ant-tag-green"
+                              style={
+                                Object {
+                                  "backgroundColor": undefined,
+                                }
+                              }
+                            >
+                              PAGO
+                            </span>
+                          </Tag>
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItemAction>
+                <ListItemAction
+                  description="Vencimento: 31/10/2020 | R$ 501,00"
+                  key="114"
+                  title="Boleto | Banco Becks"
+                >
+                  <styled.div>
+                    <div
+                      className="c3"
+                    >
+                      <styled.div>
+                        <div
+                          className="c4"
+                        >
+                          <Styled(styled.h2)>
+                            <h2
+                              className="c5 c6"
+                            >
+                              Boleto | Banco Becks
+                            </h2>
+                          </Styled(styled.h2)>
+                          <Styled(Styled(styled.p))>
+                            <p
+                              className="c1 c2 c7"
+                            >
+                              Vencimento: 31/10/2020 | R$ 501,00
+                            </p>
+                          </Styled(Styled(styled.p))>
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="c8"
+                        >
+                          <Tag
+                            color="green"
+                          >
+                            <span
+                              className="ant-tag ant-tag-green"
+                              style={
+                                Object {
+                                  "backgroundColor": undefined,
+                                }
+                              }
+                            >
+                              PAGO
+                            </span>
+                          </Tag>
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItemAction>
+                <ListItemAction
+                  description="Vencimento: 31/10/2020 | R$ 100,90"
+                  key="104"
+                  title="Boleto | Banco Becks"
+                >
+                  <styled.div>
+                    <div
+                      className="c3"
+                    >
+                      <styled.div>
+                        <div
+                          className="c4"
+                        >
+                          <Styled(styled.h2)>
+                            <h2
+                              className="c5 c6"
+                            >
+                              Boleto | Banco Becks
+                            </h2>
+                          </Styled(styled.h2)>
+                          <Styled(Styled(styled.p))>
+                            <p
+                              className="c1 c2 c7"
+                            >
+                              Vencimento: 31/10/2020 | R$ 100,90
+                            </p>
+                          </Styled(Styled(styled.p))>
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="c8"
+                        >
+                          <Button
+                            onClick={[Function]}
+                          >
+                            <Styled(Button)
+                              onClick={[Function]}
+                              outlined="false"
+                            >
+                              <Button
+                                block={false}
+                                className="c9"
+                                ghost={false}
+                                htmlType="button"
+                                loading={false}
+                                onClick={[Function]}
+                                outlined="false"
+                              >
+                                <Wave>
+                                  <button
+                                    className="ant-btn c9"
+                                    onClick={[Function]}
+                                    outlined="false"
+                                    type="button"
+                                  >
+                                    <LoadingIcon
+                                      existIcon={false}
+                                      loading={false}
+                                      prefixCls="ant-btn"
+                                    >
+                                      <CSSMotion
+                                        motionName="ant-btn-loading-icon-motion"
+                                        onAppearActive={[Function]}
+                                        onAppearStart={[Function]}
+                                        onEnterActive={[Function]}
+                                        onEnterStart={[Function]}
+                                        onLeaveActive={[Function]}
+                                        onLeaveStart={[Function]}
+                                        removeOnLeave={true}
+                                        visible={false}
+                                      >
+                                        <DomWrapper />
+                                      </CSSMotion>
+                                    </LoadingIcon>
+                                    <span
+                                      key=".0"
+                                    >
+                                      Pagar
+                                    </span>
+                                  </button>
+                                </Wave>
+                              </Button>
+                            </Styled(Button)>
+                          </Button>
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItemAction>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </Styled(Card)>
+    </Card>
+  </CardTransfer>
+</Component>
+`;
