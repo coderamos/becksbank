@@ -27,7 +27,7 @@ const Admin: React.FC = () => {
       dataIndex: 'name',
       key: 'name',
       render: (text: string, record: Account) => {
-        return record.user.name;
+        return record.user.name.toUpperCase();
       }
     },
     {
