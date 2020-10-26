@@ -33,7 +33,7 @@ const getTitleFormat = ({ valueTransaction, dateTime }: Transaction) => {
   );
 };
 
-const CardTransfer: React.FC<ExtractProps> = ({ extracts, loading }) => {
+const ExtractList: React.FC<ExtractProps> = ({ extracts, loading }) => {
   return (
     <Card>
       <Font.Description>Extratos</Font.Description>
@@ -59,4 +59,4 @@ const CardTransfer: React.FC<ExtractProps> = ({ extracts, loading }) => {
   );
 };
 
-export default CardTransfer;
+export default ExtractList;
