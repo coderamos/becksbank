@@ -8,6 +8,7 @@ import TransactionModal from 'components/Modal/TransactiontModal';
 import Layout from 'components/Layout';
 
 import * as s from './style';
+import Utils from 'utils/Utils';
 
 const Admin: React.FC = () => {
   const [allAccounts, setAccounts] = useState<Account[]>([]);
@@ -38,7 +39,10 @@ const Admin: React.FC = () => {
     {
       title: 'Saldo',
       dataIndex: 'balance',
-      key: 'balance'
+      key: 'balance',
+      render: (text: string, record: Account) => {
+        return Utils.formatMoney(record.balance);
+      }
     },
     {
       title: '',

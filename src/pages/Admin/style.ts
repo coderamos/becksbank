@@ -13,7 +13,9 @@ export const AdminContainer = styled.main`
 `;
 
 export const Table = styled(TableAntd)`
-  width: 100%;
+  ${({ theme }) => css`
+    width: 100%;
+  `}
 `;
 
 export const DepositButton = styled(Button)``;
