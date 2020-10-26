@@ -8,6 +8,7 @@ import BalanceCard from 'components/BalanceCard';
 import TransactionModal from 'components/Modal/TransactiontModal';
 
 import { useAccount } from 'hooks/account';
+import { useAuth } from 'hooks/auth';
 import Account from 'repository/Account';
 import APIService from 'services/api';
 
@@ -19,15 +20,19 @@ const Transfers: React.FC = () => {
   );
 
   const { getAllAccounts, userAccountData, refreshAccount } = useAccount();
+  const { getSession } = useAuth();
 
   useEffect(() => {
     const getContacts = async () => {
       const accounts = await getAllAccounts();
-      setContactsAccounts(accounts);
+      const sessionUserId = getSession()?.id;
+
+      const filteredAccounts = accounts.filter(account => account.userId !== sessionUserId);
+      setContactsAccounts(filteredAccounts);
     };
 
     getContacts();
-  }, [getAllAccounts]);
+  }, [getAllAccounts, getSession]);
 
   function hideTransferModal() {
     setShowTransferModal(false);

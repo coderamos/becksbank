@@ -50,13 +50,13 @@ const Utils = {
       }
     }
 
-    // if (amountFormat > 0) {
+    if (amountFormat > 0 || amountFormat < 0) {
     amountFormat = amountFormat.toFixed(decimalCount);
     amountFormat = amountFormat.replace('.', decimal);
     amountFormat = amountFormat.replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
     amountFormat = currencyPattern + amountFormat;
     return amountFormat;
-    // }
+    }
     // return 'R$ 0,00';
   }
 };

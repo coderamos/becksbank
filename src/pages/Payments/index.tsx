@@ -12,6 +12,7 @@ import APIService from 'services/api';
 import { useAuth } from 'hooks/auth';
 
 const Payments: React.FC = () => {
+  const [timerKey, setTimerKey] = useState(0);
   const [payments, setPayments] = useState<PaymentSlip[]>([]);
   const [showModalPayment, setShowPaymentModal] = useState(false);
   const [paymentSelected, setPaymentSelected] = useState<PaymentSlip>(
@@ -44,6 +45,7 @@ const Payments: React.FC = () => {
   function showPaymentModal(payment: PaymentSlip) {
     setPaymentSelected(payment);
     setShowPaymentModal(true);
+    setTimerKey((prevKey) => prevKey + 1);
   }
 
   function hidePaymentModal() {
@@ -73,6 +75,7 @@ const Payments: React.FC = () => {
         onConfirm={confirmPayment}
         visible={showModalPayment}
         paymentSlip={paymentSelected}
+        timerKey={timerKey}
       />
     </Layout>
   );

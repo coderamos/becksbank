@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Button from 'components/Button';
+import Countdown from 'components/Countdown'
 import PaymentSlip from 'repository/PaymentSlip';
 import Utils from 'utils/Utils';
 import APIService from 'services/api';
@@ -13,13 +14,15 @@ type PaymentModalProps = {
   onConfirm?: (code: string) => void;
   onCancel(): void;
   visible: boolean;
+  timerKey: number;
 };
 
 const PaymentModal: React.FC<PaymentModalProps> = ({
   paymentSlip,
   onConfirm,
   onCancel,
-  visible
+  visible,
+  timerKey
 }) => {
   const [loading, setLoading] = useState(false);
 
@@ -53,6 +56,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
     <s.Modal visible={visible} footer={null} onCancel={onCancel}>
       <s.Description>Pagamento</s.Description>
       <s.Content>
+        <Countdown timerKey={timerKey} onComplete={onCancel}/>
         <s.InfoGroup>
           <s.Title>{title}</s.Title>
           <s.Text>{description}</s.Text>

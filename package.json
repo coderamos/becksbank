@@ -16,6 +16,7 @@
     "history": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
     "react": "^16.13.1",
+    "react-countdown-circle-timer": "^2.3.7",
     "react-dom": "^16.13.1",
     "react-enhanced-numeric-input": "^1.1.0",
     "react-number-format": "^4.4.1",
