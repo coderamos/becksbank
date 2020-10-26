@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Card from 'components/Card';
-import * as Font from 'components/Fonts';
 import Button from 'components/Button';
-import * as s from './styles';
 
 import PaymentSlip from 'repository/PaymentSlip';
 import Utils from 'utils/Utils';
+
+import * as s from './styles';
 
 type PaymentProps = {
   payment: PaymentSlip;
@@ -25,13 +25,15 @@ const Payment: React.FC<PaymentProps> = ({ payment, onClickPay }) => {
 
   return (
     <Card>
-      <Font.Description>Última cobrança</Font.Description>
+      <s.Description>Última cobrança</s.Description>
       {payment.id ? (
-        <>
+        <s.ContentWrapper>
           <s.PaymentContent>
-            <Font.Title>{title}</Font.Title>
-            <Font.Description>{payment.code}</Font.Description>
-            <Font.Text>{Utils.formatMoney(payment.value)}</Font.Text>
+            <s.Title>{title}</s.Title>
+            <s.DescriptionWrapper>
+              <s.Description>{payment.code}</s.Description>
+            </s.DescriptionWrapper>
+            <s.Text>{Utils.formatMoney(payment.value)}</s.Text>
           </s.PaymentContent>
           <s.ButtonGroup>
             <s.ButtonWrapper>
@@ -43,7 +45,7 @@ const Payment: React.FC<PaymentProps> = ({ payment, onClickPay }) => {
               </Link>
             </s.ButtonWrapper>
           </s.ButtonGroup>
-        </>
+        </s.ContentWrapper>
       ) : (
         <s.NotPayments>
           <s.Image />
