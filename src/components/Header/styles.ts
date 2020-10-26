@@ -98,4 +98,5 @@ export const LogoutButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
+  outline: none;
 `;

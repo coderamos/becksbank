@@ -1,14 +1,20 @@
 import styled, { css } from 'styled-components';
-
-import { Text } from 'components/Fonts';
+import media from 'styled-media-query';
 import barbecueImage from 'assets/images/barbecue.svg';
+
+import * as Font from 'components/Fonts';
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+`;
 
 export const NotPayments = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
+  justify-content: space-between;
 `;
 
 export const Image = styled.img.attrs({
@@ -17,23 +23,17 @@ export const Image = styled.img.attrs({
   height: 15rem;
 `;
 
-export const Message = styled(Text)`
-  margin-top: 24px;
-  opacity: 0.6;
-  text-align: center;
+export const Message = styled(Font.Text)`
+  text-align: justify;
 `;
 
 export const PaymentContent = styled.div`
-  ${({ theme }) => css`
-    margin: ${theme.spacings.medium} 0px;
-  `}
+  ${({ theme }) => css``}
 `;
 
 export const ButtonGroup = styled.div`
   ${() => css`
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
   `}
 `;
 
@@ -45,3 +45,22 @@ export const ButtonWrapper = styled.div`
     }
   `}
 `;
+
+export const Title = styled(Font.Title)``;
+
+export const DescriptionWrapper = styled.div`
+  ${({ theme }) => css`
+    margin: ${theme.spacings.xlarge} 0;
+  `}
+`;
+
+export const Description = styled(Font.Description)`
+  ${media.lessThan('large')`
+    max-width: 30rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  `}
+`;
+
+export const Text = styled(Font.Text)``;
