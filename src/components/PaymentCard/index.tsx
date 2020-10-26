@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Card from 'components/Card';
-import * as Font from 'components/Fonts';
 import Button from 'components/Button';
 import Loading from 'components/Loading';
 import * as s from './styles';
@@ -27,15 +26,17 @@ const Payment: React.FC<PaymentProps> = ({ payment, onClickPay, loading }) => {
 
   return (
     <Card>
-      <Font.Description>Última cobrança</Font.Description>
+      <s.Description>Última cobrança</s.Description>
       {loading ? (<Loading />) : (
         <div>
           {payment.id ? (
-        <>
+        <s.ContentWrapper>
           <s.PaymentContent>
-            <Font.Title>{title}</Font.Title>
-            <Font.Description>{payment.code}</Font.Description>
-            <Font.Text>{Utils.formatMoney(payment.value)}</Font.Text>
+            <s.Title>{title}</s.Title>
+            <s.DescriptionWrapper>
+              <s.Description>{payment.code}</s.Description>
+            </s.DescriptionWrapper>
+            <s.Text>{Utils.formatMoney(payment.value)}</s.Text>
           </s.PaymentContent>
           <s.ButtonGroup>
             <s.ButtonWrapper>
@@ -47,7 +48,7 @@ const Payment: React.FC<PaymentProps> = ({ payment, onClickPay, loading }) => {
               </Link>
             </s.ButtonWrapper>
           </s.ButtonGroup>
-        </>
+        </s.ContentWrapper>
       ) : (
         <s.NotPayments>
           <s.Image />
