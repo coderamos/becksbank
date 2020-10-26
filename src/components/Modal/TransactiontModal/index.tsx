@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import Account from 'repository/Account';
 import Button from 'components/Button';
+import { InputCurrency } from 'components/Input';
 
 import * as Font from 'components/Fonts';
 import * as s from './styles';
-import { InputCurrency } from 'components/Input';
 
 type TransactionModalProps = {
   onCancel(): void;
@@ -57,13 +57,15 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
       <Font.Description>{title}</Font.Description>
       <s.Content>
         <s.Title>{userName}</s.Title>
-        <InputCurrency
-          onChange={handleChangeValue}
-          onBlur={(event: React.ChangeEvent<HTMLInputElement>, value) => {
-            handleChangeValue(event, value);
-          }}
-          value={value || ''}
-        />
+        <s.InputWrapper>
+          <InputCurrency
+            onChange={handleChangeValue}
+            onBlur={(event: React.ChangeEvent<HTMLInputElement>, value) => {
+              handleChangeValue(event, value);
+            }}
+            value={value || ''}
+          />
+        </s.InputWrapper>
         <s.ButtonGroup>
           <s.ButtonWrapper>
             <Button loading={loading} onClick={deposit}>
