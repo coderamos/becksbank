@@ -1,5 +1,4 @@
 import React from 'react';
-import { Title, Description } from '../Fonts';
 
 import * as s from './styles';
 
@@ -16,8 +15,8 @@ const ListItemAction: React.FC<ListProps> = ({
   return (
     <s.ListItemContainer>
       <s.ListItemData>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
+        <s.Title>{title}</s.Title>
+        <s.Description>{description}</s.Description>
       </s.ListItemData>
       {children}
     </s.ListItemContainer>

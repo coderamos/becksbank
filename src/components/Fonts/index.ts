@@ -21,8 +21,12 @@ export const Text = styled.p`
 
 export const Description = styled(Text)`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xsmall};
     opacity: 0.6;
+    font-size: ${theme.font.sizes.large};
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.medium};
+    `}
   `}
 `;
 
@@ -37,7 +41,7 @@ export const Title = styled.h2`
 export const BigTitle = styled.h1`
   ${({ theme }) => css`
     ${fontBase};
-    font-size: ${theme.font.sizes.xlarge};
+    font-size: ${theme.font.sizes.xxlarge};
     line-height: 1;
 
     ${media.greaterThan('medium')`

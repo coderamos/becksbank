@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import Account from 'repository/Account';
 import Button from 'components/Button';
+import { InputCurrency } from 'components/Input';
 
 import * as Font from 'components/Fonts';
 import * as s from './styles';
-import InputCurrency from 'components/InputCurrency';
 
 type TransactionModalProps = {
   onCancel(): void;
@@ -36,21 +36,36 @@ const TransactionModal: React.FC<TransactionModalProps> = ({
       .finally(() => setLoading(false));
   }
 
-  function handleChangeValue(event: React.ChangeEvent<HTMLInputElement>) {
-    setValue(event.target.value);
+  function handleChangeValue(
+    event: React.ChangeEvent<HTMLInputElement>,
+    value?: any
+  ) {
+    if (value) {
+      setValue(value);
+    } else {
+      setValue(event.target.value);
+    }
+  }
+
+  function handleCancel() {
+    setValue('');
+    onCancel();
   }
 
   return (
-    <s.Modal footer={null} visible={visible} onCancel={onCancel}>
+    <s.Modal footer={null} visible={visible} onCancel={handleCancel}>
       <Font.Description>{title}</Font.Description>
       <s.Content>
         <s.Title>{userName}</s.Title>
-        <s.InputValue
-          value={value}
-          onChange={handleChangeValue}
-          placeholder="Digite o valor"
-        />
-        <InputCurrency />
+        <s.InputWrapper>
+          <InputCurrency
+            onChange={handleChangeValue}
+            onBlur={(event: React.ChangeEvent<HTMLInputElement>, value) => {
+              handleChangeValue(event, value);
+            }}
+            value={value || ''}
+          />
+        </s.InputWrapper>
         <s.ButtonGroup>
           <s.ButtonWrapper>
             <Button loading={loading} onClick={deposit}>
