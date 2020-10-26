@@ -14,6 +14,7 @@ import { useAuth } from 'hooks/auth';
 const Payments: React.FC = () => {
   const [timerKey, setTimerKey] = useState(0);
   const [payments, setPayments] = useState<PaymentSlip[]>([]);
+  const [loading, setLoading] = useState(false);
   const [showModalPayment, setShowPaymentModal] = useState(false);
   const [paymentSelected, setPaymentSelected] = useState<PaymentSlip>(
     {} as PaymentSlip
@@ -22,6 +23,7 @@ const Payments: React.FC = () => {
   const { getSession } = useAuth();
 
   const getPayments = async () => {
+    setLoading(true);
     const user = getSession();
     const allPayments = await APIService.getPaymentsByUser(user.id);
     allPayments.sort((paymentA, paymentB) => {
@@ -32,9 +34,9 @@ const Payments: React.FC = () => {
       if (paymentB.paid) {
         return -1;
       }
-
       return 0;
     });
+    setLoading(false);
     setPayments(allPayments);
   };
 
@@ -61,6 +63,7 @@ const Payments: React.FC = () => {
     <Layout>
       <CardWrapperRow>
         <PaymentList
+          loading={loading}
           payments={payments}
           onClick={payment => showPaymentModal(payment)}
         />

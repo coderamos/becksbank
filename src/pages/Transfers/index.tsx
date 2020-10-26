@@ -15,6 +15,7 @@ import APIService from 'services/api';
 const Transfers: React.FC = () => {
   const [contactsAccounts, setContactsAccounts] = useState<Account[]>([]);
   const [showTransferModal, setShowTransferModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [accountSelected, setAcccountSelected] = useState<Account>(
     {} as Account
   );
@@ -24,11 +25,13 @@ const Transfers: React.FC = () => {
 
   useEffect(() => {
     const getContacts = async () => {
+      setLoading(true);
       const accounts = await getAllAccounts();
       const sessionUserId = getSession()?.id;
 
       const filteredAccounts = accounts.filter(account => account.userId !== sessionUserId);
       setContactsAccounts(filteredAccounts);
+      setLoading(false);
     };
 
     getContacts();
@@ -65,6 +68,7 @@ const Transfers: React.FC = () => {
       <CardWrapperRow>
         {contactsAccounts && (
           <CardTransfer
+            loading={loading}
             onClick={showModalTransfer}
             contacts={contactsAccounts}
           />

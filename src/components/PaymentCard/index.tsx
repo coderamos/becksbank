@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Card from 'components/Card';
 import * as Font from 'components/Fonts';
 import Button from 'components/Button';
+import Loading from 'components/Loading';
 import * as s from './styles';
 
 import PaymentSlip from 'repository/PaymentSlip';
@@ -12,9 +13,10 @@ import Utils from 'utils/Utils';
 type PaymentProps = {
   payment: PaymentSlip;
   onClickPay(code: string): void;
+  loading?: boolean;
 };
 
-const Payment: React.FC<PaymentProps> = ({ payment, onClickPay }) => {
+const Payment: React.FC<PaymentProps> = ({ payment, onClickPay, loading }) => {
   function onPay() {
     onClickPay(payment.code);
   }
@@ -26,7 +28,9 @@ const Payment: React.FC<PaymentProps> = ({ payment, onClickPay }) => {
   return (
     <Card>
       <Font.Description>Última cobrança</Font.Description>
-      {payment.id ? (
+      {loading ? (<Loading />) : (
+        <div>
+          {payment.id ? (
         <>
           <s.PaymentContent>
             <Font.Title>{title}</Font.Title>
@@ -51,6 +55,8 @@ const Payment: React.FC<PaymentProps> = ({ payment, onClickPay }) => {
             Você não possui pagamentos pendentes. Aproveite e faça um churrasco!
           </s.Message>
         </s.NotPayments>
+      )}
+        </div>
       )}
     </Card>
   );

@@ -18,6 +18,7 @@ const Dashboard: React.FC = () => {
   const [timerKey, setTimerKey] = useState(0);
   const [statements, setStatements] = useState<Transaction[]>([]);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [lastPayment, setLastPayment] = useState<PaymentSlip>(
     {} as PaymentSlip
   );
@@ -40,10 +41,12 @@ const Dashboard: React.FC = () => {
 
   const getUserStatements = async (accountCode: string) => {
     try {
+      setLoading(true);
       const { accountStatements } = await APIService.getStatements(accountCode);
 
       accountStatements.reverse();
       setStatements(accountStatements.slice(0, 3));
+      setLoading(false);
     } catch (err) {
       console.error(err);
     }
@@ -75,10 +78,10 @@ const Dashboard: React.FC = () => {
       <CardWrapperRow>
         <CardWrapperColumn>
           <BalanceCard />
-          <PaymentCard payment={lastPayment} onClickPay={viewPaymentModal} />
+          <PaymentCard payment={lastPayment} onClickPay={viewPaymentModal} loading={loading}/>
         </CardWrapperColumn>
         <CardWrapperColumn>
-          <ExtractList extracts={statements} />
+          <ExtractList extracts={statements} loading={loading} />
           <PaymentModal
             visible={showPaymentModal}
             paymentSlip={lastPayment}
