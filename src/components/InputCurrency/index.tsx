@@ -1,35 +1,36 @@
-import React from "react";
+import React from 'react';
 
 import * as s from './styles';
-const locale = "en-us";
 
-const currencyFormatter = () => (value) => {
+const locale = 'en-us';
+
+const currencyFormatter = () => value => {
   return new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency: "BRL"
+    style: 'currency',
+    currency: 'BRL'
   }).format(value);
 };
 
-const currencyParser = (val) => {
+const currencyParser = val => {
   try {
     // for when the input gets clears
-    if (typeof val === "string" && !val.length) {
-      val = "0.0";
+    if (typeof val === 'string' && !val.length) {
+      val = '0.0';
     }
 
     // detecting and parsing between comma and dot
-    var group = new Intl.NumberFormat(locale).format(1111).replace(/1/g, "");
-    var decimal = new Intl.NumberFormat(locale).format(1.1).replace(/1/g, "");
-    var reversedVal = val.replace(new RegExp("\\" + group, "g"), "");
-    reversedVal = reversedVal.replace(new RegExp("\\" + decimal, "g"), ".");
+    const group = new Intl.NumberFormat(locale).format(1111).replace(/1/g, '');
+    const decimal = new Intl.NumberFormat(locale).format(1.1).replace(/1/g, '');
+    let reversedVal = val.replace(new RegExp('\\' + group, 'g'), '');
+    reversedVal = reversedVal.replace(new RegExp('\\' + decimal, 'g'), '.');
     //  => 1232.21 €
 
     // removing everything except the digits and dot
-    reversedVal = reversedVal.replace(/[^0-9.]/g, "");
+    reversedVal = reversedVal.replace(/[^0-9.]/g, '');
     //  => 1232.21
 
     // appending digits properly
-    const digitsAfterDecimalCount = (reversedVal.split(".")[1] || []).length;
+    const digitsAfterDecimalCount = (reversedVal.split('.')[1] || []).length;
     const needsDigitsAppended = digitsAfterDecimalCount > 2;
 
     if (needsDigitsAppended) {
@@ -44,15 +45,15 @@ const currencyParser = (val) => {
 
 const InputCurrency = () => {
   return (
-      <s.InputCurrency
-        defaultValue={0}
-        style={{
-          width: 400,
-          marginRight: "1rem"
-        }}
-        formatter={currencyFormatter()}
-        parser={currencyParser}
-      />
+    <s.InputCurrency
+      defaultValue={0}
+      style={{
+        width: 400,
+        marginRight: '1rem'
+      }}
+      formatter={currencyFormatter()}
+      parser={currencyParser}
+    />
   );
 };
 

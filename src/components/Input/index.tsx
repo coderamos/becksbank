@@ -88,4 +88,5 @@ export const InputCurrency = styled(NumericInput).attrs({
 })`
   ${inputStyle};
   padding: 0 1rem;
+  width: 100%;
 `;

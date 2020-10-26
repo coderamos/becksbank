@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 import { Modal as ModalAntd } from 'antd';
+import { InputCurrency } from 'components/Input';
 
 import * as Font from 'components/Fonts';
-import { InputCurrency } from 'components/Input';
 
 export const Modal = styled(ModalAntd)`
   ${({ theme }) => css`
@@ -21,7 +21,17 @@ export const Content = styled.div`
   `}
 `;
 
-export const Title = styled(Font.BigTitle)``;
+export const Title = styled(Font.BigTitle)`
+  ${({ theme }) => css`
+    width: 100%;
+    text-align: center;
+    margin-bottom: ${theme.spacings.medium};
+  `}
+`;
+
+export const InputWrapper = styled.div`
+  width: 100%;
+`;
 
 export const ButtonWrapper = styled.div`
   ${({ theme }) => css`
@@ -38,6 +48,7 @@ export const ButtonGroup = styled.div`
     display: flex;
     justify-content: center;
     margin-top: ${theme.spacings.xxlarge};
+    width: 100%;
   `}
 `;
 
