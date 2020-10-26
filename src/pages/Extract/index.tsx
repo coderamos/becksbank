@@ -33,9 +33,6 @@ const Extract: React.FC = () => {
         <CardWrapperColumn>
           <ExtractList loading={loading} extracts={statement} />
         </CardWrapperColumn>
-        <CardWrapperColumn>
-          <PublicityCard />
-        </CardWrapperColumn>
       </CardWrapperRow>
     </Layout>
   );
