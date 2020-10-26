@@ -6,6 +6,7 @@ export const CardWrapperColumnContainer = styled.section`
     display: grid;
     gap: calc(${theme.grid.gutter} / 2);
   `}
+  grid-template-rows: 1fr 1fr;
 `;
 
 export const CardWrapperRowContainer = styled.section`

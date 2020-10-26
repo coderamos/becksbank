@@ -4,6 +4,7 @@ import Layout from 'components/Layout';
 import PaymentCard from 'components/PaymentCard';
 import BalanceCard from 'components/BalanceCard';
 import PaymentModal from 'components/Modal/PaymentModal';
+import PublicityCard from 'components/PublicityCard';
 import ExtractList from 'components/ExtractList';
 import { CardWrapperColumn, CardWrapperRow } from 'components/CardWrapper';
 
@@ -82,15 +83,16 @@ const Dashboard: React.FC = () => {
         </CardWrapperColumn>
         <CardWrapperColumn>
           <ExtractList extracts={statements} loading={loading} />
-          <PaymentModal
-            visible={showPaymentModal}
-            paymentSlip={lastPayment}
-            onConfirm={confirmPayment}
-            onCancel={hidePaymentModal}
-            timerKey={timerKey}
-          />
+          <PublicityCard />
         </CardWrapperColumn>
       </CardWrapperRow>
+      <PaymentModal
+          visible={showPaymentModal}
+          paymentSlip={lastPayment}
+          onConfirm={confirmPayment}
+          onCancel={hidePaymentModal}
+          timerKey={timerKey}
+        />
     </Layout>
   );
 };

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import Layout from 'components/Layout';
-import PublicityCard from 'components/PublicityCard';
 import ExtractList from 'components/ExtractList';
-import { CardWrapperColumn, CardWrapperRow } from 'components/CardWrapper';
+import { CardWrapperRow } from 'components/CardWrapper';
 
 import { Transaction } from 'repository/Statement';
 import { useAccount } from 'hooks/account';
@@ -30,9 +29,7 @@ const Extract: React.FC = () => {
   return (
     <Layout>
       <CardWrapperRow>
-        <CardWrapperColumn>
           <ExtractList loading={loading} extracts={statement} />
-        </CardWrapperColumn>
       </CardWrapperRow>
     </Layout>
   );
