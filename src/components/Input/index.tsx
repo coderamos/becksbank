@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 
 import { Input } from 'antd';
 import MaskedInput from 'antd-mask-input';
+import NumericInput from 'react-enhanced-numeric-input';
+import 'react-enhanced-numeric-input/dist/react-enhanced-numeric-input.css';
 
 import { IdcardOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 
@@ -30,7 +32,7 @@ export const inputStyle = css`
     }
 
     .ant-input-number-handler-wrap {
-      display: none!important;
+      display: none !important;
     }
 
     &:hover {
@@ -76,6 +78,14 @@ export const InputPassword = styled(Input.Password)`
   ${inputStyle};
 `;
 
-export const InputCurrency = styled(Input)`
+export const InputCurrency = styled(NumericInput).attrs({
+  autoFocus: true,
+  money: true,
+  decimalPrecision: 2,
+  thousandSeparator: '.',
+  decimalSeparator: ',',
+  moneyMask: 'R$'
+})`
   ${inputStyle};
+  padding: 0 1rem;
 `;
