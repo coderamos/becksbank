@@ -1,13 +1,13 @@
-import React, {memo} from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import Card from 'components/Card';
-import * as Font from 'components/Fonts';
 import Button from 'components/Button';
 
 import { useAccount } from 'hooks/account';
 import Utils from 'utils/Utils';
 
+import * as Font from 'components/Fonts';
 import * as s from './styles';
 
 const BalanceCard: React.FC = () => {
@@ -16,17 +16,20 @@ const BalanceCard: React.FC = () => {
   return (
     <Card>
       <s.CardContent>
-        <Font.Description>Saldo disponível</Font.Description>
-        <s.BalanceWrapper>
-          <s.BalanceImage />
-          <Font.BigTitle>{Utils.formatMoney(userAccountData.balance)}</Font.BigTitle>
-        </s.BalanceWrapper>
-
-        <s.WrapperButton>
-          <Link to="/extract">
-            <Button outlined>SALDO DETALHADO</Button>
-          </Link>
-        </s.WrapperButton>
+        <s.ContentWrapper>
+          <s.BalanceWrapper>
+            <Font.Description>Saldo disponível</Font.Description>
+            <s.BalanceImage />
+            <Font.BigTitle>
+              {Utils.formatMoney(userAccountData.balance)}
+            </Font.BigTitle>
+          </s.BalanceWrapper>
+          <s.WrapperButton>
+            <Link to="/extract">
+              <Button outlined>SALDO DETALHADO</Button>
+            </Link>
+          </s.WrapperButton>
+        </s.ContentWrapper>
       </s.CardContent>
     </Card>
   );

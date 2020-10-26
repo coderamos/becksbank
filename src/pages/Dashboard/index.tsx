@@ -76,7 +76,6 @@ const Dashboard: React.FC = () => {
           <PaymentCard payment={lastPayment} onClickPay={viewPaymentModal} />
         </CardWrapperColumn>
         <CardWrapperColumn>
-          <BalanceCard />
           <ExtractList extracts={statements} />
           <PaymentModal
             visible={showPaymentModal}
