@@ -18,12 +18,12 @@ const Footer: React.FC = () => {
         <s.Logo />
         <s.Content>
           <s.Column>
-            <s.TitleColumn>TESTE</s.TitleColumn>
+            <s.TitleColumn>CONTATO</s.TitleColumn>
             <a href="mailto:sac@becksbank">sac@becksbank.com</a>
           </s.Column>
 
           <s.Column>
-            <s.TitleColumn>Follow Us</s.TitleColumn>
+            <s.TitleColumn>SIGA-NOS</s.TitleColumn>
             <nav aria-labelledby="social media">
               <span>github</span>
               <span>linkedin</span>
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           </s.Column>
 
           <s.Column aria-labelledby="footer contact">
-            <s.TitleColumn>Location</s.TitleColumn>
+            <s.TitleColumn>LOCALIZAÇÃO</s.TitleColumn>
             <span>Rua das Brejas,</span>
             <span>101 - 12345-678</span>
             <span>São Paulo, Brasil.</span>
