@@ -34,21 +34,25 @@ const getTitleFormat = ({ valueTransaction, dateTime }: Transaction) => {
 const CardTransfer: React.FC<ExtractProps> = ({ extracts }) => {
   return (
     <Card>
-      <Font.Description>Extratos</Font.Description>
-      {extracts.map(extract => {
-        const title = getTitleFormat(extract);
-        let description = extract.typeOperation;
-        if (extract.paymentCategory) {
-          description += ` - ${extract.paymentCategory}`;
-        }
-        return (
-          <ListItemAction
-            key={extract.id}
-            title={title}
-            description={description}
-          />
-        );
-      })}
+      <s.CardContent>
+        <s.ContentWrapper>
+          <Font.Description>Extratos</Font.Description>
+          {extracts.map(extract => {
+            const title = getTitleFormat(extract);
+            let description = extract.typeOperation;
+            if (extract.paymentCategory) {
+              description += ` - ${extract.paymentCategory}`;
+            }
+            return (
+              <ListItemAction
+                key={extract.id}
+                title={title}
+                description={description}
+              />
+            );
+          })}
+        </s.ContentWrapper>
+      </s.CardContent>
     </Card>
   );
 };
