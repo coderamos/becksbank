@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import balanceImage from 'assets/images/wallet.svg';
+
 export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,8 +14,16 @@ export const WrapperButton = styled.div`
   `}
 `;
 
-// export const CardTitle = styled.div`
-//   ${({ theme }) => css`
-//     margin: ${theme.spacings.medium} 0px;
-//   `}
-// `;
+export const BalanceWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const BalanceImage = styled.img.attrs({
+  src: balanceImage
+})`
+  height: 8rem;
+`;
+
