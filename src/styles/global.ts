@@ -64,6 +64,12 @@ const GlobalStyles: GlobalStyleComponent<
       `}
     }
   `}
+
+  .ni-numeric-input.money::before {
+ content: attr(data-money);
+    top: 1.7rem;
+    font-size: inherit;
+  }
 `;
 
 export default GlobalStyles;
