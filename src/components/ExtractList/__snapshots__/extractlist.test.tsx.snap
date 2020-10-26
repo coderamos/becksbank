@@ -1,0 +1,1537 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BalancedCard Component Tests renders the component 1`] = `
+.c0 {
+  border-radius: 1.2rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .ant-card-body {
+  width: 100%;
+}
+
+.c3 {
+  color: #00120D;
+  font-weight: 600;
+  margin: 0;
+}
+
+.c4 {
+  opacity: 0.6;
+  font-size: 1.8rem;
+}
+
+.c7 {
+  color: #00120D;
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 14px 0;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c8 {
+  text-transform: capitalize;
+}
+
+.c12 {
+  text-transform: lowercase;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.c10 {
+  margin-right: 30px;
+}
+
+.c13 {
+  color: #ff0033;
+}
+
+.c11 {
+  font-size: 1.6rem;
+}
+
+@media (min-width:768px) {
+  .c3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    font-size: 1.6rem;
+  }
+}
+
+<Component
+  theme={
+    Object {
+      "border": Object {
+        "radius": "0.4rem",
+      },
+      "colors": Object {
+        "background": "#f0f2f5",
+        "black": "#000000",
+        "error": "#ff0033",
+        "germanYellow": "#FFCF00",
+        "greenHigh": "#00120D",
+        "greenLight": "#17652D",
+        "greenMedium": "#152D2F",
+        "greenWhite": "#C5D9CB",
+        "primary": "#0B4224",
+        "secondary": "#171717",
+        "white": "#FFFFFF",
+      },
+      "font": Object {
+        "bold": 600,
+        "bolder": 800,
+        "family": "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+        "light": 300,
+        "normal": 400,
+        "sizes": Object {
+          "large": "1.8rem",
+          "medium": "1.6rem",
+          "small": "1.4rem",
+          "xlarge": "2.4rem",
+          "xsmall": "1.2rem",
+          "xxlarge": "3rem",
+          "xxxlarge": "4.5rem",
+        },
+      },
+      "grid": Object {
+        "container": "130rem",
+        "gutter": "3.2rem",
+      },
+      "layers": Object {
+        "alwaysOnTop": 50,
+        "base": 10,
+        "menu": 20,
+        "modal": 40,
+        "overlay": 30,
+      },
+      "spacings": Object {
+        "large": "4.0rem",
+        "medium": "3.2rem",
+        "small": "2.4rem",
+        "xlarge": "4.8rem",
+        "xsmall": "1.6rem",
+        "xxlarge": "5.6rem",
+        "xxsmall": "0.8rem",
+      },
+    }
+  }
+>
+  <ExtractList
+    extracts={
+      Array [
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T17:31:49.658",
+          "id": 99,
+          "paymentCategory": null,
+          "typeOperation": "DEPOSITO",
+          "valueTransaction": 1000,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T17:34:34.745",
+          "id": 101,
+          "paymentCategory": null,
+          "typeOperation": "DEPOSITO",
+          "valueTransaction": 4000,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T17:34:53.238",
+          "id": 102,
+          "paymentCategory": "OTHERS",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -2102.9,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T17:54:10.452",
+          "id": 107,
+          "paymentCategory": "OTHERS",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -1100.9,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T18:46:59.252",
+          "id": 109,
+          "paymentCategory": null,
+          "typeOperation": "DEPOSITO",
+          "valueTransaction": 10000,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T19:44:27.498",
+          "id": 110,
+          "paymentCategory": "OTHERS",
+          "typeOperation": "TRANSFERENCIA",
+          "valueTransaction": -500,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T20:30:57.854",
+          "id": 115,
+          "paymentCategory": "SERVICES",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -501,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T22:28:15.488",
+          "id": 120,
+          "paymentCategory": "OTHERS",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -100.9,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T23:00:14.969",
+          "id": 128,
+          "paymentCategory": "SERVICES",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -301,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T23:00:34.238",
+          "id": 130,
+          "paymentCategory": "SERVICES",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -220,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T23:06:46.119",
+          "id": 138,
+          "paymentCategory": "FOOD",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -320,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-25T23:06:51.009",
+          "id": 140,
+          "paymentCategory": "FOOD",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -1320,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-26T11:51:20.333",
+          "id": 157,
+          "paymentCategory": "OTHERS",
+          "typeOperation": "TRANSFERENCIA",
+          "valueTransaction": -90.3,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-26T11:55:16.398",
+          "id": 159,
+          "paymentCategory": "FOOD",
+          "typeOperation": "PAGAMENTO",
+          "valueTransaction": -1200,
+        },
+        Object {
+          "accountId": 79,
+          "dateTime": "2020-10-26T13:53:39.323",
+          "id": 167,
+          "paymentCategory": "OTHERS",
+          "typeOperation": "TRANSFERENCIA",
+          "valueTransaction": 100,
+        },
+      ]
+    }
+  >
+    <Card>
+      <Styled(Card)>
+        <Card
+          className="c0"
+        >
+          <div
+            className="ant-card ant-card-bordered c0"
+          >
+            <div
+              className="ant-card-body"
+              style={Object {}}
+            >
+              <styled.div>
+                <div
+                  className="c1"
+                >
+                  <styled.div>
+                    <div
+                      className="c2"
+                    >
+                      <Styled(styled.p)>
+                        <p
+                          className="c3 c4"
+                        >
+                          Extratos
+                        </p>
+                      </Styled(styled.p)>
+                      <ListItemAction
+                        description="DEPOSITO"
+                        key="99"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(styled.h2))>
+                              R$ 1.000,00
+                            </ForwardRef(Styled(styled.h2))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c10"
+                                          >
+                                            R$ 1.000,00
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    DEPOSITO
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="DEPOSITO"
+                        key="101"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(styled.h2))>
+                              R$ 4.000,00
+                            </ForwardRef(Styled(styled.h2))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c10"
+                                          >
+                                            R$ 4.000,00
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    DEPOSITO
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - OTHERS"
+                        key="102"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -2.102,90
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -2.102,90
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - OTHERS
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - OTHERS"
+                        key="107"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -1.100,90
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -1.100,90
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - OTHERS
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="DEPOSITO"
+                        key="109"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(styled.h2))>
+                              R$ 10.000,00
+                            </ForwardRef(Styled(styled.h2))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c10"
+                                          >
+                                            R$ 10.000,00
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    DEPOSITO
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="TRANSFERENCIA - OTHERS"
+                        key="110"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -500,00
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -500,00
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    TRANSFERENCIA - OTHERS
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - SERVICES"
+                        key="115"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -501,00
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -501,00
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - SERVICES
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - OTHERS"
+                        key="120"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -100,90
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -100,90
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - OTHERS
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - SERVICES"
+                        key="128"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -301,00
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -301,00
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - SERVICES
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - SERVICES"
+                        key="130"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -220,00
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -220,00
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - SERVICES
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - FOOD"
+                        key="138"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -320,00
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -320,00
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - FOOD
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - FOOD"
+                        key="140"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -1.320,00
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              25/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -1.320,00
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            25/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - FOOD
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="TRANSFERENCIA - OTHERS"
+                        key="157"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -90,30
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              26/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -90,30
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            26/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    TRANSFERENCIA - OTHERS
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="PAGAMENTO - FOOD"
+                        key="159"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(Styled(styled.h2)))>
+                              R$ -1.200,00
+                            </ForwardRef(Styled(Styled(styled.h2)))>
+                            <ForwardRef(Styled(styled.h2))>
+                              26/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(Styled(styled.h2))>
+                                          <h2
+                                            className="c7 c10 c13"
+                                          >
+                                            R$ -1.200,00
+                                          </h2>
+                                        </Styled(Styled(styled.h2))>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            26/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    PAGAMENTO - FOOD
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                      <ListItemAction
+                        description="TRANSFERENCIA - OTHERS"
+                        key="167"
+                        title={
+                          <ForwardRef(styled.div)>
+                            <ForwardRef(Styled(styled.h2))>
+                              R$ 100,00
+                            </ForwardRef(Styled(styled.h2))>
+                            <ForwardRef(Styled(styled.h2))>
+                              26/10/2020
+                            </ForwardRef(Styled(styled.h2))>
+                          </ForwardRef(styled.div)>
+                        }
+                      >
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <styled.div>
+                              <div
+                                className="c6"
+                              >
+                                <Styled(styled.h2)>
+                                  <h2
+                                    className="c7 c8"
+                                  >
+                                    <styled.div>
+                                      <div
+                                        className="c9"
+                                      >
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c10"
+                                          >
+                                            R$ 100,00
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                        <Styled(styled.h2)>
+                                          <h2
+                                            className="c7 c11"
+                                          >
+                                            26/10/2020
+                                          </h2>
+                                        </Styled(styled.h2)>
+                                      </div>
+                                    </styled.div>
+                                  </h2>
+                                </Styled(styled.h2)>
+                                <Styled(Styled(styled.p))>
+                                  <p
+                                    className="c3 c4 c12"
+                                  >
+                                    TRANSFERENCIA - OTHERS
+                                  </p>
+                                </Styled(Styled(styled.p))>
+                              </div>
+                            </styled.div>
+                          </div>
+                        </styled.div>
+                      </ListItemAction>
+                    </div>
+                  </styled.div>
+                </div>
+              </styled.div>
+            </div>
+          </div>
+        </Card>
+      </Styled(Card)>
+    </Card>
+  </ExtractList>
+</Component>
+`;
+
+exports[`BalancedCard Component Tests renders the component with loading 1`] = `
+.c0 {
+  border-radius: 1.2rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .ant-card-body {
+  width: 100%;
+}
+
+.c3 {
+  color: #00120D;
+  font-weight: 600;
+  margin: 0;
+}
+
+.c4 {
+  opacity: 0.6;
+  font-size: 1.8rem;
+}
+
+.c5 {
+  height: 120px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width:768px) {
+  .c3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    font-size: 1.6rem;
+  }
+}
+
+<Component
+  theme={
+    Object {
+      "border": Object {
+        "radius": "0.4rem",
+      },
+      "colors": Object {
+        "background": "#f0f2f5",
+        "black": "#000000",
+        "error": "#ff0033",
+        "germanYellow": "#FFCF00",
+        "greenHigh": "#00120D",
+        "greenLight": "#17652D",
+        "greenMedium": "#152D2F",
+        "greenWhite": "#C5D9CB",
+        "primary": "#0B4224",
+        "secondary": "#171717",
+        "white": "#FFFFFF",
+      },
+      "font": Object {
+        "bold": 600,
+        "bolder": 800,
+        "family": "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+        "light": 300,
+        "normal": 400,
+        "sizes": Object {
+          "large": "1.8rem",
+          "medium": "1.6rem",
+          "small": "1.4rem",
+          "xlarge": "2.4rem",
+          "xsmall": "1.2rem",
+          "xxlarge": "3rem",
+          "xxxlarge": "4.5rem",
+        },
+      },
+      "grid": Object {
+        "container": "130rem",
+        "gutter": "3.2rem",
+      },
+      "layers": Object {
+        "alwaysOnTop": 50,
+        "base": 10,
+        "menu": 20,
+        "modal": 40,
+        "overlay": 30,
+      },
+      "spacings": Object {
+        "large": "4.0rem",
+        "medium": "3.2rem",
+        "small": "2.4rem",
+        "xlarge": "4.8rem",
+        "xsmall": "1.6rem",
+        "xxlarge": "5.6rem",
+        "xxsmall": "0.8rem",
+      },
+    }
+  }
+>
+  <ExtractList
+    extracts={Array []}
+    loading={true}
+  >
+    <Card>
+      <Styled(Card)>
+        <Card
+          className="c0"
+        >
+          <div
+            className="ant-card ant-card-bordered c0"
+          >
+            <div
+              className="ant-card-body"
+              style={Object {}}
+            >
+              <styled.div>
+                <div
+                  className="c1"
+                >
+                  <styled.div>
+                    <div
+                      className="c2"
+                    >
+                      <Styled(styled.p)>
+                        <p
+                          className="c3 c4"
+                        >
+                          Extratos
+                        </p>
+                      </Styled(styled.p)>
+                      <Loading>
+                        <styled.div>
+                          <div
+                            className="c5"
+                          >
+                            <Spin
+                              indicator={
+                                <ForwardRef(LoadingOutlined)
+                                  spin={true}
+                                  style={
+                                    Object {
+                                      "fontSize": 55,
+                                    }
+                                  }
+                                />
+                              }
+                              size="default"
+                              spinning={true}
+                              wrapperClassName=""
+                            >
+                              <div
+                                className="ant-spin ant-spin-spinning"
+                              >
+                                <ForwardRef(LoadingOutlined)
+                                  className="ant-spin-dot"
+                                  spin={true}
+                                  style={
+                                    Object {
+                                      "fontSize": 55,
+                                    }
+                                  }
+                                >
+                                  <AntdIcon
+                                    className="ant-spin-dot"
+                                    icon={
+                                      Object {
+                                        "icon": Object {
+                                          "attrs": Object {
+                                            "focusable": "false",
+                                            "viewBox": "0 0 1024 1024",
+                                          },
+                                          "children": Array [
+                                            Object {
+                                              "attrs": Object {
+                                                "d": "M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z",
+                                              },
+                                              "tag": "path",
+                                            },
+                                          ],
+                                          "tag": "svg",
+                                        },
+                                        "name": "loading",
+                                        "theme": "outlined",
+                                      }
+                                    }
+                                    spin={true}
+                                    style={
+                                      Object {
+                                        "fontSize": 55,
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      aria-label="loading"
+                                      className="anticon anticon-loading ant-spin-dot"
+                                      role="img"
+                                      style={
+                                        Object {
+                                          "fontSize": 55,
+                                        }
+                                      }
+                                    >
+                                      <IconReact
+                                        className="anticon-spin"
+                                        icon={
+                                          Object {
+                                            "icon": Object {
+                                              "attrs": Object {
+                                                "focusable": "false",
+                                                "viewBox": "0 0 1024 1024",
+                                              },
+                                              "children": Array [
+                                                Object {
+                                                  "attrs": Object {
+                                                    "d": "M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z",
+                                                  },
+                                                  "tag": "path",
+                                                },
+                                              ],
+                                              "tag": "svg",
+                                            },
+                                            "name": "loading",
+                                            "theme": "outlined",
+                                          }
+                                        }
+                                      >
+                                        <svg
+                                          aria-hidden="true"
+                                          className="anticon-spin"
+                                          data-icon="loading"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          key="svg-loading"
+                                          viewBox="0 0 1024 1024"
+                                          width="1em"
+                                        >
+                                          <path
+                                            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                                            key="svg-loading-svg-0"
+                                          />
+                                        </svg>
+                                      </IconReact>
+                                    </span>
+                                  </AntdIcon>
+                                </ForwardRef(LoadingOutlined)>
+                              </div>
+                            </Spin>
+                          </div>
+                        </styled.div>
+                      </Loading>
+                    </div>
+                  </styled.div>
+                </div>
+              </styled.div>
+            </div>
+          </div>
+        </Card>
+      </Styled(Card)>
+    </Card>
+  </ExtractList>
+</Component>
+`;

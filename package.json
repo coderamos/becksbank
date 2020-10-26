@@ -120,6 +120,10 @@
       "jsx",
       "json",
       "node"
+    ],
+    "moduleDirectories": [
+      "src",
+      "node_modules"
     ]
   }
 }
