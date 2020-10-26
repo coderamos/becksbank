@@ -11,14 +11,17 @@ import APIService from 'services/api';
 
 const Extract: React.FC = () => {
   const [statement, setAccountStatements] = useState<Transaction[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const { userAccountData } = useAccount();
 
   useEffect(() => {
     const getExtracts = async () => {
+      setLoading(true);
       const allExtracts = await APIService.getStatements(userAccountData.code);
       allExtracts.accountStatements.reverse();
       setAccountStatements(allExtracts.accountStatements);
+      setLoading(false);
     };
 
     getExtracts();
@@ -28,7 +31,7 @@ const Extract: React.FC = () => {
     <Layout>
       <CardWrapperRow>
         <CardWrapperColumn>
-          <ExtractList extracts={statement} />
+          <ExtractList loading={loading} extracts={statement} />
         </CardWrapperColumn>
         <CardWrapperColumn>
           <PublicityCard />

@@ -4,6 +4,7 @@ import { format, parseISO } from 'date-fns';
 import Card from '../Card';
 import * as Font from '../Fonts';
 import ListItemAction from '../ListItemAction';
+import Loading from '../Loading';
 
 import { Transaction } from 'repository/Statement';
 import Utils from 'utils/Utils';
@@ -12,6 +13,7 @@ import * as s from './styles';
 
 type ExtractProps = {
   extracts: Transaction[];
+  loading?: boolean;
 };
 
 const getTitleFormat = ({ valueTransaction, dateTime }: Transaction) => {
@@ -31,24 +33,28 @@ const getTitleFormat = ({ valueTransaction, dateTime }: Transaction) => {
   );
 };
 
-const CardTransfer: React.FC<ExtractProps> = ({ extracts }) => {
+const CardTransfer: React.FC<ExtractProps> = ({ extracts, loading }) => {
   return (
     <Card>
       <Font.Description>Extratos</Font.Description>
-      {extracts.map(extract => {
-        const title = getTitleFormat(extract);
-        let description = extract.typeOperation;
-        if (extract.paymentCategory) {
-          description += ` - ${extract.paymentCategory}`;
-        }
-        return (
-          <ListItemAction
-            key={extract.id}
-            title={title}
-            description={description}
-          />
-        );
-      })}
+      {loading ? (
+        <Loading />
+      ) : (
+        extracts.map(extract => {
+          const title = getTitleFormat(extract);
+          let description = extract.typeOperation;
+          if (extract.paymentCategory) {
+            description += ` - ${extract.paymentCategory}`;
+          }
+          return (
+            <ListItemAction
+              key={extract.id}
+              title={title}
+              description={description}
+            />
+          );
+        })
+      )}
     </Card>
   );
 };
