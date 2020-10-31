@@ -1,11 +1,43 @@
-## BECK'S BANK
+![logo](./src/assets/images/readme/logo-minimal.png)
 
-### MAIN TECNOLOGIES USED
+## ABOUT THIS PROJECT
+This project was built to meet the criteria of BeerTech's final challenge.
 
-#### [typescript](https://www.typescriptlang.org/)
+## DEVELOPMENT STAGES
 
-> To give more power to my JavaScript code.
+### MIND MAP
+You can view on [WHIMSICAL](https://whimsical.com/9yS12YMqXbQzRg7u2cRLq7)
 
-#### [styled-components](https://styled-components.com/)
+### LAYOUT
+You can view on [FIGMA](https://www.figma.com/file/04T4XsMAIcnpyPhEUhSzbg/Beck's-Bank?node-id=0%3A1)
 
-> To stylize my app as components.
+### DEVELOPMENT
+You can view on [GITHUB](https://github.com/coderamos/becksbank)
+
+## MAIN TECNOLOGIES USED
+
+**API**
+* Axios
+
+**BUILDING INTERFACES**
+* Styled Componentes
+* Ant Design
+
+**CODE PATTERN**
+* ESLint
+* Prettier
+
+**ROUTES**
+* React Router DOM
+
+**TESTS**
+* Jest
+* Enzyme
+* Jest Styled Components
+
+**SECURITY**
+* JSON Web Token
+
+**OTHERS**
+* Date FNS
+* Styled Media Query
