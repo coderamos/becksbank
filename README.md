@@ -1,7 +1,7 @@
-![logo](./src/assets/images/readme/logo-minimal.png)
+![logo](./src/assets/images/logo-minimal.png)
 
 ## ABOUT THIS PROJECT
-This project was built to meet the criteria of BeerTech's final challenge.
+This project was built to meet the criteria of [BEERTECH'S](https://beertech.ab-inbev.com/) final challenge.
 
 ## DEVELOPMENT STAGES
 
